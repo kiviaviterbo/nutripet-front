@@ -1,0 +1,78 @@
+.navbar {
+  background-color: #fff9ef !important; /* Bege claro */
+  padding: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Marca / logo */
+.navbar-brand {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #a37c46 !important; /* marrom principal */
+  letter-spacing: 1px;
+}
+
+.navbar-brand span {
+  color: #702d1f; /* vinho */
+}
+
+/* Links de navegação */
+.nav-link {
+  color: #5b4636 !important; /* marrom escuro */
+  font-weight: 500;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #a37c46 !important; /* marrom mais claro */
+}
+
+/* Botão "Seja Premium" */
+.btn-outline-brown {
+  color: #a37c46;
+  border: 2px solid #a37c46;
+  border-radius: 25px;
+  padding: 0.4rem 1rem;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-brown:hover {
+  background-color: #a37c46;
+  color: #fff;
+}
+
+/* Botão "Cadastre-se / Login" */
+.btn-brown {
+  background-color: #702d1f;
+  color: #fff;
+  border-radius: 25px;
+  padding: 0.4rem 1rem;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-brown:hover {
+  background-color: #8a3d2a;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .navbar-collapse {
+    background-color: #fff9ef;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .nav-link {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  .btn-outline-brown,
+  .btn-brown {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}

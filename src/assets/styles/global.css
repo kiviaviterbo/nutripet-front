@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import './variables.css';
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-beige);
+  font-family: var(--font-main);
+  color: var(--color-secondary);
+}
+
+button {
+  transition: all 0.3s ease;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 80px; /* ajusta o ponto de parada da rolagem */
+}

@@ -1,0 +1,42 @@
+.plans-section {
+  background-color: #fef5e7;
+}
+
+.plan-card {
+  max-width: 400px;
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Texto e cores */
+.text-maroon {
+  color: #702d1f;
+}
+
+.text-brown {
+  color: #a37c46;
+}
+
+.text-secondary {
+  color: #5c4c3d;
+}
+
+/* Botão */
+.btn-brown {
+  background-color: #a37c46;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 0.6rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-brown:hover {
+  background-color: #8b6a3a;
+  transform: scale(1.05);
+}
