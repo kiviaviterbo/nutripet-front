@@ -1,0 +1,48 @@
+body {
+  background-color: #fff9ef;
+  font-family: 'Poppins', sans-serif;
+  color: #4b2e05;
+}
+
+/* Paleta */
+.text-brown { color: #a37c46; }
+.text-maroon { color: #702d1f; }
+.text-beige { color: #cbb48a; }
+
+.btn-brown {
+  background-color: #a37c46;
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-brown:hover {
+  background-color: #8b6a3a;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 4rem 0;
+}
+
+.hero-img {
+  max-width: 350px;
+  border-radius: 20px;
+}
+
+.hero-text h1 {
+  font-size: 2rem;
+}
+
+@media (min-width: 768px) {
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 80px; /* altura da navbar fixa */
+}
