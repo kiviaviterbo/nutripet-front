@@ -1,20 +1,19 @@
-import NutripetNavbar from './components/Navbar/Navbar';
-import HeroSection from './components/HeroSection/HeroSection';
-import AboutSection from './components/AboutSection/AboutSection';
-import PlansSection from './components/PlansSection/PlansSection';
-import Footer from './components/Footer/Footer';
-
-import './assets/styles/global.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import AuthPage from './components/AuthPage/AuthPage';
 
 function App() {
   return (
-    <>
-      <NutripetNavbar />
-      <HeroSection />
-      <AboutSection />
-      <PlansSection />
-      <Footer />
-    </>
+    <Router>
+      <Routes>
+        {/* Página principal */}
+        <Route path="/" element={<Home />} />
+
+        {/* Página de login/cadastro */}
+        <Route path="/auth" element={<AuthPage />} />
+      </Routes>
+    </Router>
   );
 }
 
