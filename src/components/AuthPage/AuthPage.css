@@ -1,0 +1,139 @@
+.auth-section {
+  background-color: #fff9ef; /* bege suave */
+  min-height: 100vh;
+  padding: 5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Imagem lateral */
+.auth-image {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.auth-image:hover {
+  transform: scale(1.03);
+}
+
+/* Caixa do formulário */
+.auth-box {
+  max-width: 450px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.auth-box:hover {
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* Títulos e textos */
+.text-maroon {
+  color: #702d1f;
+}
+
+.text-secondary {
+  color: #5c4c3d;
+}
+
+.auth-box h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.auth-box p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Botão principal */
+.btn-brown {
+  background-color: #a37c46;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 0.7rem 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.btn-brown:hover {
+  background-color: #8b6a3a;
+  transform: translateY(-2px);
+}
+
+/* Botão de alternar Login/Cadastro */
+.link-button {
+  background: none;
+  border: none;
+  color: #a37c46;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.link-button:hover {
+  color: #8b6a3a;
+  text-decoration: underline;
+}
+
+/* Responsividade */
+
+/* --- Tablets e notebooks médios --- */
+@media (max-width: 991px) {
+  .auth-section {
+    padding: 4rem 1.5rem;
+    text-align: center;
+  }
+
+  .auth-image {
+    max-width: 420px;
+    margin-bottom: 2rem;
+  }
+
+  .auth-box {
+    padding: 2.5rem 2rem;
+  }
+}
+
+/* --- Celulares --- */
+@media (max-width: 576px) {
+  .auth-section {
+    padding: 2rem 1rem;
+  }
+
+  .auth-image {
+    max-width: 260px;
+    margin-bottom: 1.5rem;
+  }
+
+  .auth-box {
+    padding: 1.8rem;
+    border-radius: 20px;
+  }
+
+  .auth-box h2 {
+    font-size: 1.4rem;
+  }
+
+  .auth-box p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .auth-image {
+    max-width: 550px; 
+  }
+}

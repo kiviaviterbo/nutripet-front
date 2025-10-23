@@ -56,7 +56,13 @@ export default function NutripetNavbar() {
           </Button>
 
           {/* Cadastre-se / Login */}
-          <Button variant="brown">Cadastre-se / Login</Button>
+          <Button
+            variant="brown"
+            onClick={() => window.location.href = '/auth'}
+          >
+            Cadastre-se / Login
+          </Button>
+
         </Navbar.Collapse>
       </Container>
     </Navbar>
