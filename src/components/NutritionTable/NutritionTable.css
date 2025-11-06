@@ -1,0 +1,210 @@
+.nutrition-section {
+  min-height: 100vh;
+  background-color: #fdf7ef;
+  padding-top: 130px;
+  padding-bottom: 60px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.nutrition-section .nutrition-image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.nutrition-section .nutrition-image {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border: none;
+  border-radius: 8px;
+  object-fit: contain;
+  box-shadow: none;
+  transition: transform 0.3s ease;
+}
+
+.nutrition-section .nutrition-image:hover {
+  transform: scale(1.02);
+}
+
+.nutrition-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.8rem;
+  color: #533a2d;
+}
+
+.nutrition-section form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.nutrition-section .form-control {
+  height: 46px;
+  border-radius: 30px;
+  padding-left: 18px;
+  font-size: 0.95rem;
+  border: 1px solid #ddd;
+  box-shadow: none;
+  outline: none;
+}
+
+.nutrition-section .form-control:focus {
+  border-color: #cbb58c;
+  box-shadow: 0 0 0 0.2rem rgba(203, 181, 140, 0.25);
+}
+
+.nutrition-section .btn-brown {
+  background-color: #533a2d;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  padding: 10px 0;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nutrition-section .btn-brown:hover {
+  background-color: #6b4a37;
+  transform: scale(1.02);
+}
+
+.nutrition-section .results-container {
+  margin-top: 50px;
+}
+
+.text-maroon {
+  color: #533a2d;
+}
+
+.feed-card {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 1rem;
+  height: 100%;
+}
+
+.feed-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feed-card img {
+  border-radius: 15px;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 0.8rem;
+}
+
+.feed-card h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #533a2d;
+  min-height: 48px;
+}
+
+.feed-card p {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+  color: #6c584c;
+}
+
+.nutrition-table {
+  background-color: #fffaf5;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  margin-top: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.nutrition-table table {
+  margin-bottom: 0;
+}
+
+.nutrition-table td {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  color: #533a2d;
+}
+
+.nutrition-table tr:nth-child(even) {
+  background-color: #fdf2e6;
+}
+
+.nutrition-table tr:hover {
+  background-color: #fae6d8;
+}
+
+.nutrition-section .alert {
+  border-radius: 12px;
+  font-size: 0.9rem;
+  margin-top: 20px;
+}
+
+@media (max-width: 992px) {
+  .nutrition-section {
+    padding-top: 120px;
+  }
+
+  .nutrition-section .nutrition-image {
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nutrition-section {
+    padding-top: 110px;
+  }
+
+  .nutrition-section .nutrition-image {
+    max-width: 300px;
+  }
+
+  .nutrition-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .nutrition-section .form-control {
+    height: 42px;
+    font-size: 0.9rem;
+  }
+
+  .nutrition-section .btn-brown {
+    font-size: 0.9rem;
+    padding: 9px 0;
+  }
+
+  .nutrition-section form {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .nutrition-section {
+    padding-top: 100px;
+  }
+
+  .nutrition-section .nutrition-image {
+    max-width: 250px;
+  }
+
+  .feed-card img {
+    height: 150px;
+  }
+
+  .feed-card h5 {
+    font-size: 0.95rem;
+  }
+
+  .nutrition-table td {
+    font-size: 0.8rem;
+  }
+}
