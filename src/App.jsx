@@ -8,8 +8,11 @@ import {
 } from 'react-router-dom';
 import Home from './pages/Home';
 import AuthPage from './components/AuthPage/AuthPage';
-import MeuPet from './components/MeuPet/MeuPet';
 import NutritionTable from './components/NutritionTable/NutritionTable';
+import MeuPet from './components/MeuPet/MeuPet';
+import CadastrarPet from './components/MeuPet/CadastrarPet';
+import MeusPets from './components/MeuPet/MeusPets';
+import RacaoDetalhes from "./components/RacaoDetalhes/RacaoDetalhes";
 
 function PrivateRoute({ children }) {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -29,6 +32,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/auth" element={<AuthPage />} />
+        <Route path="/nutritiontable" element={<NutritionTable />} />
 
         <Route
           path="/meupet"
@@ -38,16 +42,32 @@ function App() {
             </PrivateRoute>
           }
         />
-
-        <Route path="/nutritiontable" element={<NutritionTable />} />
+        <Route
+          path="/meupet/cadastrar"
+          element={
+            <PrivateRoute>
+              <CadastrarPet />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/meupet/listar"
+          element={
+            <PrivateRoute>
+              <MeusPets />
+            </PrivateRoute>
+          }
+        />
 
         <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="/racao/:id" element={<RacaoDetalhes />} />
       </Routes>
     </Router>
   );
 }
 
 export default App;
+
 
 
 

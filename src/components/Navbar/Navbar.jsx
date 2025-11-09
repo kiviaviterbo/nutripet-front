@@ -1,11 +1,12 @@
-import React from 'react';
-import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Navbar, Nav, NavDropdown, Container, Button } from 'react-bootstrap';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 export default function NutripetNavbar() {
   const navigate = useNavigate();
   const location = useLocation();
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const token = localStorage.getItem('token');
   const isLogged = !!token;
@@ -13,32 +14,36 @@ export default function NutripetNavbar() {
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    navigate('/'); // volta pra home
-  };
-
-  const handleMeuPetClick = (e) => {
-    e.preventDefault();
-    if (isLogged) navigate('/meupet');
-    else navigate('/auth');
+    navigate('/');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleScrollToSection = (sectionId) => {
-    // se já está na home, apenas faz o scroll
     if (location.pathname === '/') {
       const el = document.getElementById(sectionId);
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     } else {
-      // se estiver em outra página, salva a intenção e vai pra home
       sessionStorage.setItem('scrollTo', sectionId);
       navigate('/');
     }
+  };
+
+  const handleNavigate = (path) => {
+    setShowDropdown(false);
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateAndScrollTop = (path) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <Navbar expand="lg" className="bg-light py-3 shadow-sm fixed-top">
       <Container>
         <Navbar.Brand
-          onClick={() => navigate('/')}
+          onClick={() => handleNavigateAndScrollTop('/')}
           className="fw-bold fs-3 text-brown"
           style={{ cursor: 'pointer' }}
         >
@@ -57,14 +62,45 @@ export default function NutripetNavbar() {
 
             <Nav.Link
               className="mx-2 fw-semibold"
-              onClick={() => navigate('/nutritiontable')}
+              onClick={() => handleNavigateAndScrollTop('/nutritiontable')}
             >
               Consultar Tabelas
             </Nav.Link>
 
-            <Nav.Link className="mx-2 fw-semibold" onClick={handleMeuPetClick}>
-              Meu Pet
-            </Nav.Link>
+            {isLogged ? (
+              <NavDropdown
+                title="Meu Pet"
+                id="meupet-dropdown"
+                className="mx-2 fw-semibold"
+                show={showDropdown}
+                onMouseEnter={() => setShowDropdown(true)}
+                onMouseLeave={() => setShowDropdown(false)}
+              >
+                <div className="px-3 py-1">
+                  <button
+                    className="dropdown-item w-100 text-start"
+                    onClick={() => handleNavigate('/meupet/cadastrar')}
+                  >
+                    Cadastrar Pet
+                  </button>
+                </div>
+                <div className="px-3 py-1">
+                  <button
+                    className="dropdown-item w-100 text-start"
+                    onClick={() => handleNavigate('/meupet/listar')}
+                  >
+                    Meus Pets
+                  </button>
+                </div>
+              </NavDropdown>
+            ) : (
+              <Nav.Link
+                className="mx-2 fw-semibold"
+                onClick={() => handleNavigateAndScrollTop('/auth')}
+              >
+                Meu Pet
+              </Nav.Link>
+            )}
           </Nav>
 
           <div className="d-flex align-items-center gap-3">
@@ -80,7 +116,7 @@ export default function NutripetNavbar() {
                 Sair
               </Button>
             ) : (
-              <Button variant="brown" onClick={() => navigate('/auth')}>
+              <Button variant="brown" onClick={() => handleNavigateAndScrollTop('/auth')}>
                 Cadastre-se / Login
               </Button>
             )}
