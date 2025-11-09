@@ -1,210 +1,178 @@
 .nutrition-section {
+  background: #fffaf6;
   min-height: 100vh;
-  background-color: #fdf7ef;
-  padding-top: 130px;
-  padding-bottom: 60px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  padding: 110px 40px 70px;
+  font-family: "Poppins", sans-serif;
 }
 
-.nutrition-section .nutrition-image-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 25px;
-}
-
-.nutrition-section .nutrition-image {
-  width: 100%;
-  max-width: 420px;
-  height: auto;
-  border: none;
-  border-radius: 8px;
-  object-fit: contain;
-  box-shadow: none;
-  transition: transform 0.3s ease;
-}
-
-.nutrition-section .nutrition-image:hover {
-  transform: scale(1.02);
-}
-
-.nutrition-section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1.8rem;
-  color: #533a2d;
-}
-
-.nutrition-section form {
-  max-width: 500px;
+.nutrition-container {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.nutrition-section .form-control {
-  height: 46px;
-  border-radius: 30px;
-  padding-left: 18px;
-  font-size: 0.95rem;
-  border: 1px solid #ddd;
-  box-shadow: none;
-  outline: none;
+/* === SIDEBAR === */
+.sidebar {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  height: fit-content;
 }
 
-.nutrition-section .form-control:focus {
-  border-color: #cbb58c;
-  box-shadow: 0 0 0 0.2rem rgba(203, 181, 140, 0.25);
-}
-
-.nutrition-section .btn-brown {
-  background-color: #533a2d;
-  color: #fff;
-  border: none;
-  border-radius: 30px;
-  font-size: 0.95rem;
+.filter-box {
+  border-bottom: 1px solid #eee;
   padding: 10px 0;
+}
+
+.filter-box:last-child {
+  border-bottom: none;
+}
+
+.filter-box h5 {
+  font-size: 1rem;
+  color: #7b2e1f;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.filter-options {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-left: 5px;
+}
+
+.filter-options label {
+  font-size: 0.9rem;
+  color: #5c3225;
+}
+
+/* === HEADER E BUSCA === */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.header-content h2 {
+  color: #7b2e1f;
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+.header-content p {
+  color: #5c3225;
+  font-size: 0.95rem;
+  max-width: 700px;
+}
+
+.order-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.order-box label {
+  color: #7b2e1f;
+  font-weight: 600;
+}
+
+.order-box select {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 6px 8px;
+}
+
+.search-box {
+  margin: 20px 0;
+}
+
+.search-box input {
   width: 100%;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 10px 15px;
+  font-size: 0.95rem;
+  color: #333;
+  outline: none;
+  transition: all 0.2s ease;
 }
 
-.nutrition-section .btn-brown:hover {
-  background-color: #6b4a37;
-  transform: scale(1.02);
+.search-box input:focus {
+  border-color: #7b2e1f;
+  box-shadow: 0 0 0 3px rgba(123, 46, 31, 0.12);
 }
 
-.nutrition-section .results-container {
-  margin-top: 50px;
-}
-
-.text-maroon {
-  color: #533a2d;
+/* === GRID === */
+.feed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
 }
 
 .feed-card {
-  background-color: #fff;
-  border: 1px solid #eee;
-  border-radius: 20px;
-  transition: all 0.3s ease;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  padding: 15px;
   cursor: pointer;
-  padding: 1rem;
-  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .feed-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
 .feed-card img {
-  border-radius: 15px;
   width: 100%;
   height: 180px;
   object-fit: cover;
-  margin-bottom: 0.8rem;
+  border-radius: 12px;
+  margin-bottom: 10px;
 }
 
 .feed-card h5 {
   font-size: 1rem;
-  font-weight: 600;
-  color: #533a2d;
-  min-height: 48px;
+  font-weight: 700;
+  color: #7b2e1f;
+  margin-bottom: 4px;
 }
 
 .feed-card p {
-  margin: 0.2rem 0;
   font-size: 0.9rem;
-  color: #6c584c;
+  color: #5c3225;
+  margin-bottom: 2px;
 }
 
-.nutrition-table {
-  background-color: #fffaf5;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  margin-top: 1rem;
-  overflow: hidden;
-  transition: all 0.3s ease;
+.feed-card small {
+  color: #a96b54;
 }
 
-.nutrition-table table {
-  margin-bottom: 0;
+.no-results {
+  text-align: center;
+  color: #7b2e1f;
+  font-weight: 600;
+  grid-column: 1 / -1;
 }
 
-.nutrition-table td {
-  padding: 6px 10px;
-  font-size: 0.9rem;
-  color: #533a2d;
-}
-
-.nutrition-table tr:nth-child(even) {
-  background-color: #fdf2e6;
-}
-
-.nutrition-table tr:hover {
-  background-color: #fae6d8;
-}
-
-.nutrition-section .alert {
-  border-radius: 12px;
-  font-size: 0.9rem;
-  margin-top: 20px;
-}
-
-@media (max-width: 992px) {
-  .nutrition-section {
-    padding-top: 120px;
+@media (max-width: 900px) {
+  .nutrition-container {
+    grid-template-columns: 1fr;
   }
 
-  .nutrition-section .nutrition-image {
-    max-width: 360px;
-  }
-}
-
-@media (max-width: 768px) {
-  .nutrition-section {
-    padding-top: 110px;
-  }
-
-  .nutrition-section .nutrition-image {
-    max-width: 300px;
-  }
-
-  .nutrition-section h2 {
-    font-size: 1.5rem;
-  }
-
-  .nutrition-section .form-control {
-    height: 42px;
-    font-size: 0.9rem;
-  }
-
-  .nutrition-section .btn-brown {
-    font-size: 0.9rem;
-    padding: 9px 0;
-  }
-
-  .nutrition-section form {
-    max-width: 90%;
-  }
-}
-
-@media (max-width: 480px) {
-  .nutrition-section {
-    padding-top: 100px;
-  }
-
-  .nutrition-section .nutrition-image {
-    max-width: 250px;
-  }
-
-  .feed-card img {
-    height: 150px;
-  }
-
-  .feed-card h5 {
-    font-size: 0.95rem;
-  }
-
-  .nutrition-table td {
-    font-size: 0.8rem;
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

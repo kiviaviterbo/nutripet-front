@@ -1,0 +1,389 @@
+.meuspets-section {
+  background-color: #fff8f3;
+  min-height: 100vh;
+  padding: 120px 20px 80px;
+  font-family: "Poppins", sans-serif;
+}
+
+.meuspets-container {
+  background: #fff;
+  border-radius: 25px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: 40px 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.meuspets-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #7b2e1f;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.meuspets-title span {
+  color: #a96b54;
+}
+
+/* GRID DOS CARDS */
+.meuspets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* CARD PADRÃO */
+.pet-card {
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  padding: 25px;
+  background: #fff;
+  transition: transform 0.2s ease;
+}
+
+.pet-card:hover {
+  transform: translateY(-4px);
+}
+
+.pet-foto {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.pet-card h5 {
+  color: #7b2e1f;
+  font-weight: 700;
+  margin: 6px 0;
+}
+
+.pet-card p {
+  color: #6c584c;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* === FORMULÁRIO DE EDIÇÃO === */
+.pet-card form {
+  background-color: #fffaf6;
+  border: 1px solid #f0e6dc;
+  border-radius: 16px;
+  padding: 20px 20px 24px;
+  margin-top: 5px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.preview {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.preview img {
+  width: 110px;
+  height: 110px;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 8px;
+}
+
+/* Input file customizado */
+.preview input[type="file"] {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: #7b2e1f;
+  cursor: pointer;
+  border: 1px solid #e0d6cd;
+  border-radius: 10px;
+  padding: 6px 10px;
+  background-color: #fff;
+  transition: 0.2s;
+}
+.preview input[type="file"]:hover {
+  background-color: #f6e8df;
+}
+
+.pet-card form label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #7b2e1f;
+  margin-bottom: 4px;
+}
+
+.pet-card form input,
+.pet-card form select {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  font-size: 0.93rem;
+  transition: all 0.2s ease;
+}
+
+.pet-card form input:focus,
+.pet-card form select:focus {
+  border-color: #7b2e1f;
+  box-shadow: 0 0 0 2px rgba(123, 46, 31, 0.12);
+  outline: none;
+}
+
+/* Radios alinhados */
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 6px 0 14px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #7b2e1f;
+  cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+  accent-color: #7b2e1f;
+  width: 16px;
+  height: 16px;
+}
+
+/* Idade / Peso lado a lado */
+.grid2 {
+  display: flex;
+  gap: 14px;
+}
+
+.grid2 div {
+  flex: 1;
+}
+
+.grid2 label {
+  display: block;
+  font-weight: 600;
+  color: #7b2e1f;
+  margin-bottom: 4px;
+}
+
+.grid2 input {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+/* Botões de salvar/cancelar */
+.edit-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.btn-save,
+.btn-cancel {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btn-save {
+  background-color: #7b2e1f;
+  color: #fff;
+}
+.btn-save:hover {
+  background-color: #9c3c27;
+}
+
+.btn-cancel {
+  background-color: #d1c7c1;
+  color: #4a3a32;
+}
+.btn-cancel:hover {
+  background-color: #c1b3ab;
+}
+
+/* === BOTÕES PADRÕES === */
+.pet-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.btn-edit,
+.btn-delete {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-edit {
+  background-color: #7b2e1f;
+  color: #fff;
+}
+.btn-edit:hover {
+  background-color: #9c3c27;
+}
+
+.btn-delete {
+  background-color: #a62f1d;
+  color: #fff;
+}
+.btn-delete:hover {
+  background-color: #a62f1d;
+}
+
+/* === BOTÃO NOVO PET === */
+.btn-novopet {
+  display: block;
+  margin: 50px auto 0;
+  background-color: #7b2e1f;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 36px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+}
+.btn-novopet:hover {
+  background-color: #9c3c27;
+  transform: translateY(-2px);
+}
+
+/* === MODAL === */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.modal-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 35px 40px;
+  max-width: 380px;
+  width: 90%;
+  animation: scaleIn 0.3s ease;
+}
+
+.modal-card h4 {
+  color: #7b2e1f;
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.modal-card p {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* === POP-UP DE SUCESSO === */
+.popup-success {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #7b2e1f;
+  color: #fff8f3;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  z-index: 2000;
+  animation: slideDown 0.5s ease, fadeOut 0.5s ease 3.5s forwards;
+  text-align: center;
+}
+
+.popup-success::before {
+  content: "✅ ";
+  margin-right: 6px;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+    visibility: hidden;
+  }
+}
+
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 768px) {
+  .meuspets-container {
+    padding: 25px;
+  }
+
+  .pet-card {
+    padding: 18px;
+  }
+
+  .btn-novopet {
+    width: 100%;
+  }
+}

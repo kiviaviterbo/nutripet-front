@@ -1,0 +1,172 @@
+.cadastrarpet-section {
+  background-color: #fff8f3;
+  min-height: 100vh;
+  padding-top: 120px; /* espaço pro navbar fixo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.form-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+}
+
+.form-card h2 {
+  font-size: 1.8rem;
+  color: #7b2e1f;
+  margin-bottom: 10px;
+}
+
+.form-card p {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #7b2e1f;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.preview-container {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.pet-preview {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 100%;
+  margin-top: 10px;
+  border: 2px solid #7b2e1f;
+}
+
+.file-input {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.cadastrarpet-btn {
+  background-color: #7b2e1f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  flex: 1;
+}
+
+.cadastrarpet-btn:hover {
+  background-color: #9b3b28;
+}
+
+.cancelar-btn {
+  background-color: #eaeaea;
+  color: #333;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.cancelar-btn:hover {
+  background-color: #ddd;
+}
+.preview-container label {
+  font-weight: 600;
+  color: #7b2e1f;
+  display: block;
+  margin-bottom: 5px; 
+}
+/* === POP-UP DE SUCESSO === */
+.popup-success {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #7b2e1f;
+  color: #fff8f3;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  z-index: 2000;
+  animation: slideDown 0.5s ease, fadeOut 0.5s ease 3.5s forwards;
+  text-align: center;
+}
+
+/* Ícone (opcional, se você quiser incluir um emoji ou ícone no texto) */
+.popup-success::before {
+  content: "✅ ";
+  margin-right: 6px;
+}
+
+/* Animações */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+    visibility: hidden;
+  }
+}
