@@ -1,92 +1,92 @@
-/* ===============================
-   NAVBAR PRINCIPAL
-================================ */
-.navbar {
-  background-color: #fffaf3 !important;
-  padding: 1rem 0;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(6px);
+.nutripet-navbar {
+  background: rgba(255, 249, 239, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  padding: 0.9rem 0;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  color: #702d1f !important;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #c19a6b, #a37c46);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.navlink-modern {
+  color: #5c4536 !important;
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0.8rem;
+  border-radius: 10px;
   transition: all 0.3s ease;
 }
 
-/* Marca */
-.navbar-brand {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800;
-  font-size: 1.8rem;
-  color: #702d1f !important;
-  letter-spacing: 1px;
-  display: flex;
-  align-items: center;
-}
-
-.navbar-brand span {
-  color: #c19a6b; /* tom bege dourado */
-}
-
-.navbar-brand:hover {
-  transform: scale(1.03);
-  transition: 0.2s ease;
-}
-
-/* ===============================
-   LINKS DE NAVEGAÇÃO
-================================ */
-.navbar .nav-link {
-  color: #5b4636 !important;
-  font-weight: 500;
-  margin: 0 0.9rem;
-  transition: color 0.3s ease, transform 0.2s ease;
-  position: relative;
-}
-
-/* Efeito sublinhado sutil */
-.navbar .nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #a37c46;
-  border-radius: 2px;
-  transition: width 0.3s ease;
-}
-
-.navbar .nav-link:hover {
+.navlink-modern:hover {
+  background: rgba(163, 124, 70, 0.08);
   color: #a37c46 !important;
   transform: translateY(-1px);
 }
 
-.navbar .nav-link:hover::after {
+/* Dropdown */
+.dropdown-menu {
+  border-radius: 14px;
+  border: 1px solid rgba(163, 124, 70, 0.15);
+  background: rgba(255, 253, 248, 0.96);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  animation: fadeSlide 0.25s ease;
+  backdrop-filter: blur(12px);
+}
+
+.dropdown-item-modern {
+  background: none;
+  border: none;
   width: 100%;
-}
-
-/* ===============================
-   DROPDOWN (Meu Pet)
-================================ */
-.navbar .dropdown-menu {
-  border-radius: 12px;
-  border: 1px solid #eee;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  padding: 0.4rem 0;
-  animation: dropdownFade 0.25s ease;
-}
-
-.navbar .dropdown-item {
-  font-weight: 500;
-  padding: 0.55rem 1.2rem;
+  text-align: left;
+  padding: 0.7rem 1.2rem;
   color: #5b4636;
+  font-weight: 500;
   transition: all 0.25s ease;
 }
 
-.navbar .dropdown-item:hover {
-  background-color: #fff3e0;
+.dropdown-item-modern:hover {
+  background: rgba(255, 237, 217, 0.6);
   color: #7b2e1f;
+  transform: translateX(4px);
+}
+.btn-premium-left {
+  margin-right: 1rem;
+  background: rgba(255, 237, 217, 0.4);
+  border: 1.8px solid #a37c46;
+  color: #a37c46;
+  border-radius: 25px;
+  padding: 0.4rem 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
-/* Animação suave do dropdown */
-@keyframes dropdownFade {
+.btn-premium-left:hover {
+  background: linear-gradient(90deg, #b98b56, #a37c46);
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(163, 124, 70, 0.25);
+}
+
+
+@keyframes fadeSlide {
   from {
     opacity: 0;
     transform: translateY(-6px);
@@ -97,27 +97,25 @@
   }
 }
 
-/* ===============================
-   BOTÕES (Premium e Sair)
-================================ */
-.navbar .btn-outline-brown {
+/* Botões */
+.btn-outline-brown-modern {
   color: #a37c46;
   border: 2px solid #a37c46;
   border-radius: 30px;
   padding: 0.45rem 1.3rem;
-  background-color: transparent;
   font-weight: 600;
+  background: transparent;
   transition: all 0.3s ease;
 }
 
-.navbar .btn-outline-brown:hover {
-  background-color: #a37c46;
+.btn-outline-brown-modern:hover {
+  background: linear-gradient(90deg, #b98b56, #a37c46);
   color: #fff;
-  box-shadow: 0 3px 10px rgba(163, 124, 70, 0.3);
+  box-shadow: 0 4px 14px rgba(163, 124, 70, 0.35);
 }
 
-.navbar .btn-brown {
-  background-color: #7b2e1f;
+.btn-brown-modern {
+  background: linear-gradient(90deg, #7b2e1f, #9c3c27);
   color: #fff;
   border-radius: 30px;
   padding: 0.45rem 1.3rem;
@@ -126,33 +124,85 @@
   transition: all 0.3s ease;
 }
 
-.navbar .btn-brown:hover {
-  background-color: #9c3c27;
-  box-shadow: 0 3px 10px rgba(123, 46, 31, 0.35);
+.btn-brown-modern:hover {
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(123, 46, 31, 0.3);
 }
 
-/* ===============================
-   MOBILE
-================================ */
+/* Mobile */
 @media (max-width: 992px) {
   .navbar-collapse {
-    background-color: #fffaf3;
+    background: rgba(255, 249, 239, 0.98);
     padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    animation: dropdownFade 0.3s ease;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
   }
 
-  .navbar .nav-link {
+  .navlink-modern {
     display: block;
-    margin: 0.5rem 0;
     text-align: center;
+    margin: 0.5rem 0;
   }
 
-  .navbar .btn-outline-brown,
-  .navbar .btn-brown {
+  .btn-outline-brown-modern,
+  .btn-brown-modern {
     width: 100%;
     margin-top: 0.4rem;
   }
 }
+/* =========================================
+   🔧 ALINHAMENTO PRECISO DOS ITENS DA NAVBAR
+========================================= */
+
+/* Força todos os elementos da navbar (links, dropdowns, botões)
+   a terem o mesmo alinhamento vertical */
+.navbar .navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Corrige altura e padding dos dropdowns ("Meu Pet" e "Meu Perfil") */
+.navbar .nav-item.dropdown {
+  display: flex;
+  align-items: center;
+  height: 38px; /* mesma altura do botão "Seja Premium" */
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .dropdown-toggle {
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 38px;
+  background: transparent !important;
+  border: none !important;
+  font-weight: 500;
+}
+
+/* Alinha o caret e o ícone Lucide */
+.navbar .dropdown-toggle svg {
+  margin-bottom: 1px;
+}
+
+.navbar .dropdown-toggle::after {
+  vertical-align: middle !important;
+  margin-left: 5px;
+  margin-top: -2px;
+}
+
+/* Ajuste dos botões Premium e Login pra mesma linha */
+.btn-outline-brown-modern,
+.btn-brown-modern,
+.btn-premium-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 1.1rem;
+  margin: 0;
+  line-height: 1;
+}
+

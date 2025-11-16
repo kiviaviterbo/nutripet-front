@@ -1,41 +1,48 @@
+/* Remove fundo separado — agora o fundo vem do PerfilLayout */
 .cadastrarpet-section {
-  background-color: #fff8f3;
-  min-height: 100vh;
-  padding-top: 120px; /* espaço pro navbar fixo */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
+/* Wrapper simples, alinhado como “Meus Dados” */
 .form-wrapper {
   width: 100%;
   display: flex;
-  justify-content: center;
-  padding: 40px 20px;
+  justify-content: flex-start;
 }
 
-.form-card {
-  background: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  padding: 40px;
-  width: 100%;
+.form-inner {
+  padding: 10px 0 40px 0;
   max-width: 480px;
+}
+
+/* Card principal integrado ao padrão do Perfil */
+.form-card {
+  width: 100%;
+  background: #ffffff;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Título — CENTRALIZADO */
+.form-card h2 {
+  color: #7b2e1f;
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin-bottom: 10px;
   text-align: center;
 }
 
-.form-card h2 {
-  font-size: 1.8rem;
-  color: #7b2e1f;
-  margin-bottom: 10px;
-}
-
+/* Subtítulo — CENTRALIZADO */
 .form-card p {
-  color: #555;
-  font-size: 0.95rem;
+  color: #5b4636;
+  text-align: center;
   margin-bottom: 25px;
+  font-size: 0.95rem;
 }
 
+/* LABELS E INPUTS — ALINHADOS À ESQUERDA */
 .form-group {
   margin-bottom: 18px;
   text-align: left;
@@ -48,15 +55,18 @@
   margin-bottom: 6px;
 }
 
+/* Inputs IGUAIS ao padrão “Meus Dados” */
 .form-group input,
 .form-group select {
   width: 100%;
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid #ccc;
   font-size: 1rem;
+  background-color: #fff;
 }
 
+/* Campos de gênero */
 .radio-group {
   display: flex;
   gap: 20px;
@@ -68,9 +78,17 @@
   gap: 6px;
 }
 
+/* FOTO — CENTRALIZADA */
 .preview-container {
   margin-top: 15px;
   text-align: center;
+}
+
+.preview-container label {
+  font-weight: 600;
+  color: #7b2e1f;
+  display: block;
+  margin-bottom: 8px;
 }
 
 .pet-preview {
@@ -78,8 +96,8 @@
   height: 120px;
   object-fit: cover;
   border-radius: 100%;
-  margin-top: 10px;
   border: 2px solid #7b2e1f;
+  margin-top: 5px;
 }
 
 .file-input {
@@ -87,48 +105,43 @@
   font-size: 0.9rem;
 }
 
+/* Botões padronizados */
 .form-actions {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
   margin-top: 25px;
+  display: flex;
+  gap: 12px;
 }
 
 .cadastrarpet-btn {
+  flex: 1;
+  padding: 12px;
   background-color: #7b2e1f;
   color: white;
-  padding: 10px 20px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: 600;
   cursor: pointer;
-  flex: 1;
 }
 
 .cadastrarpet-btn:hover {
-  background-color: #9b3b28;
+  background-color: #5d2016;
 }
 
 .cancelar-btn {
+  flex: 1;
+  padding: 12px;
   background-color: #eaeaea;
   color: #333;
-  padding: 10px 20px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  flex: 1;
 }
 
 .cancelar-btn:hover {
   background-color: #ddd;
 }
-.preview-container label {
-  font-weight: 600;
-  color: #7b2e1f;
-  display: block;
-  margin-bottom: 5px; 
-}
-/* === POP-UP DE SUCESSO === */
+
+/* Popup de sucesso */
 .popup-success {
   position: fixed;
   top: 30px;
@@ -143,12 +156,6 @@
   z-index: 2000;
   animation: slideDown 0.5s ease, fadeOut 0.5s ease 3.5s forwards;
   text-align: center;
-}
-
-/* Ícone (opcional, se você quiser incluir um emoji ou ícone no texto) */
-.popup-success::before {
-  content: "✅ ";
-  margin-right: 6px;
 }
 
 /* Animações */
@@ -169,4 +176,66 @@
     transform: translate(-50%, -20px);
     visibility: hidden;
   }
+}
+/* ===== Botão de Upload Premium ===== */
+
+.upload-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+/* Esconde o input nativo */
+.file-input {
+  display: none;
+}
+
+/* Botão estilizado */
+.file-label {
+  padding: 12px 22px;
+  background: linear-gradient(135deg, #7b2e1f, #a0432c);
+  color: #fff;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.97rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: .25s ease;
+  box-shadow: 0 4px 14px rgba(123, 46, 31, 0.22);
+}
+
+.file-label::before {
+  content: "📷";
+  font-size: 1.2rem;
+}
+
+.file-label:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(123, 46, 31, 0.28);
+  opacity: .93;
+}
+
+/* Nome do arquivo */
+.file-name {
+  font-size: 0.9rem;
+  color: #6a4a3d;
+  font-weight: 500;
+  max-width: 200px;
+  text-align: center;
+  word-wrap: break-word;
+  opacity: 0.9;
+}
+
+.file-label {
+  color: #ffffff !important;  
+  opacity: 1 !important;   
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25); 
+}
+
+.file-label::before {
+  opacity: 1 !important;
 }

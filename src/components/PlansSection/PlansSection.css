@@ -1,41 +1,164 @@
-.plans-section {
-  background-color: #fef5e7;
+.plano-premium-section {
+  background-color: #fff8f3;
+  scroll-margin-top: 100px;
 }
 
-.plan-card {
-  max-width: 400px;
-  background-color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* hero section */
+.hero-premium {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  gap: 40px;
 }
 
-.plan-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+.hero-content h1 {
+  color: #7b2e1f;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.3;
 }
 
-.text-maroon {
-  color: #702d1f;
-}
-
-.text-brown {
+.hero-content h1 span {
   color: #a37c46;
 }
 
-.text-secondary {
-  color: #5c4c3d;
+.hero-content p {
+  color: #5b4636;
+  font-size: 1.1rem;
+  margin: 20px 0 30px;
+  max-width: 550px;
 }
 
-/* Botão */
-.btn-brown {
-  background-color: #a37c46;
+.hero-image img {
+  width: 380px;
+  border-radius: 25px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.btn-assinar-agora {
+  background: linear-gradient(90deg, #7b2e1f, #a37c46);
   color: #fff;
   border: none;
-  border-radius: 25px;
-  padding: 0.6rem 1.5rem;
+  border-radius: 12px;
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.btn-brown:hover {
-  background-color: #8b6a3a;
-  transform: scale(1.05);
+.btn-assinar-agora:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(163, 124, 70, 0.25);
+}
+
+/* vantagens section */
+.vantagens-premium {
+  background: #fff;
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.vantagens-premium h2 {
+  color: #7b2e1f;
+  font-weight: 800;
+  margin-bottom: 50px;
+}
+
+.vantagens-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.vantagem-card {
+  background: #fff8f3;
+  border-radius: 20px;
+  padding: 30px 25px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease;
+}
+
+.vantagem-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(163, 124, 70, 0.15);
+}
+
+.vantagem-card svg {
+  color: #a37c46;
+  margin-bottom: 10px;
+}
+
+.vantagem-card h3 {
+  color: #7b2e1f;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.vantagem-card p {
+  color: #5b4636;
+  font-size: 0.95rem;
+}
+
+/* detalhes do plano */
+.detalhes-plano {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 80px auto;
+  gap: 40px;
+  padding: 0 40px;
+}
+
+.detalhes-texto h2 {
+  color: #7b2e1f;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.detalhes-texto ul {
+  list-style: none;
+  padding: 0;
+  color: #5b4636;
+}
+
+.detalhes-texto li {
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.detalhes-imagem img {
+  width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.btn-assinar-agora.grande {
+  margin-top: 25px;
+  font-size: 1.15rem;
+  padding: 16px 40px;
+}
+
+/* responsivo */
+@media (max-width: 992px) {
+  .hero-premium, .detalhes-plano {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image img, .detalhes-imagem img {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .vantagens-grid {
+    grid-template-columns: 1fr;
+  }
 }

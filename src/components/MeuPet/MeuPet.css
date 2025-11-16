@@ -1,4 +1,4 @@
-.meupet-section {
+/* .meupet-section {
   background-color: #fff8f3;
   min-height: 100vh;
   padding: 100px 0;
@@ -70,8 +70,6 @@
   gap: 12px;
   margin-top: 15px;
 }
-
-/* 🔒 Botões isolados apenas dentro da seção MeuPet */
 .meupet-section .btn-brown {
   background-color: #9b4a28;
   border: none;
@@ -94,7 +92,6 @@
   flex: 1;
 }
 
-/* === Cards === */
 .meupet-section .pet-card {
   background: #ffffff;
   border: 1px solid #f0e6dc;
@@ -185,3 +182,4 @@
     height: 160px;
   }
 }
+ */

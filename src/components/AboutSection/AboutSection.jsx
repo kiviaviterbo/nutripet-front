@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './AboutSection.css';
-import pets from '../../assets/images/pets.png';
+import pets from '../../assets/images/inicial.jpg';
 
 export default function AboutSection() {
   return (
@@ -13,8 +13,9 @@ export default function AboutSection() {
               <img
                 src={pets}
                 alt="Pets Nutripet"
-                className="about-image"
+                className="about-image about-image-inicial"
               />
+
             </div>
           </Col>
           <Col md={6}>
