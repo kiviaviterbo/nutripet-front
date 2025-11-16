@@ -1,78 +1,118 @@
-import React from 'react';
-import { Container, Card, Button } from 'react-bootstrap';
-import './PlansSection.css';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { PawPrint, ShieldCheck, Stethoscope, HeartHandshake, Crown, Users } from "lucide-react";
+import "./PlansSection.css";
+import premiumDog from "../../assets/images/premiumpage.jpg";
+import vetImage from "../../assets/images/vetTeam.png";
 
 export default function PlansSection() {
-  return (
-    <section id="plans" className="plans-section py-5 text-center">
-      <Container>
-        <h2 className="fw-bold text-maroon mb-4">Plano Nutricional Trimestral</h2>
-        <p className="text-secondary mb-5">
-          Cuide da alimentação do seu pet com praticidade e acompanhamento profissional.
-        </p>
+  const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user"));
+  const isLogged = !!user;
 
-        <div className="d-flex justify-content-center">
-          <Card className="plan-card border-0 shadow-sm rounded-4 text-center p-4">
-            <Card.Body>
-              <h4 className="fw-bold text-brown mb-3">Plano Trimestral</h4>
-              <p>
-                Alimentação personalizada e saudável para o seu pet durante <strong>3 meses</strong>.<br />
-                Inclui acompanhamento nutricional e acesso às nossas tabelas exclusivas.
-              </p>
-              <h3 className="fw-bold text-maroon mt-3 mb-4">R$ 49,99</h3>
-              <Button className="btn-brown">Assinar agora</Button>
-            </Card.Body>
-          </Card>
+  const handleAssinar = () => {
+    if (isLogged) {
+      navigate("/pagamento");
+    } else {
+      navigate("/auth");
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  return (
+    <section id="plans" className="plano-premium-section">
+      {/* <div className="hero-premium">
+        <div className="hero-content">
+          <h1>
+            Torne-se <span>Premium</span> e dê o melhor cuidado para o seu pet!
+          </h1>
+          <p>
+            Um plano completo, acessível e pensado para garantir a saúde e o bem-estar dos
+            seus companheiros de quatro patas.
+          </p>
+          <button className="btn-assinar-agora" onClick={handleAssinar}>
+            Assinar agora
+          </button>
         </div>
-      </Container>
+        <div className="hero-image">
+          <img src={premiumDog} alt="Cachorro feliz Premium" />
+        </div>
+      </div> */}
+      <div className="vantagens-premium">
+        <h2>Por que ser Premium?</h2>
+        <div className="vantagens-grid">
+          <div className="vantagem-card">
+            <ShieldCheck size={38} />
+            <h3>Atendimento Especializado</h3>
+            <p>Tenha suporte direto com nossos veterinários especializados em nutrição animal.</p>
+          </div>
+          <div className="vantagem-card">
+            <Stethoscope size={38} />
+            <h3>Consultas com Veterinários</h3>
+            <p>
+              Inclui consultas trimestrais com profissionais especializados e acompanhamento.
+            </p>
+          </div>
+          <div className="vantagem-card">
+            <HeartHandshake size={38} />
+            <h3>Planos Personalizados</h3>
+            <p>
+              Receba recomendações nutricionais adequadas para as necessidades do seu pet.
+            </p>
+          </div>
+          <div className="vantagem-card">
+            <Users size={38} />
+            <h3>Até 2 Pets por CPF</h3>
+            <p>
+              Seu plano cobre até <strong>2 animais por CPF</strong>. 
+            </p>
+          </div>
+          <div className="vantagem-card">
+            <Crown size={38} />
+            <h3>Benefícios Exclusivos</h3>
+            <p>
+              Descontos em produtos parceiros, acesso antecipado a novidades e suporte Premium.
+            </p>
+          </div>
+          <div className="vantagem-card">
+            <PawPrint size={38} />
+            <h3>Tranquilidade Garantida</h3>
+            <p>
+              Nós cuidamos da parte técnica, para que você só precise se preocupar em mimar seu
+              pet como ele merece.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="detalhes-plano">
+        <div className="detalhes-texto">
+          <h2>Como funciona o Plano Premium?</h2>
+          <ul>
+            <li>
+               Assinatura <strong>trimestral</strong> por <strong>R$ 49,90/mês</strong>.
+            </li>
+            {/* <li> Pagamento único a cada 3 meses — simples, rápido e sem burocracia.</li> */}
+            <li>
+              Cobre até 2 pets por CPF
+            </li>
+            <li>
+             Direito a consultas com veterinários e especialistas em nutrição animal.
+            </li>
+            <li>
+             Acompanhamento periódico, orientações alimentares e relatórios personalizados.
+            </li>
+          </ul>
+
+          <button className="btn-assinar-agora grande" onClick={handleAssinar}>
+            {isLogged ? "Ir para pagamento" : "Faça login e assine agora"}
+          </button>
+        </div>
+
+        <div className="detalhes-imagem">
+          <img src={vetImage} alt="Equipe veterinária" />
+        </div>
+      </div>
     </section>
   );
 }
-/* import React from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import './PlansSection.css';
-
-export default function PlansSection() {
-  return (
-    <section id="plans" className="plans-section py-5 text-center">
-      <Container>
-        <h2 className="fw-bold text-maroon mb-5">Planos nutricionais personalizados</h2>
-        <Row>
-          <Col md={4} className="mb-4">
-            <Card className="border-0 shadow-sm rounded-4">
-              <Card.Body>
-                <h4 className="fw-bold text-brown">Básico</h4>
-                <p>Plano ideal para pets saudáveis que precisam de uma dieta equilibrada.</p>
-                <h5 className="fw-bold text-maroon">R$ 39/mês</h5>
-                <Button className="btn-brown mt-2">Assinar</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          <Col md={4} className="mb-4">
-            <Card className="border-0 shadow-sm rounded-4 premium-card">
-              <Card.Body>
-                <h4 className="fw-bold text-brown">Premium</h4>
-                <p>Inclui acompanhamento nutricional mensal e relatórios personalizados.</p>
-                <h5 className="fw-bold text-maroon">R$ 69/mês</h5>
-                <Button className="btn-brown mt-2">Assinar</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-
-          <Col md={4} className="mb-4">
-            <Card className="border-0 shadow-sm rounded-4">
-              <Card.Body>
-                <h4 className="fw-bold text-brown">VIP</h4>
-                <p>Plano completo com visitas veterinárias, consultas online e cardápios customizados.</p>
-                <h5 className="fw-bold text-maroon">R$ 99/mês</h5>
-                <Button className="btn-brown mt-2">Assinar</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
-    </section>
-  );
-}
- */

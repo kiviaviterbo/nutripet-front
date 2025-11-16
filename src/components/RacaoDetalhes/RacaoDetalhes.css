@@ -255,6 +255,35 @@
     padding: 12px 28px;
   }
 }
+/* === Aviso DMB === */
+.dmb-info {
+  background: #fff8f3;
+  border-left: 5px solid #dcbca6;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 20px 16px 0;
+  font-size: 0.95rem;
+  color: #4b1d10;
+  line-height: 1.5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.5s ease;
+}
+
+.dmb-info strong {
+  color: #7b2e1f;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* .racao-detalhes-section {
   background-color: #fff8f3;

@@ -9,10 +9,19 @@ import {
 import Home from './pages/Home';
 import AuthPage from './components/AuthPage/AuthPage';
 import NutritionTable from './components/NutritionTable/NutritionTable';
-import MeuPet from './components/MeuPet/MeuPet';
+//import MeuPet from './components/MeuPet/MeuPet';
 import CadastrarPet from './components/MeuPet/CadastrarPet';
 import MeusPets from './components/MeuPet/MeusPets';
 import RacaoDetalhes from "./components/RacaoDetalhes/RacaoDetalhes";
+import EditarPerfil from './components/EditarPerfil/EditarPerfil';
+import MinhasConsultas from './components/MinhasConsultas/MinhasConsultas';
+import MeusDados from "./components/MeusDados/MeusDados";
+import AlterarSenha from "./components/AlterarSenha/AlterarSenha"; 
+import MinhaAssinatura from './components/MinhaAssinatura/MinhaAssinatura';
+import Pagamento from './components/Pagamento/Pagamento';
+import PagamentoSucesso from './components/Pagamento/PagamentoSucesso';
+
+
 
 function PrivateRoute({ children }) {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -33,7 +42,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/nutritiontable" element={<NutritionTable />} />
-
+{/* 
         <Route
           path="/meupet"
           element={
@@ -41,7 +50,7 @@ function App() {
               <MeuPet />
             </PrivateRoute>
           }
-        />
+        /> */}
         <Route
           path="/meupet/cadastrar"
           element={
@@ -61,6 +70,13 @@ function App() {
 
         <Route path="*" element={<Navigate to="/" replace />} />
         <Route path="/racao/:id" element={<RacaoDetalhes />} />
+        <Route path="/usuario/editar" element={<EditarPerfil />} />
+        <Route path="/usuario/consultas" element={<MinhasConsultas />} />
+        <Route path="/usuario/meusdados" element={<MeusDados />} />
+        <Route path="/usuario/senha" element={<AlterarSenha />} />
+        <Route path="/usuario/assinatura" element={<MinhaAssinatura />} />
+        <Route path="/pagamento" element={<Pagamento />} />
+        <Route path="/pagamento/sucesso/:id" element={<PagamentoSucesso />} />
       </Routes>
     </Router>
   );

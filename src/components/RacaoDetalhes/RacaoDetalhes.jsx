@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
 import NutripetNavbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import api from "../../services/api";
@@ -12,6 +12,17 @@ export default function RacaoDetalhes() {
   const navigate = useNavigate();
   const [racao, setRacao] = useState(null);
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
+
+  const scrollToPremium = () => {
+    if (location.pathname === "/") {
+      const el = document.getElementById("plans");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      sessionStorage.setItem("scrollTo", "plans");
+      navigate("/");
+    }
+  };
 
   useEffect(() => {
     async function fetchRacao() {
@@ -30,6 +41,36 @@ export default function RacaoDetalhes() {
 
   if (loading) return <p className="loading">Carregando...</p>;
   if (!racao) return <p className="no-results">Ração não encontrada.</p>;
+
+  // 🔹 Detecta se é ração úmida
+  const isUmida =
+    racao.tipo?.toLowerCase().includes("úmida") ||
+    racao.tipo?.toLowerCase().includes("umida");
+
+  // 🔹 Busca umidade (usada apenas se for úmida)
+  const umidadeItem = racao.nutrientes?.find((n) => /umidade/i.test(n.nome));
+  const umidade = umidadeItem
+    ? parseFloat(String(umidadeItem.valor).replace(",", "."))
+    : 80; // padrão se não vier no backend
+
+  const MS = 1 - umidade / 100;
+
+  // 🔹 Converte automaticamente se for úmida
+  const converterValor = (valorOriginal, nome) => {
+    if (!isUmida) return valorOriginal; // não altera rações secas
+
+    const v = parseFloat(String(valorOriginal).replace(",", "."));
+    if (isNaN(v) || !MS) return valorOriginal;
+
+    const isPercent =
+      String(valorOriginal).includes("%") ||
+      /proteína|gordura|extrato|fibra|cinzas|carbo|matéria/i.test(nome);
+    const isMass = /mg\/kg|ppm/i.test(String(valorOriginal));
+
+    if (isPercent) return `${(v / MS).toFixed(1)}% (DMB)`;
+    if (isMass) return `${Math.round(v / MS).toLocaleString()} mg/kg (DMB)`;
+    return `${(v / MS).toFixed(2)} (DMB)`;
+  };
 
   return (
     <>
@@ -57,35 +98,62 @@ export default function RacaoDetalhes() {
 
           {/* 🔹 Tabela completa */}
           <div className="tabela-wrapper">
-            <h2 className="tabela-titulo">Tabela Nutricional Completa</h2>
+            <h2 className="tabela-titulo">
+              Tabela Nutricional{" "}
+              {isUmida ? "(Base de Matéria Seca)" : ""}
+            </h2>
+
             <table className="tabela-nutricional">
               <thead>
                 <tr>
                   <th>Componente</th>
                   <th>Quantidade</th>
-                  <th>Bom</th>
-                  <th>Médio</th>
-                  <th>Ruim</th>
+                  {!isUmida && (
+                    <>
+                      <th>Bom</th>
+                      <th>Médio</th>
+                      <th>Ruim</th>
+                    </>
+                  )}
                 </tr>
               </thead>
               <tbody>
                 {racao.nutrientes?.map((n, i) => (
                   <tr key={i}>
                     <td>{n.nome}</td>
-                    <td>{n.valor}</td>
-                    <td className="col-qualidade">
-                      {n.qualidade === "bom" && <span className="emoji">👍</span>}
-                    </td>
-                    <td className="col-qualidade">
-                      {n.qualidade === "medio" && <span className="emoji">👌</span>}
-                    </td>
-                    <td className="col-qualidade">
-                      {n.qualidade === "ruim" && <span className="emoji">👎</span>}
-                    </td>
+                    <td>{converterValor(n.valor, n.nome)}</td>
+
+                    {!isUmida && (
+                      <>
+                        <td className="col-qualidade">
+                          {n.qualidade === "bom" && <span className="emoji">👍</span>}
+                        </td>
+                        <td className="col-qualidade">
+                          {n.qualidade === "medio" && <span className="emoji">👌</span>}
+                        </td>
+                        <td className="col-qualidade">
+                          {n.qualidade === "ruim" && <span className="emoji">👎</span>}
+                        </td>
+                      </>
+                    )}
                   </tr>
                 ))}
               </tbody>
             </table>
+
+
+            {/* 🔹 Aviso só para rações úmidas */}
+            {isUmida && (
+              <div className="dmb-info">
+                <p>
+                  💧 <strong>Esta é uma ração úmida:</strong> os valores exibidos foram
+                  ajustados para <strong>Base de Matéria Seca (DMB)</strong>. Isso
+                  remove o efeito da água, permitindo uma comparação justa com rações
+                  secas. Apesar dos números parecerem baixos “como vendida”, o valor
+                  nutricional real é altamente concentrado.
+                </p>
+              </div>
+            )}
           </div>
 
           {/* 🔹 Tabela de avaliação */}
@@ -120,16 +188,14 @@ export default function RacaoDetalhes() {
         </div>
       </section>
 
-      {/* 🔹 Seção Premium fora do container */}
+      {/* 🔹 Seção Premium */}
       <div className="premium-wrapper">
         <div className="premium-section">
           <img src={premiumGif} alt="Seja Premium" className="premium-gif" />
-          <button
-            className="premium-btn"
-            onClick={() => navigate("/plans")}
-          >
+          <button className="premium-btn" onClick={scrollToPremium}>
             Clique aqui e seja Premium
           </button>
+
         </div>
       </div>
 

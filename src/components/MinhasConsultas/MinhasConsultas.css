@@ -1,0 +1,99 @@
+.perfil-section {
+  background-color: #fff8f3;
+  min-height: 100vh;
+  padding: 120px 0 80px 0;
+}
+
+.perfil-container {
+  display: flex;
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* menu lateral */
+.perfil-menu {
+  width: 250px;
+  background: #f9e9dc;
+  padding: 30px 0;
+}
+
+.perfil-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.perfil-menu li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 25px;
+  font-weight: 600;
+  color: #5b4636;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.perfil-menu li:hover {
+  background-color: rgba(123, 46, 31, 0.1);
+  color: #7b2e1f;
+}
+
+.perfil-menu li.active {
+  background-color: #7b2e1f;
+  color: #fff;
+}
+
+.logout-item {
+  margin-top: 30px;
+  color: #a33c27;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 20px;
+  transition: 0.2s;
+}
+
+/* conteúdo */
+.perfil-conteudo {
+  flex: 1;
+  padding: 40px 60px;
+  text-align: center;
+}
+
+.titulo {
+  font-weight: 700;
+  color: #7b2e1f;
+  margin-bottom: 25px;
+}
+
+.consultas-premium {
+  color: #5b4636;
+}
+
+.assinatura-free h3 {
+  color: #7b2e1f;
+  margin-bottom: 10px;
+}
+
+.assinatura-free p {
+  color: #5b4636;
+  margin-bottom: 20px;
+}
+
+.btn-assinar {
+  background-color: #7b2e1f;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-assinar:hover {
+  background-color: #5d2016;
+}

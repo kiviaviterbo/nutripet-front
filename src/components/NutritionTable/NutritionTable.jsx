@@ -144,10 +144,9 @@ export default function NutritionTable() {
           <main className="content">
             <div className="header-content">
               <div>
-                <h2>Rações: Nutrição e Sabor para seu Pet</h2>
+                <h2>Rações</h2>
                 <p>
-                  Explore rações balanceadas e filtradas por marca, tipo,
-                  espécie ou variação — ou busque pelo nome.
+                  Explore rações filtradas por marca, tipo,espécie ou variação — ou busque pelo nome.
                 </p>
               </div>
               <div className="order-box">
