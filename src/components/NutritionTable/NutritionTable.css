@@ -12,8 +12,6 @@
   max-width: 1200px;
   margin: 0 auto;
 }
-
-/* === SIDEBAR === */
 .sidebar {
   background: #fff;
   border-radius: 16px;
@@ -53,8 +51,6 @@
   font-size: 0.9rem;
   color: #5c3225;
 }
-
-/* === HEADER E BUSCA === */
 .header-content {
   display: flex;
   justify-content: space-between;
@@ -111,8 +107,6 @@
   border-color: #7b2e1f;
   box-shadow: 0 0 0 3px rgba(123, 46, 31, 0.12);
 }
-
-/* === GRID === */
 .feed-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -165,7 +159,6 @@
   font-weight: 600;
   grid-column: 1 / -1;
 }
-/* === BOTÃO LIMPAR FILTROS === */
 .btn-clear {
   width: 100%;
   background-color: #7b2e1f;

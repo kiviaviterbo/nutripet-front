@@ -14,7 +14,6 @@
   overflow: hidden;
 }
 
-/* menu lateral */
 .perfil-menu {
   width: 250px;
   background: #f9e9dc;
@@ -52,7 +51,6 @@
   stroke: #fff;
 }
 
-/* botão sair */
 .logout-item {
   margin-top: 30px;
   color: #a33c27;
@@ -66,7 +64,6 @@
   color: #a33c27;
 }
 
-/* conteúdo principal */
 .perfil-conteudo {
   flex: 1;
   padding: 40px 60px;

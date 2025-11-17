@@ -1,4 +1,3 @@
-/* CONTAINER DOS SORTEIOS */
 .sorteios-container {
   display: flex;
   flex-direction: column;
@@ -7,7 +6,6 @@
   padding-right: 20px;
 }
 
-/* CARD */
 .sorteio-card {
   display: flex;
   align-items: center;
@@ -24,7 +22,6 @@
   box-shadow: 0px 8px 22px rgba(0,0,0,0.08);
 }
 
-/* IMAGEM */
 .sorteio-img {
   width: 150px;
   height: 150px;
@@ -32,7 +29,6 @@
   object-fit: cover;
 }
 
-/* TEXTO DO CARD */
 .sorteio-info h3 {
   font-size: 22px;
   font-weight: 700;
@@ -47,7 +43,6 @@
   max-width: 350px;
 }
 
-/* BOTÕES */
 .sorteio-btn {
   padding: 12px 22px;
   font-size: 15px;
@@ -57,7 +52,6 @@
   border: none;
 }
 
-/* LIBERADO PARA PARTICIPAÇÃO */
 .sorteio-btn.ativo {
   background: #317537;
   color: #fff;
@@ -68,7 +62,6 @@
   background: #27602c;
 }
 
-/* INDÍSPONIVEL */
 .sorteio-btn.desabilitado {
   background: #e1e1e1;
   color: #777;
@@ -90,7 +83,6 @@
     max-width: 100%;
   }
 }
-/* POP-UP SUAVE */
 .np-popup {
   position: fixed;
   bottom: 40px;
@@ -114,7 +106,6 @@
   100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
 }
 
-/* BOTÃO INSCRITO */
 .sorteio-btn.inscrito {
   background: #cde9cf;
   color: #317537;

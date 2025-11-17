@@ -4,7 +4,6 @@ body {
   color: #4b2e05;
 }
 
-/* Paleta */
 .text-brown { color: #a37c46; }
 .text-maroon { color: #702d1f; }
 .text-beige { color: #cbb48a; }
@@ -20,7 +19,6 @@ body {
   background-color: #8b6a3a;
 }
 
-/* Hero Section */
 .hero-section {
   padding: 4rem 0;
 }
@@ -44,5 +42,5 @@ html {
 }
 
 section {
-  scroll-margin-top: 80px; /* altura da navbar fixa */
+  scroll-margin-top: 80px; 
 }

@@ -22,16 +22,12 @@ export default function Pagamento() {
     });
 
     const [loading, setLoading] = useState(false);
-
-    // PIX
     const [pixCode] = useState("00020126360014BR.GOV.BCB.PIX0114+55999999999...");
     const [timeLeft, setTimeLeft] = useState(6);
     const [showPixCountdown, setShowPixCountdown] = useState(false);
 
     useEffect(() => {
         if (!showPixCountdown) return;
-
-        // Quando chegar a zero → confirma pagamento no backend
         if (timeLeft <= 0) {
             api.post("/assinaturas/webhook", {
                 payment_subscription_id: pixIdRef.current,
@@ -102,8 +98,6 @@ export default function Pagamento() {
 
             <section className="pagamento-section">
                 <div className="pagamento-wrapper">
-
-                    {/* COLUNA ESQUERDA */}
                     <div className="plano-card">
                         <img src={dogIcon} alt="Plano Premium" className="plano-img" />
                         <h3>Plano Premium 🏆</h3>
@@ -121,8 +115,6 @@ export default function Pagamento() {
                             <li>✔ Descontos exclusivos</li>
                         </ul>
                     </div>
-
-                    {/* COLUNA DIREITA */}
                     <div className="pagamento-card">
                         <h2>Finalize sua Assinatura</h2>
                         <p className="descricao">
@@ -141,8 +133,6 @@ export default function Pagamento() {
                             <option value="cartao">Cartão de Crédito</option>
                             <option value="pix">PIX</option>
                         </select>
-
-                        {/* SE PAGAMENTO FOR PIX */}
                         {metodo === "pix" && (
                             <div className="pix-container">
                                 <h3>Pague com PIX</h3>
@@ -165,8 +155,6 @@ export default function Pagamento() {
                                         Já fiz o pagamento
                                     </button>
                                 )}
-
-                                {/* Contador */}
                                 {showPixCountdown && (
                                     <p className="pix-timer">
                                         Validando pagamento... {timeLeft}s
@@ -174,8 +162,6 @@ export default function Pagamento() {
                                 )}
                             </div>
                         )}
-
-                        {/* SE PAGAMENTO FOR CARTÃO */}
                         {metodo === "cartao" && (
                             <form onSubmit={handlePagamento} className="pagamento-form">
 
@@ -235,7 +221,6 @@ export default function Pagamento() {
                     </div>
                 </div>
             </section>
-
             <Footer />
         </>
     );

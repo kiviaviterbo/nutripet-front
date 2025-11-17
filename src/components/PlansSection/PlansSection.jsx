@@ -1,9 +1,7 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import { PawPrint, ShieldCheck, Stethoscope, HeartHandshake, Crown, Users } from "lucide-react";
 import "./PlansSection.css";
-import premiumDog from "../../assets/images/premiumpage.jpg";
-import vetImage from "../../assets/images/vetTeam.png";
+import vetImage from "../../assets/images/premium2.gif";
 
 export default function PlansSection() {
   const navigate = useNavigate();
@@ -21,23 +19,6 @@ export default function PlansSection() {
 
   return (
     <section id="plans" className="plano-premium-section">
-      {/* <div className="hero-premium">
-        <div className="hero-content">
-          <h1>
-            Torne-se <span>Premium</span> e dê o melhor cuidado para o seu pet!
-          </h1>
-          <p>
-            Um plano completo, acessível e pensado para garantir a saúde e o bem-estar dos
-            seus companheiros de quatro patas.
-          </p>
-          <button className="btn-assinar-agora" onClick={handleAssinar}>
-            Assinar agora
-          </button>
-        </div>
-        <div className="hero-image">
-          <img src={premiumDog} alt="Cachorro feliz Premium" />
-        </div>
-      </div> */}
       <div className="vantagens-premium">
         <h2>Por que ser Premium?</h2>
         <div className="vantagens-grid">
@@ -92,7 +73,6 @@ export default function PlansSection() {
             <li>
                Assinatura <strong>trimestral</strong> por <strong>R$ 49,90/mês</strong>.
             </li>
-            {/* <li> Pagamento único a cada 3 meses — simples, rápido e sem burocracia.</li> */}
             <li>
               Cobre até 2 pets por CPF
             </li>
@@ -110,7 +90,7 @@ export default function PlansSection() {
         </div>
 
         <div className="detalhes-imagem">
-          <img src={vetImage} alt="Equipe veterinária" />
+          <img src={vetImage} alt="Nutrição e cuidado" />
         </div>
       </div>
     </section>

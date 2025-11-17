@@ -14,7 +14,7 @@
   overflow: hidden;
 }
 
-/* menu lateral */
+
 .perfil-menu {
   width: 250px;
   background: #f9e9dc;
@@ -52,7 +52,7 @@
   stroke: #fff;
 }
 
-/* botão sair */
+
 .logout-item {
   margin-top: 30px;
   color: #a33c27;
@@ -66,7 +66,6 @@
   color: #a33c27;
 }
 
-/* conteúdo principal */
 .perfil-conteudo {
   flex: 1;
   padding: 40px 60px;
@@ -182,7 +181,7 @@
 .btn-cancel:hover {
   background: #992d2d;
 }
-/* fundo escuro com blur */
+
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -199,7 +198,6 @@
   animation: fadeIn 0.3s ease forwards;
 }
 
-/* caixinha central do popup */
 .popup-box {
   background: #fff;
   padding: 20px 28px;
@@ -223,7 +221,7 @@
   color: #b71c1c;
 }
 
-/* animações */
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }

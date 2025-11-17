@@ -1,7 +1,6 @@
-/* ---------- BASE GERAL ---------- */
 :root {
-  --container: 1100px; /* largura máxima */
-  --gutter: 16px;      /* padding lateral */
+  --container: 1100px; 
+  --gutter: 16px;     
 }
 
 body {
@@ -12,7 +11,6 @@ body {
   padding: 0;
 }
 
-/* ---------- SEÇÃO DE PAGAMENTO ---------- */
 .pagamento-section {
   background-color: #faf8f3;
   justify-content: center;
@@ -32,7 +30,6 @@ body {
   gap: 4rem;
 }
 
-/* ---------- CARD DO PLANO LATERAL ---------- */
 .plano-card {
   flex: 1;
   min-width: 280px;
@@ -93,7 +90,6 @@ body {
   content: "🐾 ";
 }
 
-/* ---------- FORMULÁRIO DE PAGAMENTO ---------- */
 .pagamento-card {
   flex: 1;
   min-width: 320px;
@@ -186,7 +182,6 @@ body {
   box-shadow: 0 6px 16px rgba(245, 166, 35, 0.25);
 }
 
-/* ---------- SEÇÃO DE DÚVIDA ---------- */
 .duvida-section {
   background-color: #fffefb;
   display: flex;
@@ -255,7 +250,6 @@ body {
   transform: translateY(-2px);
 }
 
-/* ---------- RESPONSIVO ---------- */
 @media (max-width: 900px) {
   .pagamento-wrapper {
     flex-direction: column;
@@ -286,10 +280,6 @@ body {
     align-self: center;
   }
 }
-
-/* ======================= */
-/*    ÁREA DE PAGAMENTO PIX */
-/* ======================= */
 
 .pix-container {
   margin-top: 1rem;
@@ -333,7 +323,6 @@ body {
   margin-top: 0.6rem;
 }
 
-/* Botão do PIX */
 .btn-pagar-pix {
   margin-top: 1rem;
   width: 100%;
@@ -354,7 +343,6 @@ body {
   box-shadow: 0 4px 12px rgba(245, 166, 35, 0.25);
 }
 
-/* Timer PIX */
 .pix-timer {
   margin-top: 1.2rem;
   font-size: 1.2rem;
@@ -364,7 +352,6 @@ body {
   animation: pulse 1s infinite ease-in-out;
 }
 
-/* Animações */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -393,22 +380,21 @@ body {
   outline: none;
   box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15);
 }
-/* ===== AJUSTE DO SELECT DE MÉTODO DE PAGAMENTO ===== */
 
 .pagamento-card select {
   width: 100%;
-  max-width: 280px;          /* deixa mais proporcional */
-  padding: 0.7rem 0.9rem;    /* altura menor */
+  max-width: 280px;    
+  padding: 0.7rem 0.9rem;  
   font-size: 0.9rem;
   border-radius: 0.6rem;
   border: 1.5px solid #e4e0d8;
   background: #fdfcf9;
-  margin: 0.3rem auto 1rem;  /* reduz espaço vertical */
+  margin: 0.3rem auto 1rem;  
   display: block;
 }
 
 .pagamento-card label {
-  margin-bottom: -0.4rem;    /* aproxima label do select */
+  margin-bottom: -0.4rem; 
 }
 
 .pagamento-card select:focus {

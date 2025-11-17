@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import PerfilLayout from "../PerfilLayout/PerfilLayout";
 import NutripetNavbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
@@ -13,10 +13,10 @@ export default function MeusDados() {
   const [editMode, setEditMode] = useState(false);
   const [popup, setPopup] = useState({ show: false, type: "", message: "" });
   const formatarDataBR = (dataISO) => {
-  if (!dataISO) return "";
-  const [ano, mes, dia] = dataISO.split("-");
-  return `${dia}/${mes}/${ano}`;
-};
+    if (!dataISO) return "";
+    const [ano, mes, dia] = dataISO.split("-");
+    return `${dia}/${mes}/${ano}`;
+  };
 
 
   const showPopup = (type, message) => {
@@ -41,9 +41,6 @@ export default function MeusDados() {
     celular: "",
   });
 
-  // =============================
-  // FORMATADORES
-  // =============================
   const formatarCEP = (value) =>
     value.replace(/\D/g, "").slice(0, 8).replace(/(\d{5})(\d{1,3})/, "$1-$2");
 
@@ -53,9 +50,6 @@ export default function MeusDados() {
       .slice(0, 11)
       .replace(/(\d{2})(\d{1})(\d{4})(\d{1,4})/, "($1) $2$3-$4");
 
-  // =============================
-  // CARREGAR DADOS
-  // =============================
   useEffect(() => {
     (async () => {
       try {
@@ -81,9 +75,6 @@ export default function MeusDados() {
     })();
   }, []);
 
-  // =============================
-  // ATUALIZAR FORM
-  // =============================
   const handleChange = (e) => {
     let { name, value } = e.target;
 
@@ -93,9 +84,6 @@ export default function MeusDados() {
     setForm({ ...form, [name]: value });
   };
 
-  // =============================
-  // SALVAR ALTERAÇÕES
-  // =============================
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -107,7 +95,7 @@ export default function MeusDados() {
 
       showPopup("success", "Dados atualizados com sucesso!");
 
-      setEditMode(false); // volta pro modo visualização
+      setEditMode(false);
     } catch (err) {
       console.error(err);
       showPopup("error", "Erro ao atualizar dados.");
@@ -122,10 +110,6 @@ export default function MeusDados() {
     { label: "Minha Assinatura", icon: <CreditCard size={18} />, path: "/usuario/assinatura" },
     { label: "Alterar Senha", icon: <KeyRound size={18} />, path: "/usuario/senha" },
   ];
-
-  // =============================
-  // COMPONENTE DE LINHA (Bonito)
-  // =============================
   const InfoRow = ({ label, value }) => (
     <div className="info-row">
       <strong>{label}</strong>
@@ -146,16 +130,12 @@ export default function MeusDados() {
           </div>
         )}
         <h2 className="titulo">Meus Dados</h2>
-
-        {/* ==========================
-            VISUALIZAÇÃO PROFISSIONAL
-        ============================*/}
         {!editMode && (
           <div className="dados-box">
             <InfoRow label="Nome" value={form.nome} />
             <InfoRow label="Email" value={form.email} />
             <InfoRow label="Celular" value={form.celular} />
-           <InfoRow label="Data de Nascimento" value={formatarDataBR(form.data_nascimento)} />
+            <InfoRow label="Data de Nascimento" value={formatarDataBR(form.data_nascimento)} />
             <InfoRow label="CEP" value={form.cep} />
             <InfoRow label="Endereço" value={form.endereco} />
             <InfoRow label="Número" value={form.numero} />
@@ -170,9 +150,6 @@ export default function MeusDados() {
           </div>
         )}
 
-        {/* ==========================
-            MODO DE EDIÇÃO
-        ============================*/}
         {editMode && (
           <form className="perfil-form" onSubmit={handleSubmit}>
             <label>Nome</label>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import NutripetNavbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import PerfilLayout from "../PerfilLayout/PerfilLayout";
@@ -39,8 +39,12 @@ export default function MinhasConsultas() {
         ) : (
           consultas.map((c) => (
             <div key={c.id} className="timeline-container">
-              <h3 className="timeline-title">Consulta #{c.id}</h3>
-
+              <h3 className="timeline-title">
+                {c.nome_pet
+                  ? <>Consulta <strong>{c.nome_pet}</strong> (#{c.id})</>
+                  : <>Consulta #{c.id}</>
+                }
+              </h3>
               <div className="timeline-status">
                 <div className="timeline-line" />
 
@@ -71,18 +75,17 @@ export default function MinhasConsultas() {
 
                 <div className="consulta-finalizada-box">
                   <p className="nc-file-hint">
-                      A receita abaixo foi elaborada com base nas
-                      <strong> informações preenchidas no formulário </strong>
-                      e avaliação de um
-                      <strong> nutricionista veterinário especializado.</strong>
-                      Caso tenha dúvidas ou deseje solicitar ajustes,
-                      entre em contato através do nosso{" "}
-                      <a href="/usuario/consultas/saq" className="nc-link-saQ">
-                        Serviço de Atendimento (SAQ)
-                      </a>.
-                    </p>
+                    A receita abaixo foi elaborada com base nas
+                    <strong> informações preenchidas no formulário </strong>
+                    e avaliação de um
+                    <strong> nutricionista veterinário especializado.</strong>
+                    Caso tenha dúvidas ou deseje solicitar ajustes,
+                    entre em contato através do nosso{" "}
+                    <a href="/usuario/consultas/saq" className="nc-link-saQ">
+                      Serviço de Atendimento (SAC)
+                    </a>.
+                  </p>
 
-                  {/* 🔥 DOWNLOAD REAL FORÇADO */}
                   <button
                     className="btn-assinar"
                     onClick={() => {

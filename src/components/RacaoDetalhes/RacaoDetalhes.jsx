@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import NutripetNavbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import api from "../../services/api";
 import "./RacaoDetalhes.css";
-//import fallbackImg from "../../assets/images/tabelanutricional.gif";
 import premiumGif from "../../assets/images/premium.gif";
 
 export default function RacaoDetalhes() {
@@ -41,21 +40,16 @@ export default function RacaoDetalhes() {
 
   if (loading) return <p className="loading">Carregando...</p>;
   if (!racao) return <p className="no-results">Ração não encontrada.</p>;
-
-  // 🔹 Detecta se é ração úmida
   const isUmida =
     racao.tipo?.toLowerCase().includes("úmida") ||
     racao.tipo?.toLowerCase().includes("umida");
-
-  // 🔹 Busca umidade (usada apenas se for úmida)
   const umidadeItem = racao.nutrientes?.find((n) => /umidade/i.test(n.nome));
   const umidade = umidadeItem
     ? parseFloat(String(umidadeItem.valor).replace(",", "."))
-    : 80; // padrão se não vier no backend
+    : 80; 
 
   const MS = 1 - umidade / 100;
 
-  // 🔹 Converte automaticamente se for úmida
   const converterValor = (valorOriginal, nome) => {
     if (!isUmida) return valorOriginal; // não altera rações secas
 
@@ -78,7 +72,6 @@ export default function RacaoDetalhes() {
 
       <section className="racao-detalhes-section">
         <div className="racao-container">
-          {/* 🔹 Cabeçalho */}
           <div className="racao-header">
             <img
               src={racao.imagem_url}
@@ -95,8 +88,6 @@ export default function RacaoDetalhes() {
               </p>
             </div>
           </div>
-
-          {/* 🔹 Tabela completa */}
           <div className="tabela-wrapper">
             <h2 className="tabela-titulo">
               Tabela Nutricional{" "}
@@ -140,9 +131,6 @@ export default function RacaoDetalhes() {
                 ))}
               </tbody>
             </table>
-
-
-            {/* 🔹 Aviso só para rações úmidas */}
             {isUmida && (
               <div className="dmb-info">
                 <p>
@@ -155,8 +143,6 @@ export default function RacaoDetalhes() {
               </div>
             )}
           </div>
-
-          {/* 🔹 Tabela de avaliação */}
           <div className="tabela-wrapper">
             <h2 className="tabela-titulo">Avaliação Nutricional</h2>
             <table className="tabela-avaliacao">
@@ -187,8 +173,6 @@ export default function RacaoDetalhes() {
           </div>
         </div>
       </section>
-
-      {/* 🔹 Seção Premium */}
       <div className="premium-wrapper">
         <div className="premium-section">
           <img src={premiumGif} alt="Seja Premium" className="premium-gif" />
