@@ -11,7 +11,6 @@ export default function Cupons() {
   const [assinatura, setAssinatura] = useState(null);
   const [loading, setLoading] = useState(true);
   const [popupCopiado, setPopupCopiado] = useState(false);
-
   const menuPromos = [
     { label: "Cupons", icon: <Tag size={18} />, path: "/usuario/cupons" },
     { label: "Sorteios", icon: <Gift size={18} />, path: "/usuario/sorteios" },
@@ -32,9 +31,7 @@ export default function Cupons() {
   }, []);
 
   if (loading) return;
-
   const isPremium = assinatura?.ativo;
-
   if (!isPremium) {
     return (
       <>
@@ -52,7 +49,6 @@ export default function Cupons() {
       </>
     );
   }
-
   const cupons = [
     {
       porcentagem: "10%",
@@ -88,7 +84,6 @@ export default function Cupons() {
 
       <PerfilLayout menu={menuPromos}>
         <h2 className="titulo">Cupons de Desconto</h2>
-
         <div className="promo-content">
           {cupons.map((c, i) => (
             <div className="promo-card" key={i}>
@@ -104,19 +99,16 @@ export default function Cupons() {
                 <h3>{c.titulo}</h3>
                 <p>{c.descricao}</p>
               </div>
-
               <button className="promo-code-btn" onClick={() => copiar(c.codigo)}>
                 <span className="codigo">{c.codigo}</span>
                 <small>Clique e Copie</small>
               </button>
-
             </div>
           ))}
         </div>
       </PerfilLayout>
 
       <Footer />
-
       {popupCopiado && <div className="np-popup">Código copiado!</div>}
     </>
   );

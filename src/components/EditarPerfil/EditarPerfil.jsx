@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import NutripetNavbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import './EditarPerfil.css';

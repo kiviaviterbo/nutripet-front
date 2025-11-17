@@ -1,5 +1,5 @@
 .auth-section {
-  background-color: #fff9ef; /* bege suave */
+  background-color: #fff9ef;
   min-height: 100vh;
   padding: 5rem 1rem;
   display: flex;
@@ -7,7 +7,6 @@
   justify-content: center;
 }
 
-/* Imagem lateral */
 .auth-image {
   width: 100%;
   max-width: 480px;
@@ -20,7 +19,6 @@
   transform: scale(1.03);
 }
 
-/* Caixa do formulário */
 .auth-box {
   max-width: 450px;
   margin: 0 auto;
@@ -35,7 +33,6 @@
   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
 }
 
-/* Títulos e textos */
 .text-maroon {
   color: #702d1f;
 }
@@ -56,7 +53,6 @@
   margin-bottom: 1.5rem;
 }
 
-/* Botão principal */
 .btn-brown {
   background-color: #a37c46;
   color: white;
@@ -73,7 +69,6 @@
   transform: translateY(-2px);
 }
 
-/* Botão de alternar Login/Cadastro */
 .link-button {
   background: none;
   border: none;
@@ -88,9 +83,6 @@
   text-decoration: underline;
 }
 
-/* Responsividade */
-
-/* --- Tablets e notebooks médios --- */
 @media (max-width: 991px) {
   .auth-section {
     padding: 4rem 1.5rem;
@@ -107,7 +99,6 @@
   }
 }
 
-/* --- Celulares --- */
 @media (max-width: 576px) {
   .auth-section {
     padding: 2rem 1rem;

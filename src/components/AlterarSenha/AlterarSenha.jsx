@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PerfilLayout from "../PerfilLayout/PerfilLayout";
 import "../../assets/styles/perfil.css"
 import NutripetNavbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import { User, FileText, CreditCard, KeyRound} from "lucide-react";
+import { User, FileText, CreditCard, KeyRound } from "lucide-react";
 import api from "../../services/api";
 
 export default function AlterarSenha() {
@@ -46,8 +46,6 @@ export default function AlterarSenha() {
         senhaAtual: form.senhaAtual,
         novaSenha: form.novaSenha,
       });
-
-      // 👉 Mostrar o modal bonito
       setShowSuccessModal(true);
 
     } catch (err) {
@@ -108,7 +106,6 @@ export default function AlterarSenha() {
 
       <Footer />
 
-      {/* === POP-UP DE SUCESSO (MESMO ESTILO DO LOGOUT) === */}
       {showSuccessModal && (
         <div className="logout-modal-overlay">
           <div className="logout-modal-card">

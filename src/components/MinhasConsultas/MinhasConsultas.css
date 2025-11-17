@@ -95,9 +95,6 @@
 .btn-assinar:hover {
   background-color: #5d2016;
 }
-/* -------------------- */
-
-/* Usa o mesmo layout da página Minha Assinatura */
 
 .timeline-container {
   background: #fff;
@@ -115,7 +112,6 @@
   margin-bottom: 25px;
 }
 
-/* Mantém TODA a timeline exatamente igual */
 .timeline-status {
   display: flex;
   justify-content: space-between;

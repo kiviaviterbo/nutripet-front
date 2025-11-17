@@ -23,9 +23,16 @@
 
 .text-gradient {
   background: linear-gradient(90deg, #c19a6b, #a37c46);
+  background-clip: text;
+  color: transparent;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
 
 .navlink-modern {
   color: #5c4536 !important;
@@ -41,8 +48,6 @@
   color: #a37c46 !important;
   transform: translateY(-1px);
 }
-
-/* Dropdown */
 .dropdown-menu {
   border-radius: 14px;
   border: 1px solid rgba(163, 124, 70, 0.15);
@@ -97,7 +102,6 @@
   }
 }
 
-/* Botões */
 .btn-outline-brown-modern {
   color: #a37c46;
   border: 2px solid #a37c46;
@@ -129,7 +133,6 @@
   box-shadow: 0 4px 12px rgba(123, 46, 31, 0.3);
 }
 
-/* Mobile */
 @media (max-width: 992px) {
   .navbar-collapse {
     background: rgba(255, 249, 239, 0.98);
@@ -150,23 +153,15 @@
     margin-top: 0.4rem;
   }
 }
-/* =========================================
-   🔧 ALINHAMENTO PRECISO DOS ITENS DA NAVBAR
-========================================= */
-
-/* Força todos os elementos da navbar (links, dropdowns, botões)
-   a terem o mesmo alinhamento vertical */
 .navbar .navbar-nav {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
-
-/* Corrige altura e padding dos dropdowns ("Meu Pet" e "Meu Perfil") */
 .navbar .nav-item.dropdown {
   display: flex;
   align-items: center;
-  height: 38px; /* mesma altura do botão "Seja Premium" */
+  height: 38px;
   margin: 0;
   padding: 0;
 }
@@ -181,8 +176,6 @@
   border: none !important;
   font-weight: 500;
 }
-
-/* Alinha o caret e o ícone Lucide */
 .navbar .dropdown-toggle svg {
   margin-bottom: 1px;
 }
@@ -193,7 +186,6 @@
   margin-top: -2px;
 }
 
-/* Ajuste dos botões Premium e Login pra mesma linha */
 .btn-outline-brown-modern,
 .btn-brown-modern,
 .btn-premium-left {
@@ -206,7 +198,6 @@
   line-height: 1;
 }
 
-/* ---- LOGOUT OVERLAY ---- */
 .logout-overlay {
   position: fixed;
   top: 0;
@@ -227,7 +218,6 @@
   to   { opacity: 1; }
 }
 
-/* ---- POPUP ---- */
 .logout-popup {
   background: #fff7f3;
   padding: 35px 45px;
@@ -261,7 +251,6 @@
   margin-bottom: 25px;
 }
 
-/* ---- BUTTONS ---- */
 .logout-buttons {
   display: flex;
   justify-content: center;

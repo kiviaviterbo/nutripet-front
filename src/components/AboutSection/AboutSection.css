@@ -1,9 +1,8 @@
 .about-section {
-  background-color: #fff9ef; /* Bege suave */
-  padding: 5rem 1rem;
+  background-color: #fff9ef;
+  padding: 1rem 1rem 4rem;
 }
 
-/* Imagem */
 .about-image-wrapper {
   position: relative;
   display: flex;
@@ -24,7 +23,6 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Texto */
 .about-text {
   color: #5c4c3d;
   font-family: 'Poppins', sans-serif;
@@ -52,7 +50,7 @@
   line-height: 1.8;
   margin-bottom: 1rem;
 }
-/* Estilos exclusivos para a imagem inicial.jpg */
+
 .about-image-inicial {
   width: 75%;  
   max-width: 600px; 
@@ -72,7 +70,6 @@
   scale: 1 !important;
 }
 
-/* Responsividade */
 @media (max-width: 991px) {
   .about-section {
     text-align: center;

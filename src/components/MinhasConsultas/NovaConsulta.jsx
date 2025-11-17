@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import NutripetNavbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
@@ -11,13 +11,11 @@ import { FileText, KeyRound } from "lucide-react";
 
 export default function NovaConsulta() {
   const user = JSON.parse(localStorage.getItem("user")) || {};
-
+  const [infoAdicionais, setInfoAdicionais] = useState("");
   const [limitePopup, setLimitePopup] = useState(false);
   const [limiteMsg, setLimiteMsg] = useState("");
   const navigate = useNavigate();
 
-
-  // 🔥 NOVO: mesma lógica de MinhaAssinatura
   const [assinatura, setAssinatura] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -50,7 +48,6 @@ export default function NovaConsulta() {
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [successPopup, setSuccessPopup] = useState(false);
 
-  // 🔥 BUSCA O STATUS DA ASSINATURA NO BACKEND (igual MinhaAssinatura)
   useEffect(() => {
     async function carregarStatus() {
       try {
@@ -87,45 +84,34 @@ export default function NovaConsulta() {
   };
 
   const enviarConsulta = async () => {
-  try {
-    const form = new FormData();
-    Object.entries(formData).forEach(([k, v]) => form.append(k, v));
-    form.append("usuario_id", user.id);
-    form.append("documento", documento);
+    try {
+      const form = new FormData();
+      Object.entries(formData).forEach(([k, v]) => form.append(k, v));
+      form.append("usuario_id", user.id);
+      form.append("documento", documento);
 
-    await api.post("/consultas", form);
+      await api.post("/consultas", form);
+      setConfirmOpen(false);
+      setSuccessPopup(true);
+      navigate("/usuario/consultas");
 
-    setConfirmOpen(false);
+    } catch (err) {
+      setConfirmOpen(false);
 
-    // Popup opcional — pode remover se quiser redirecionar direto
-    setSuccessPopup(true);
+      if (err.response?.status === 403) {
+        const msg =
+          err.response.data?.msg ||
+          "Limite atingido: máximo de 2 consultas por CPF cadastrado. Aguarde a renovação do contrato.";
 
-    // Redirecionamento imediato
-    navigate("/usuario/consultas");
+        setLimiteMsg(msg);
+        setLimitePopup(true);
+        return;
+      }
 
-  } catch (err) {
-    setConfirmOpen(false);
-
-    if (err.response?.status === 403) {
-      const msg =
-        err.response.data?.msg ||
-        "Limite atingido: máximo de 2 consultas por CPF cadastrado. Aguarde a renovação do contrato.";
-
-      setLimiteMsg(msg);
+      setLimiteMsg("Erro ao enviar consulta. Tente novamente mais tarde.");
       setLimitePopup(true);
-      return;
     }
-
-    setLimiteMsg("Erro ao enviar consulta. Tente novamente mais tarde.");
-    setLimitePopup(true);
-  }
-};
-
-  // =========================
-  // ESTADOS ESPECIAIS
-  // =========================
-
-  // ⏳ Carregando status da assinatura
+  };
   if (loading) {
     return (
       <>
@@ -141,8 +127,6 @@ export default function NovaConsulta() {
 
   const dados = assinatura?.assinatura;
   const isPremium = !!dados && assinatura?.ativo;
-
-  // 🔴 Usuário NÃO é Premium → mesma ideia da tela MinhaAssinatura
   if (!isPremium) {
     return (
       <>
@@ -168,7 +152,6 @@ export default function NovaConsulta() {
     );
   }
 
-  // ✅ Usuário Premium → mostra formulário normal
   return (
     <>
       <NutripetNavbar />
@@ -177,7 +160,6 @@ export default function NovaConsulta() {
         <h2 className="titulo">Nova Consulta</h2>
 
         <form className="nc-form" onSubmit={(e) => e.preventDefault()}>
-          {/* Nome */}
           <label className="nc-label">Nome do Pet</label>
           <input
             className="nc-input"
@@ -185,8 +167,6 @@ export default function NovaConsulta() {
             value={formData.nome_pet}
             onChange={(e) => setFormData({ ...formData, nome_pet: e.target.value })}
           />
-
-          {/* Peso */}
           <label className="nc-label">Peso (kg)</label>
           <input
             className="nc-input"
@@ -194,8 +174,6 @@ export default function NovaConsulta() {
             value={formData.peso}
             onChange={(e) => setFormData({ ...formData, peso: e.target.value })}
           />
-
-          {/* Espécie */}
           <label className="nc-label">Espécie</label>
           <select
             className="nc-input"
@@ -206,8 +184,6 @@ export default function NovaConsulta() {
             <option value="canino">Canino</option>
             <option value="felino">Felino</option>
           </select>
-
-          {/* Gênero */}
           <label className="nc-label">Gênero</label>
           <div className="nc-radio-group">
             <label>
@@ -229,8 +205,6 @@ export default function NovaConsulta() {
               Fêmea
             </label>
           </div>
-
-          {/* Raça */}
           <label className="nc-label">Raça</label>
           <input
             className="nc-input"
@@ -238,8 +212,6 @@ export default function NovaConsulta() {
             value={formData.raca}
             onChange={(e) => setFormData({ ...formData, raca: e.target.value })}
           />
-
-          {/* Booleans */}
           <h3 className="nc-subtitle">Selecione as Condições do Pet</h3>
 
           <div className="nc-checkbox-grid">
@@ -287,10 +259,14 @@ export default function NovaConsulta() {
                 );
               })}
           </div>
-
-          {/* PDF */}
+          <label className="nc-label">Informações Adicionais</label>
+          <textarea
+            className="nc-textarea"
+            placeholder="Digite aqui informações extras sobre o pet, comportamento, rotina, alimentação atual, observações importantes..."
+            value={infoAdicionais}
+            onChange={(e) => setInfoAdicionais(e.target.value)}
+          />
           <label className="nc-label">Documento (PDF)</label>
-
           <p className="nc-file-hint">
             Envie um arquivo em <strong>formato PDF</strong> contendo o{" "}
             <strong>histórico de exames</strong> e
@@ -298,15 +274,12 @@ export default function NovaConsulta() {
             <strong>6 meses</strong>. Esse documento é importante para que o
             nutricionista avalie corretamente a saúde do seu pet.
           </p>
-
           <input
             className="nc-file"
             type="file"
             accept="application/pdf"
             onChange={(e) => setDocumento(e.target.files[0])}
           />
-
-          {/* Botão */}
           <button
             type="button"
             className="nc-submit-btn"
@@ -318,8 +291,6 @@ export default function NovaConsulta() {
       </PerfilLayout>
 
       <Footer />
-
-      {/* Modal de confirmação */}
       {confirmOpen && (
         <div className="nc-modal-overlay">
           <div className="nc-modal">
@@ -343,13 +314,9 @@ export default function NovaConsulta() {
           </div>
         </div>
       )}
-
-      {/* Popup Sucesso */}
       {successPopup && (
         <div className="nc-popup">Consulta enviada com sucesso!</div>
       )}
-
-      {/* Popup de Limite */}
       {limitePopup && (
         <div
           className="nc-limit-overlay"

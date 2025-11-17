@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Navbar, Nav, NavDropdown, Container, Button } from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
 import { UserCircle2 } from "lucide-react";
@@ -7,13 +7,9 @@ import "./Navbar.css";
 export default function NutripetNavbar() {
   const navigate = useNavigate();
   const location = useLocation();
-
   const [showDropdown, setShowDropdown] = useState(null);
   const timeoutRef = useRef(null);
-
-  // Popup de logout
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
-
   const handleMouseEnter = (menu) => {
     clearTimeout(timeoutRef.current);
     setShowDropdown(menu);
@@ -134,32 +130,24 @@ export default function NutripetNavbar() {
                   onMouseEnter={() => handleMouseEnter("perfil")}
                   onMouseLeave={handleMouseLeave}
                 >
-
-                  {/* Meus Dados */}
                   <button
                     className="dropdown-item-modern"
                     onClick={() => handleNavigate("/usuario/meusdados")}
                   >
                     Meus Dados e Assinatura
                   </button>
-
-                  {/* Meu Pet */}
                   <button
                     className="dropdown-item-modern"
                     onClick={() => handleNavigate("/usuario/meupet")}
                   >
                     Meus Pets
                   </button>
-
-                  {/* Minhas Consultas */}
                   <button
                     className="dropdown-item-modern"
                     onClick={() => handleNavigate("/usuario/consultas")}
                   >
                     Minhas Consultas
                   </button>
-
-                  {/* Promoções */}
                   <button
                     className="dropdown-item-modern"
                     onClick={() => handleNavigate("/usuario/cupons")}
@@ -168,8 +156,6 @@ export default function NutripetNavbar() {
                   </button>
 
                   <div className="dropdown-divider"></div>
-
-                  {/* Sair */}
                   <button
                     className="dropdown-item-modern text-danger"
                     onClick={() => {

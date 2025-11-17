@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import NutripetNavbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import PerfilLayout from "../PerfilLayout/PerfilLayout";
@@ -90,19 +90,10 @@ export default function Sorteios() {
     ];
 
     const participar = (id, titulo) => {
-
-        // evita duplicação (mock bem feito)
         if (inscricoes.includes(id)) return;
-
         const novasInscricoes = [...inscricoes, id];
-
-        // atualiza estado
         setInscricoes(novasInscricoes);
-
-        // salva no localStorage
         localStorage.setItem("inscricoes_sorteio", JSON.stringify(novasInscricoes));
-
-        // pop-up mockado
         setPopup(`Inscrição confirmada para "${titulo}"!`);
         setTimeout(() => setPopup(false), 2200);
     };

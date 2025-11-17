@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Container, Row, Col, Form, Button, Alert, Spinner } from 'react-bootstrap';
 import './AuthPage.css';
 import cadastro from '../../assets/images/cadastro.gif';
@@ -71,7 +71,6 @@ export default function AuthPage() {
     return resto === parseInt(cpf.substring(10, 11));
   };
 
-  // SUBMIT
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage({ type: '', text: '' });
@@ -97,7 +96,6 @@ export default function AuthPage() {
       setLoading(true);
 
       if (isLogin) {
-        // LOGIN
         const res = await api.post('/login', {
           email: formData.email,
           senha: formData.senha,

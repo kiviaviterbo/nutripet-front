@@ -1,14 +1,7 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-  useLocation,
-} from 'react-router-dom';
+import {BrowserRouter as Router,Routes,Route,Navigate,useLocation,} from 'react-router-dom';
 import Home from './pages/Home';
 import AuthPage from './components/AuthPage/AuthPage';
 import NutritionTable from './components/NutritionTable/NutritionTable';
-//import MeuPet from './components/MeuPet/MeuPet';
 import CadastrarPet from './components/MeuPet/CadastrarPet';
 import MeusPets from './components/MeuPet/MeusPets';
 import RacaoDetalhes from "./components/RacaoDetalhes/RacaoDetalhes";
@@ -45,22 +38,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/nutritiontable" element={<NutritionTable />} />
-        <Route
-          path="/usuario/meupet/cadastrar"
-          element={
-            <PrivateRoute>
-              <CadastrarPet />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="usuario/meupet"
-          element={
-            <PrivateRoute>
-              <MeusPets />
-            </PrivateRoute>
-          }
-        />
+        <Route path="/usuario/meupet/cadastrar"element={<PrivateRoute><CadastrarPet /> </PrivateRoute>}/>
+        <Route path="usuario/meupet" element={ <PrivateRoute>  <MeusPets /></PrivateRoute> } />
         <Route path="/racao/:id" element={<RacaoDetalhes />} />
         <Route path="/usuario/editar" element={<EditarPerfil />} />
         <Route path="/usuario/consultas" element={<MinhasConsultas />} />

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import {useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import NutripetNavbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import PerfilLayout from "../PerfilLayout/PerfilLayout";
@@ -55,7 +55,6 @@ export default function MinhaAssinatura() {
 
   const dados = assinatura?.assinatura;
 
-  // 🔴 Usuário não é Premium
   if (!dados || !assinatura?.ativo) {
     return (
       <>
@@ -80,34 +79,28 @@ export default function MinhaAssinatura() {
     );
   }
 
-  // ID da assinatura ativa (vindo do backend)
   const assinaturaId = dados.id;
+  const handleConfirmCancel = async () => {
+    try {
+      setCancelLoading(true);
 
- const handleConfirmCancel = async () => {
-  try {
-    setCancelLoading(true);
+      await api.post(`/assinaturas/cancelar/${assinaturaId}`);
 
-    // Chama a rota correta
-    await api.post(`/assinaturas/cancelar/${assinaturaId}`);
+      setAssinatura(null);
 
-    // Remove assinatura completamente do estado
-    setAssinatura(null);
+      const updatedUser = { ...user, plano: "free", premium_expira_em: null };
+      localStorage.setItem("user", JSON.stringify(updatedUser));
 
-    // Atualiza usuário no localStorage (volta para free)
-    const updatedUser = { ...user, plano: "free", premium_expira_em: null };
-    localStorage.setItem("user", JSON.stringify(updatedUser));
-
-    setShowCancelModal(false);
-    setShowCancelSuccess(true);
-    setTimeout(() => setShowCancelSuccess(false), 3000);
-  } catch (err) {
-    console.error(err);
-    alert("Erro ao cancelar assinatura. Tente novamente.");
-  } finally {
-    setCancelLoading(false);
-  }
-};
-
+      setShowCancelModal(false);
+      setShowCancelSuccess(true);
+      setTimeout(() => setShowCancelSuccess(false), 3000);
+    } catch (err) {
+      console.error(err);
+      alert("Erro ao cancelar assinatura. Tente novamente.");
+    } finally {
+      setCancelLoading(false);
+    }
+  };
 
   return (
     <>
@@ -122,7 +115,6 @@ export default function MinhaAssinatura() {
           <div className="timeline-status">
             <div className="timeline-line" />
 
-            {/* Pedido Realizado */}
             <div className="timeline-step">
               <div className="timeline-step-icon">📝</div>
               <p>Pedido realizado</p>
@@ -131,7 +123,6 @@ export default function MinhaAssinatura() {
               </small>
             </div>
 
-            {/* Pagamento confirmado */}
             <div className="timeline-step">
               <div className="timeline-step-icon">💰</div>
               <p>Pagamento confirmado</p>
@@ -140,7 +131,6 @@ export default function MinhaAssinatura() {
               </small>
             </div>
 
-            {/* Assinatura ativa */}
             <div className="timeline-step">
               <div className="timeline-step-icon">✔️</div>
               <p>Assinatura Premium efetuada</p>
@@ -175,14 +165,12 @@ export default function MinhaAssinatura() {
 
       <Footer />
 
-      {/* 🔸 Popup de sucesso de cancelamento */}
       {showCancelSuccess && (
         <div className="popup-success">
           Assinatura cancelada com sucesso.
         </div>
       )}
 
-      {/* 🔸 Modal de confirmação de cancelamento (reaproveitando estilo global) */}
       {showCancelModal && (
         <div
           className="logout-modal-overlay"

@@ -1,133 +1,96 @@
-/* ===== CSS ISOLADO – SAQ ===== */
+.saq-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.saq-header h2 {
+  color: #7b2e1f;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.saq-header p {
+  margin-top: 5px;
+  color: #5c4536;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.saq-card {
+  background: #fff;
+  padding: 35px;
+  border-radius: 22px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
+  max-width: 750px;
+  margin: 0 auto 40px;
+}
 
 .saq-form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 
-.saq-label {
+.saq-group label {
   font-weight: 600;
   color: #7b2e1f;
+  margin-bottom: 5px;
 }
 
-.saq-input,
-.saq-textarea {
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-}
-
-.saq-textarea {
-  min-height: 120px;
-}
-
-.saq-btn {
-  margin-top: 20px;
-  background: #7b2e1f;
-  color: white;
-  padding: 12px;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.saq-popup {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: #317537;
-  color: white;
-  padding: 14px 22px;
-  border-radius: 12px;
-  font-weight: 600;
-}
-.saq-form {
-  background: #fff;
-  padding: 35px 40px;
-  border-radius: 20px;
-  max-width: 650px;
-  margin: 0 auto;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-}
-
-.saq-label {
-  font-weight: 600;
-  color: #7b2e1f;
-  display: block;
-  margin-bottom: 6px;
-  text-align: left;
-  margin-top: 12px;
-}
-
-.saq-input,
-.saq-textarea {
+.saq-group input,
+.saq-group select,
+.saq-group textarea {
   width: 100%;
-  padding: 12px 14px;
-  border: 1px solid #d7c8ba;
-  border-radius: 10px;
+  padding: 13px 15px;
+  border: 1px solid #dacbbb;
+  border-radius: 12px;
+  transition: all 0.2s ease;
   font-size: 1rem;
-  margin-bottom: 10px;
-  transition: 0.2s ease;
 }
 
-.saq-input:focus,
-.saq-textarea:focus {
-  border-color: #7b2e1f;
-  outline: none;
-  box-shadow: 0 0 4px rgba(123, 46, 31, 0.25);
-}
-
-.saq-textarea {
+.saq-group textarea {
   height: 130px;
   resize: none;
 }
 
+.saq-group input:focus,
+.saq-group select:focus,
+.saq-group textarea:focus {
+  border-color: #7b2e1f;
+  box-shadow: 0 0 5px rgba(123, 46, 31, 0.25);
+}
+
 .saq-btn {
-  margin-top: 20px;
-  width: 100%;
-  background-color: #7b2e1f;
+  background: #7b2e1f;
   color: #fff;
-  border: none;
-  padding: 14px 24px;
+  padding: 14px;
   border-radius: 12px;
   font-weight: 700;
+  border: none;
   cursor: pointer;
-  transition: 0.25s ease;
+  transition: 0.3s;
 }
 
 .saq-btn:hover {
-  background-color: #5d2016;
+  background: #5a1f15;
 }
 
-/* POPUP de Sucesso (estilo premium) */
-.saq-popup {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #317537;
-  color: #fff;
-  padding: 18px 26px;
-  border-radius: 12px;
-  font-size: 1rem;
-  font-weight: 600;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-  animation: saqPopup 0.3s ease;
-  z-index: 9999;
+.rogerinho-help {
+  margin: 40px auto 0;
+  text-align: center;
 }
 
-@keyframes saqPopup {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.rogerinho-help img {
+  width: 92%;
+  max-width: 1000px;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: 0.25s ease;
 }
-/* ========= POPUP COM BLUR ========= */
+
+.rogerinho-help img:hover {
+  transform: scale(1.01);
+}
 
 .popup-overlay {
   position: fixed;
@@ -142,20 +105,16 @@
   align-items: flex-start;
   padding-top: 120px;
   z-index: 3000;
-  animation: fadeIn 0.3s ease forwards;
 }
 
 .popup-box {
   background: #fff;
   padding: 20px 28px;
   border-radius: 15px;
-  font-size: 16px;
   font-weight: 600;
   max-width: 360px;
-  width: 90%;
   text-align: center;
   box-shadow: 0 6px 22px rgba(0,0,0,0.18);
-  animation: slideDown 0.25s ease forwards;
 }
 
 .popup-overlay.success .popup-box {
@@ -167,14 +126,11 @@
   border-left: 6px solid #b71c1c;
   color: #b71c1c;
 }
-
-/* Animações */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.saq-header {
+  text-align: center;
 }
 
-@keyframes slideDown {
-  from { transform: translateY(-20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+.saq-form,
+.saq-group label {
+  text-align: left;
 }

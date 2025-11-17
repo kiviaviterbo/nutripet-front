@@ -3,7 +3,6 @@
   scroll-margin-top: 100px;
 }
 
-/* hero section */
 .hero-premium {
   display: flex;
   align-items: center;
@@ -55,7 +54,6 @@
   box-shadow: 0 4px 14px rgba(163, 124, 70, 0.25);
 }
 
-/* vantagens section */
 .vantagens-premium {
   background: #fff;
   padding: 80px 40px;
@@ -106,7 +104,6 @@
   font-size: 0.95rem;
 }
 
-/* detalhes do plano */
 .detalhes-plano {
   display: flex;
   align-items: center;
@@ -135,7 +132,7 @@
 }
 
 .detalhes-imagem img {
-  width: 400px;
+  width: 480px;
   border-radius: 20px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
@@ -146,7 +143,6 @@
   padding: 16px 40px;
 }
 
-/* responsivo */
 @media (max-width: 992px) {
   .hero-premium, .detalhes-plano {
     flex-direction: column;

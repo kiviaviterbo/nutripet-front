@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import NutripetNavbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import api from "../../services/api";
 import "./NutritionTable.css";
 import { useNavigate } from "react-router-dom";
-//import tabelanutricional from "../../assets/images/tabelanutricional.gif";
 
 export default function NutritionTable() {
   const [feeds, setFeeds] = useState([]);
@@ -26,7 +25,6 @@ export default function NutritionTable() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // 🔹 Carregar filtros
   useEffect(() => {
     async function carregarFiltros() {
       try {
@@ -100,7 +98,6 @@ export default function NutritionTable() {
       <NutripetNavbar />
       <section className="nutrition-section">
         <div className="nutrition-container">
-          {/* ==== SIDEBAR ==== */}
           <aside className="sidebar">
             <h4 className="sidebar-title">Filtros</h4>
 
@@ -139,8 +136,6 @@ export default function NutritionTable() {
               Limpar filtros
             </button>
           </aside>
-
-          {/* ==== CONTEÚDO PRINCIPAL ==== */}
           <main className="content">
             <div className="header-content">
               <div>
@@ -160,8 +155,6 @@ export default function NutritionTable() {
                 </select>
               </div>
             </div>
-
-            {/* === CAMPO DE BUSCA === */}
             <div className="search-box">
               <input
                 type="text"

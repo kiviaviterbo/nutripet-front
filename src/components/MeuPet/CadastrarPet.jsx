@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import NutripetNavbar from "../Navbar/Navbar";
 import PerfilLayout from "../PerfilLayout/PerfilLayout";
 import Footer from "../Footer/Footer";
@@ -81,11 +81,9 @@ export default function CadastrarPet() {
     <>
       <NutripetNavbar />
 
-      {/* === LAYOUT GLOBAL DE PERFIL === */}
       <PerfilLayout menu={menu}>
         <h2 className="titulo">Cadastrar Pet</h2>
 
-        {/* === SEU CÓDIGO ORIGINAL (INTACTO) === */}
         <section className="cadastrarpet-section">
           <div className="form-wrapper">
             <div className="form-card">
