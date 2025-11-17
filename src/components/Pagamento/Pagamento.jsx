@@ -25,6 +25,14 @@ export default function Pagamento() {
     const [pixCode] = useState("00020126360014BR.GOV.BCB.PIX0114+55999999999...");
     const [timeLeft, setTimeLeft] = useState(6);
     const [showPixCountdown, setShowPixCountdown] = useState(false);
+    const [popup, setPopup] = useState({ show: false, message: "" });
+
+    const showPopup = (msg) => {
+        setPopup({ show: true, message: msg });
+        setTimeout(() => {
+            setPopup({ show: false, message: "" });
+        }, 2500);
+    };
 
     useEffect(() => {
         if (!showPixCountdown) return;
@@ -85,8 +93,14 @@ export default function Pagamento() {
             }
 
         } catch (err) {
+
+            if (err.response?.data?.error === "ASSINATURA_ATIVA") {
+                showPopup("Sua conta premium já está ativa.");
+                return;
+            }
+
             console.error(err);
-            alert("Erro ao processar pagamento.");
+            showPopup("Erro ao processar pagamento.");
         } finally {
             setLoading(false);
         }
@@ -95,7 +109,13 @@ export default function Pagamento() {
     return (
         <>
             <NutripetNavbar />
-
+            {popup.show && (
+                <div className="popup-overlay">
+                    <div className="popup-box">
+                        <p>{popup.message}</p>
+                    </div>
+                </div>
+            )}
             <section className="pagamento-section">
                 <div className="pagamento-wrapper">
                     <div className="plano-card">
