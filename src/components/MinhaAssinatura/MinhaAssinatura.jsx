@@ -31,7 +31,7 @@ export default function MinhaAssinatura() {
       }
     }
 
-    if (user.id) carregarStatus();
+    carregarStatus();
   }, [user.id]);
 
   const menuItems = [

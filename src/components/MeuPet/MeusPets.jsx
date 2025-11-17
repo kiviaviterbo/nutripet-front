@@ -109,8 +109,8 @@ export default function MeusPets() {
 
   // === MENU PADRÃO (dinâmico) ===
   const menu = [
-    { label: "Cadastrar Pet", path: "/meupet/cadastrar", icon: <PlusCircle size={18} /> },
-    { label: "Meus Pets", path: "/meupet/listar", icon: <PawPrint size={18} /> },
+    { label: "Cadastrar Pet", path: "/usuario/meupet/cadastrar", icon: <PlusCircle size={18} /> },
+    { label: "Meus Pets", path: "/usuario/meupet", icon: <PawPrint size={18} /> },
   ];
 
   return (

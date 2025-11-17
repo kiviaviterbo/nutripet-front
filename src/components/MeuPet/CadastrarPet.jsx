@@ -29,8 +29,8 @@ export default function CadastrarPet() {
   const user = JSON.parse(localStorage.getItem("user"));
 
   const menu = [
-    { label: "Cadastrar Pet", path: "/meupet/cadastrar", icon: <PlusCircle size={18} /> },
-    { label: "Meus Pets", path: "/meupet/listar", icon: <PawPrint size={18} /> },
+    { label: "Cadastrar Pet", path: "usuario/meupet/cadastrar", icon: <PlusCircle size={18} /> },
+    { label: "Meus Pets", path: "/usuario/meupet", icon: <PawPrint size={18} /> },
   ];
 
   const handleImageUpload = async (file) => {
@@ -67,7 +67,7 @@ export default function CadastrarPet() {
       setShowPopup(true);
       setTimeout(() => {
         setShowPopup(false);
-        navigate("/meupet/listar");
+        navigate("/usuario/meupet");
       }, 2500);
     } catch (error) {
       console.error("Erro ao cadastrar pet:", error);
@@ -218,7 +218,7 @@ export default function CadastrarPet() {
 
                   <button
                     type="button"
-                    onClick={() => navigate("/meupet/listar")}
+                    onClick={() => navigate("usuario/meupet")}
                     className="cancelar-btn"
                   >
                     Cancelar

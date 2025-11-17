@@ -1,0 +1,123 @@
+/* CONTAINER DOS SORTEIOS */
+.sorteios-container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 25px;
+  padding-right: 20px;
+}
+
+/* CARD */
+.sorteio-card {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0px 6px 18px rgba(0,0,0,0.06);
+  transition: .2s;
+}
+
+.sorteio-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 8px 22px rgba(0,0,0,0.08);
+}
+
+/* IMAGEM */
+.sorteio-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+/* TEXTO DO CARD */
+.sorteio-info h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #5c2d1c;
+  margin-bottom: 6px;
+}
+
+.sorteio-info p {
+  font-size: 15px;
+  color: #7b4b39;
+  margin-bottom: 10px;
+  max-width: 350px;
+}
+
+/* BOTÕES */
+.sorteio-btn {
+  padding: 12px 22px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 10px;
+  transition: .2s;
+  border: none;
+}
+
+/* LIBERADO PARA PARTICIPAÇÃO */
+.sorteio-btn.ativo {
+  background: #317537;
+  color: #fff;
+  cursor: pointer;
+}
+
+.sorteio-btn.ativo:hover {
+  background: #27602c;
+}
+
+/* INDÍSPONIVEL */
+.sorteio-btn.desabilitado {
+  background: #e1e1e1;
+  color: #777;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .sorteio-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sorteio-img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .sorteio-info p {
+    max-width: 100%;
+  }
+}
+/* POP-UP SUAVE */
+.np-popup {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  padding: 14px 28px;
+  border-left: 6px solid #317537;
+  color: #317537;
+  font-weight: 700;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  z-index: 9999;
+  animation: fadeInOut 2.4s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  90% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+}
+
+/* BOTÃO INSCRITO */
+.sorteio-btn.inscrito {
+  background: #cde9cf;
+  color: #317537;
+  border: 2px solid #317537;
+  cursor: not-allowed;
+}

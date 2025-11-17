@@ -1,128 +1,110 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 import NutripetNavbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import api from "../../services/api";
+import PerfilLayout from "../PerfilLayout/PerfilLayout";
+import "../../assets/styles/perfil.css";
 import "./MinhasConsultas.css";
-import { User, FileText, Calendar, CreditCard, KeyRound, LogOut } from "lucide-react";
+import api from "../../services/api";
+import { FileText, KeyRound } from "lucide-react";
+import receitaPDF from "../../assets/pdf/receita_veterinaria.pdf";
 
 export default function MinhasConsultas() {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const user = JSON.parse(localStorage.getItem("user")) || {};
+  const [consultas, setConsultas] = useState([]);
 
-  // carrega usuário salvo
-  const storedUser = JSON.parse(localStorage.getItem("user")) || {};
-  const [user, setUser] = useState(storedUser);
-
-  // premium baseando no que tem no localStorage
-  const [isPremium, setIsPremium] = useState(storedUser.plano === "premium");
-
-  // sincroniza com backend
-  useEffect(() => {
-    async function syncPremiumStatus() {
-      if (!storedUser.id) return;
-
-      try {
-        const res = await api.get(`/assinaturas/status/${storedUser.id}`);
-
-        if (res.data.ativo) {
-          // usuário REALMENTE premium no backend
-          const updatedUser = { ...storedUser, plano: "premium" };
-
-          // atualiza tudo
-          localStorage.setItem("user", JSON.stringify(updatedUser));
-          setUser(updatedUser);
-          setIsPremium(true);
-        } else {
-          setIsPremium(false);
-        }
-      } catch (err) {
-        console.error("Erro ao verificar assinatura:", err);
-      }
-    }
-
-    syncPremiumStatus();
-  }, [storedUser.id]);
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    navigate("/");
-  };
-
-  const handleAssinar = () => navigate("/pagamento");
-
-  const menuItems = [
-    { label: "Minha Conta", icon: <User size={18} />, path: "/usuario/meusdados" },
-    { label: "Meus Dados", icon: <FileText size={18} />, path: "/usuario/meusdados" },
-    { label: "Minha Assinatura", icon: <CreditCard size={18} />, path: "/usuario/assinatura" },
-    { label: "Minhas Consultas", icon: <Calendar size={18} />, path: "/usuario/consultas" },
-    { label: "Alterar Senha", icon: <KeyRound size={18} />, path: "/usuario/senha" },
+  const menuConsultas = [
+    { label: "Nova Consulta", icon: <FileText size={18} />, path: "/usuario/consultas/nova" },
+    { label: "Minhas Consultas", icon: <FileText size={18} />, path: "/usuario/consultas" },
+    { label: "SAC", icon: <KeyRound size={18} />, path: "/usuario/consultas/saq" },
   ];
+
+  useEffect(() => {
+    api.get(`/consultas/usuario/${user.id}`)
+      .then((res) => setConsultas(res.data))
+      .catch((err) => console.log(err));
+  }, [user.id]);
 
   return (
     <>
       <NutripetNavbar />
 
-      <section className="perfil-section">
-        <div className="perfil-container">
-          {/* Menu lateral */}
-          <aside className="perfil-menu">
-            <ul>
-              {menuItems.map((item) => (
-                <li
-                  key={item.label}
-                  onClick={() => navigate(item.path)}
-                  className={location.pathname === item.path ? "active" : ""}
-                >
-                  {item.icon}
-                  <span>{item.label}</span>
-                </li>
-              ))}
+      <PerfilLayout menu={menuConsultas}>
+        <h2 className="titulo">Minhas Consultas</h2>
 
-              <li className="logout-item" onClick={handleLogout}>
-                <LogOut size={18} />
-                <span>Sair</span>
-              </li>
-            </ul>
-          </aside>
+        {consultas.length === 0 ? (
+          <div className="assinatura-free">
+            <h3>Nenhuma consulta encontrada</h3>
+            <p>Você ainda não enviou nenhuma consulta.</p>
+          </div>
+        ) : (
+          consultas.map((c) => (
+            <div key={c.id} className="timeline-container">
+              <h3 className="timeline-title">Consulta #{c.id}</h3>
 
-          {/* Conteúdo principal */}
-          <div className="perfil-conteudo">
-            <h2 className="titulo">Minhas Consultas</h2>
+              <div className="timeline-status">
+                <div className="timeline-line" />
 
-            {isPremium ? (
-              <div className="consultas-premium">
-                <p className="descricao">
-                  Bem-vindo(a), <strong>{user.nome || "Usuário"}</strong>!
-                </p>
+                <div className="timeline-step">
+                  <div className="timeline-step-icon">📄</div>
+                  <p>Solicitada</p>
+                  <small>{new Date(c.data_solicitacao).toLocaleDateString("pt-BR")}</small>
+                </div>
 
-                <p className="descricao">
-                  Aqui você poderá acompanhar suas consultas nutricionais e histórico de
-                  avaliações — recurso disponível apenas para assinantes Premium.
-                </p>
+                <div className="timeline-step active-step">
+                  <div className="timeline-step-icon">⏳</div>
+                  <p>Em Análise</p>
+                  <small>Até 15 dias úteis</small>
+                </div>
 
-                <div className="consultas-lista">
-                  <p>(Em breve, suas consultas aparecerão aqui...)</p>
+                <div className="timeline-step active-step">
+                  <div className="timeline-step-icon">✔️</div>
+                  <p>Finalizada</p>
+                  <small>{new Date(c.updatedAt).toLocaleDateString("pt-BR")}</small>
                 </div>
               </div>
-            ) : (
-              <div className="assinatura-free text-center">
-                <h3>Você ainda não é assinante Premium?</h3>
+
+              <div className="assinatura-info-box">
                 <p>
-                  Tenha acesso aos melhores profissionais de nutrição animal e descubra o plano ideal para o seu pet.
+                  <strong>Status atual:</strong>{" "}
+                  <span className="badge-ativo">Finalizada</span>
                 </p>
 
-                <button className="btn-assinar" onClick={handleAssinar}>
-                  Clique aqui e seja Premium
-                </button>
+                <div className="consulta-finalizada-box">
+                  <p className="nc-file-hint">
+                      A receita abaixo foi elaborada com base nas
+                      <strong> informações preenchidas no formulário </strong>
+                      e avaliação de um
+                      <strong> nutricionista veterinário especializado.</strong>
+                      Caso tenha dúvidas ou deseje solicitar ajustes,
+                      entre em contato através do nosso{" "}
+                      <a href="/usuario/consultas/saq" className="nc-link-saQ">
+                        Serviço de Atendimento (SAQ)
+                      </a>.
+                    </p>
+
+                  {/* 🔥 DOWNLOAD REAL FORÇADO */}
+                  <button
+                    className="btn-assinar"
+                    onClick={() => {
+                      const link = document.createElement("a");
+                      link.href = receitaPDF;
+                      link.download = `consulta-${c.id}.pdf`;
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                    }}
+                  >
+                    📥 Baixar PDF Finalizado da Consulta #{c.id}
+                  </button>
+                </div>
               </div>
-            )}
-          </div>
-        </div>
-      </section>
+            </div>
+          ))
+        )}
+      </PerfilLayout>
 
       <Footer />
     </>
   );
 }
+

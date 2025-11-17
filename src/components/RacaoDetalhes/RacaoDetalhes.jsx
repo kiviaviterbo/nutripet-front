@@ -4,7 +4,7 @@ import NutripetNavbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import api from "../../services/api";
 import "./RacaoDetalhes.css";
-import fallbackImg from "../../assets/images/tabelanutricional.gif";
+//import fallbackImg from "../../assets/images/tabelanutricional.gif";
 import premiumGif from "../../assets/images/premium.gif";
 
 export default function RacaoDetalhes() {
@@ -81,7 +81,7 @@ export default function RacaoDetalhes() {
           {/* 🔹 Cabeçalho */}
           <div className="racao-header">
             <img
-              src={racao.imagem_url || fallbackImg}
+              src={racao.imagem_url}
               alt={racao.nome}
               className="racao-img"
             />

@@ -1,0 +1,180 @@
+/* ===== CSS ISOLADO – SAQ ===== */
+
+.saq-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.saq-label {
+  font-weight: 600;
+  color: #7b2e1f;
+}
+
+.saq-input,
+.saq-textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.saq-textarea {
+  min-height: 120px;
+}
+
+.saq-btn {
+  margin-top: 20px;
+  background: #7b2e1f;
+  color: white;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.saq-popup {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #317537;
+  color: white;
+  padding: 14px 22px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+.saq-form {
+  background: #fff;
+  padding: 35px 40px;
+  border-radius: 20px;
+  max-width: 650px;
+  margin: 0 auto;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.saq-label {
+  font-weight: 600;
+  color: #7b2e1f;
+  display: block;
+  margin-bottom: 6px;
+  text-align: left;
+  margin-top: 12px;
+}
+
+.saq-input,
+.saq-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d7c8ba;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  transition: 0.2s ease;
+}
+
+.saq-input:focus,
+.saq-textarea:focus {
+  border-color: #7b2e1f;
+  outline: none;
+  box-shadow: 0 0 4px rgba(123, 46, 31, 0.25);
+}
+
+.saq-textarea {
+  height: 130px;
+  resize: none;
+}
+
+.saq-btn {
+  margin-top: 20px;
+  width: 100%;
+  background-color: #7b2e1f;
+  color: #fff;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.saq-btn:hover {
+  background-color: #5d2016;
+}
+
+/* POPUP de Sucesso (estilo premium) */
+.saq-popup {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #317537;
+  color: #fff;
+  padding: 18px 26px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  animation: saqPopup 0.3s ease;
+  z-index: 9999;
+}
+
+@keyframes saqPopup {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ========= POPUP COM BLUR ========= */
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 120px;
+  z-index: 3000;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.popup-box {
+  background: #fff;
+  padding: 20px 28px;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  max-width: 360px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.18);
+  animation: slideDown 0.25s ease forwards;
+}
+
+.popup-overlay.success .popup-box {
+  border-left: 6px solid #2e7d32;
+  color: #2e7d32;
+}
+
+.popup-overlay.error .popup-box {
+  border-left: 6px solid #b71c1c;
+  color: #b71c1c;
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

@@ -105,3 +105,131 @@
 .perfil-form button:hover {
   background-color: #5d2016;
 }
+.dados-box {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.info-row strong {
+  color: #7b2e1f;
+}
+
+.btn-editar {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: #7b2e1f;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btn-editar:hover {
+  background: #5d2016;
+}
+
+.edit-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.btn-save {
+  flex: 1;
+  background: #317537;
+  color: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-save:hover {
+  background: #215726;
+}
+
+.btn-cancel {
+  flex: 1;
+  background: #b43b3b;
+  color: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-cancel:hover {
+  background: #992d2d;
+}
+/* fundo escuro com blur */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 120px;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* caixinha central do popup */
+.popup-box {
+  background: #fff;
+  padding: 20px 28px;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  max-width: 350px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  animation: slideDown 0.25s ease forwards;
+}
+
+.popup-overlay.success .popup-box {
+  border-left: 6px solid #2e7d32;
+  color: #2e7d32;
+}
+
+.popup-overlay.error .popup-box {
+  border-left: 6px solid #b71c1c;
+  color: #b71c1c;
+}
+
+/* animações */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

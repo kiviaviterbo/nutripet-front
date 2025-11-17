@@ -4,7 +4,7 @@ import Footer from "../Footer/Footer";
 import api from "../../services/api";
 import "./NutritionTable.css";
 import { useNavigate } from "react-router-dom";
-import tabelanutricional from "../../assets/images/tabelanutricional.gif";
+//import tabelanutricional from "../../assets/images/tabelanutricional.gif";
 
 export default function NutritionTable() {
   const [feeds, setFeeds] = useState([]);
@@ -187,7 +187,7 @@ export default function NutritionTable() {
                       onClick={() => navigate(`/racao/${feed.id}`)}
                     >
                       <img
-                        src={feed.imagem_url || tabelanutricional}
+                        src={feed.imagem_url}
                         alt={feed.nome}
                       />
                       <h5>{feed.nome}</h5>

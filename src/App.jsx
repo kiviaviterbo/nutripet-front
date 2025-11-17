@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -16,10 +15,14 @@ import RacaoDetalhes from "./components/RacaoDetalhes/RacaoDetalhes";
 import EditarPerfil from './components/EditarPerfil/EditarPerfil';
 import MinhasConsultas from './components/MinhasConsultas/MinhasConsultas';
 import MeusDados from "./components/MeusDados/MeusDados";
-import AlterarSenha from "./components/AlterarSenha/AlterarSenha"; 
+import AlterarSenha from "./components/AlterarSenha/AlterarSenha";
 import MinhaAssinatura from './components/MinhaAssinatura/MinhaAssinatura';
 import Pagamento from './components/Pagamento/Pagamento';
 import PagamentoSucesso from './components/Pagamento/PagamentoSucesso';
+import NovaConsulta from './components/MinhasConsultas/NovaConsulta';
+import SAQ from './components/MinhasConsultas/SAQ';
+import Cupons from './components/Promocoes/Cupons';
+import Sorteios from './components/Promocoes/Sorteios';
 
 
 
@@ -42,17 +45,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/nutritiontable" element={<NutritionTable />} />
-{/* 
         <Route
-          path="/meupet"
-          element={
-            <PrivateRoute>
-              <MeuPet />
-            </PrivateRoute>
-          }
-        /> */}
-        <Route
-          path="/meupet/cadastrar"
+          path="/usuario/meupet/cadastrar"
           element={
             <PrivateRoute>
               <CadastrarPet />
@@ -60,15 +54,13 @@ function App() {
           }
         />
         <Route
-          path="/meupet/listar"
+          path="usuario/meupet"
           element={
             <PrivateRoute>
               <MeusPets />
             </PrivateRoute>
           }
         />
-
-        <Route path="*" element={<Navigate to="/" replace />} />
         <Route path="/racao/:id" element={<RacaoDetalhes />} />
         <Route path="/usuario/editar" element={<EditarPerfil />} />
         <Route path="/usuario/consultas" element={<MinhasConsultas />} />
@@ -77,37 +69,15 @@ function App() {
         <Route path="/usuario/assinatura" element={<MinhaAssinatura />} />
         <Route path="/pagamento" element={<Pagamento />} />
         <Route path="/pagamento/sucesso/:id" element={<PagamentoSucesso />} />
+        <Route path="/usuario/consultas/nova" element={<NovaConsulta />} />
+        <Route path="/usuario/consultas/saq" element={<SAQ />} />
+        <Route path="/usuario/cupons" element={<Cupons />} />
+        <Route path="/usuario/sorteios" element={<Sorteios />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+
       </Routes>
     </Router>
   );
 }
 
 export default App;
-
-
-
-
-/* import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./containers/Home";
-import Consult from "./containers/Consult";
-import Login from "./containers/Login";
-import Register from "./containers/Register";
-
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Consult" element={<Consult />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Register" element={<Register />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
-
-export default App;
-
-
-
- */
