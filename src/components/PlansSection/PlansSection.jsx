@@ -71,7 +71,7 @@ export default function PlansSection() {
             <Crown size={38} />
             <h3>Benefícios Exclusivos</h3>
             <p>
-              Descontos em produtos parceiros, acesso antecipado a novidades e suporte Premium.
+              Descontos em lojas parceiras, acesso antecipado a novidades e suporte Premium.
             </p>
           </div>
           <div className="vantagem-card">

@@ -26,7 +26,7 @@ export default function AboutSection() {
                 equilibrada, saudável e personalizada para pets, combinando ciência e amor.
               </p>
               <p>
-                Nossa equipe é formada por <strong>nutricionistas veterinários</strong> apaixonados por
+                Nossa equipe é formada por <strong>veterinários especializados em nutrição animal</strong> apaixonados por
                 animais, dedicados a criar planos alimentares sob medida para cada necessidade.
               </p>
             </div>

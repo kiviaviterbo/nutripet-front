@@ -1,0 +1,242 @@
+/* --- FORMULÁRIO BASE --- */
+.nc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+
+.nc-label {
+  color: #7b2e1f;
+  font-weight: 600;
+}
+
+.nc-input,
+.nc-file {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+/* --- CHECKBOXES --- */
+.nc-subtitle {
+  margin-top: 20px;
+  color: #7b2e1f;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.nc-checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 20px;
+}
+
+.nc-check-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #5b4636;
+}
+
+/* --- RADIO --- */
+.nc-radio-group {
+  display: flex;
+  gap: 20px;
+  color: #5b4636;
+}
+
+/* --- BOTÃO --- */
+.nc-submit-btn {
+  background: #7b2e1f;
+  color: #fff;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.nc-submit-btn:hover {
+  background: #5d2016;
+}
+
+/* --- MODAL --- */
+.nc-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.nc-modal {
+  background: #fff8f3;
+  padding: 30px;
+  border-radius: 18px;
+  width: 90%;
+  max-width: 380px;
+  text-align: center;
+}
+
+.nc-modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.nc-modal-btn-cancel {
+  background: #e9d8cf;
+  color: #5b4636;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+}
+
+.nc-modal-btn-confirm {
+  background: #7b2e1f;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+}
+
+/* --- POPUP SUCESSO --- */
+.nc-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #317537;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 10px;
+  animation: fadeIn 0.3s ease;
+  z-index: 999;
+}
+
+.nc-file-hint {
+  font-size: 0.9rem;
+  color: #5b4636;
+  background: #fff1e7;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border-left: 4px solid #7b2e1f;
+  margin-top: -5px;
+  margin-bottom: 10px;
+  text-align: left;
+  line-height: 1.4;
+}
+/* ================================
+   POPUP DE LIMITE — OVERLAY
+================================ */
+.nc-limit-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+/* ================================
+   CARD DO POPUP
+================================ */
+.nc-limit-card {
+  background: #fff;
+  width: 90%;
+  max-width: 420px;
+  padding: 30px 25px;
+  border-radius: 18px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: popupScale 0.25s ease-out;
+}
+
+.nc-limit-card h3 {
+  font-size: 1.5rem;
+  color: #7b2e1f;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.nc-limit-card p {
+  font-size: 1rem;
+  color: #5b4636;
+  margin-bottom: 20px;
+}
+
+.nc-limit-btn {
+  background: #7b2e1f;
+  color: #fff;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.nc-limit-btn:hover {
+  background: #5d2016;
+}
+
+/* Animação */
+@keyframes popupScale {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* BLOCO "assinatura-free" — mesmo da tela Minha Assinatura */
+.assinatura-free {
+  background: #fff;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.assinatura-free h3 {
+  color: #7b2e1f;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.assinatura-free p {
+  color: #5b4636;
+  font-size: 1rem;
+}
+
+/* Botão "Seja Premium" — igual ao padrão geral */
+.btn-assinar {
+  background-color: #7b2e1f;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  margin-top: 18px;
+}
+
+.btn-assinar:hover {
+  background-color: #5d2016;
+}

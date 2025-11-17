@@ -7,10 +7,11 @@ import api from '../../services/api';
 export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
-    nome: '',
-    email: '',
-    senha: '',
-    confirmar: '',
+    cpf: "",
+    nome: "",
+    email: "",
+    senha: "",
+    confirmar: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -18,26 +19,78 @@ export default function AuthPage() {
 
   const toggleForm = () => {
     setIsLogin(!isLogin);
-    setMessage({ type: '', text: '' }); // limpa mensagens ao alternar
+    setMessage({ type: '', text: '' });
+  };
+  const formatarCPF = (value) => {
+    value = value.replace(/\D/g, "");
+    value = value.slice(0, 11);
+
+    if (value.length <= 3) return value;
+    if (value.length <= 6) return value.replace(/(\d{3})(\d{1,3})/, "$1.$2");
+    if (value.length <= 9) return value.replace(/(\d{3})(\d{3})(\d{1,3})/, "$1.$2.$3");
+
+    return value.replace(
+      /(\d{3})(\d{3})(\d{3})(\d{1,2})/,
+      "$1.$2.$3-$4"
+    );
   };
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    let { name, value } = e.target;
+
+
+    if (name === "cpf") {
+      value = formatarCPF(value);
+    }
+
+
+    setFormData({ ...formData, [name]: value });
   };
 
+  // Validação de CPF
+  const validarCPF = (cpf) => {
+    cpf = cpf.replace(/\D/g, "");
+    if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
+
+    let soma = 0, resto;
+
+    for (let i = 1; i <= 9; i++)
+      soma += parseInt(cpf.substring(i - 1, i)) * (11 - i);
+
+    resto = (soma * 10) % 11;
+    if (resto === 10 || resto === 11) resto = 0;
+    if (resto !== parseInt(cpf.substring(9, 10))) return false;
+
+    soma = 0;
+    for (let i = 1; i <= 10; i++)
+      soma += parseInt(cpf.substring(i - 1, i)) * (12 - i);
+
+    resto = (soma * 10) % 11;
+    if (resto === 10 || resto === 11) resto = 0;
+
+    return resto === parseInt(cpf.substring(10, 11));
+  };
+
+  // SUBMIT
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage({ type: '', text: '' });
 
-    // 🔒 Validação simples
-    if (!isLogin && formData.senha !== formData.confirmar) {
-      setMessage({ type: 'danger', text: 'As senhas não coincidem!' });
-      return;
-    }
-
     if (!formData.email || !formData.senha) {
       setMessage({ type: 'danger', text: 'Preencha todos os campos obrigatórios.' });
       return;
+    }
+
+    if (!isLogin) {
+      if (!validarCPF(formData.cpf)) {
+        setMessage({ type: 'danger', text: 'CPF inválido!' });
+        return;
+      }
+
+      if (formData.senha !== formData.confirmar) {
+        setMessage({ type: 'danger', text: 'As senhas não coincidem!' });
+        return;
+      }
     }
 
     try {
@@ -53,9 +106,10 @@ export default function AuthPage() {
         localStorage.setItem('user', JSON.stringify(res.data.usuario));
         localStorage.setItem('token', res.data.token);
         setMessage({ type: 'success', text: 'Login realizado com sucesso! Redirecionando...' });
+
       } else {
-        // CADASTRO
         const res = await api.post('/usuarios', {
+          cpf: formData.cpf.replace(/\D/g, ""),
           nome: formData.nome,
           email: formData.email,
           senha: formData.senha,
@@ -66,14 +120,9 @@ export default function AuthPage() {
         setMessage({ type: 'success', text: 'Cadastro realizado com sucesso! Redirecionando...' });
       }
 
-      setTimeout(() => {
-        window.location.href = '/';
-      }, 1500);
-
+      setTimeout(() => (window.location.href = '/'), 1500);
 
     } catch (err) {
-      console.error(err);
-
       const msg =
         err.response?.data?.msg ||
         'Erro ao autenticar. Verifique suas credenciais ou tente novamente mais tarde.';
@@ -88,7 +137,7 @@ export default function AuthPage() {
     <section className="auth-section d-flex align-items-center">
       <Container>
         <Row className="justify-content-center align-items-center">
-          {/* Coluna da imagem */}
+
           <Col lg={6} className="text-center mb-5 mb-lg-0">
             <img
               src={cadastro}
@@ -96,41 +145,44 @@ export default function AuthPage() {
               className="auth-image img-fluid"
               onClick={() => (window.location.href = '/')}
               style={{ cursor: 'pointer' }}
-              title="Voltar para o site"
             />
           </Col>
 
-          {/* Coluna do formulário */}
           <Col lg={5}>
             <div className="auth-box shadow-sm p-5 rounded-4 bg-white mx-auto text-center">
               <h2 className="fw-bold text-maroon mb-3">
                 {isLogin ? 'Entrar na sua conta' : 'Crie sua conta'}
               </h2>
-              <p className="text-secondary mb-4">
-                {isLogin
-                  ? 'Bem-vindo de volta! Entre para continuar.'
-                  : 'Preencha seus dados para começar.'}
-              </p>
 
-              {message.text && (
-                <Alert variant={message.type} className="text-center">
-                  {message.text}
-                </Alert>
-              )}
+              {message.text && <Alert variant={message.type}>{message.text}</Alert>}
 
               <Form className="text-start" onSubmit={handleSubmit}>
                 {!isLogin && (
-                  <Form.Group className="mb-3">
-                    <Form.Label>Nome completo</Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="nome"
-                      placeholder="Digite seu nome"
-                      value={formData.nome}
-                      onChange={handleChange}
-                      required
-                    />
-                  </Form.Group>
+                  <>
+                    <Form.Group className="mb-3">
+                      <Form.Label>CPF</Form.Label>
+                      <Form.Control
+                        type="text"
+                        name="cpf"
+                        placeholder="Digite seu CPF"
+                        value={formData.cpf}
+                        onChange={handleChange}
+                        required
+                      />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3">
+                      <Form.Label>Nome completo</Form.Label>
+                      <Form.Control
+                        type="text"
+                        name="nome"
+                        placeholder="Digite seu nome"
+                        value={formData.nome}
+                        onChange={handleChange}
+                        required
+                      />
+                    </Form.Group>
+                  </>
                 )}
 
                 <Form.Group className="mb-3">
@@ -138,9 +190,9 @@ export default function AuthPage() {
                   <Form.Control
                     type="email"
                     name="email"
-                    placeholder="Digite seu email"
                     value={formData.email}
                     onChange={handleChange}
+                    placeholder="Digite seu email"
                     required
                   />
                 </Form.Group>
@@ -150,9 +202,9 @@ export default function AuthPage() {
                   <Form.Control
                     type="password"
                     name="senha"
-                    placeholder="Digite sua senha"
                     value={formData.senha}
                     onChange={handleChange}
+                    placeholder="Digite sua senha"
                     required
                   />
                 </Form.Group>
@@ -163,42 +215,35 @@ export default function AuthPage() {
                     <Form.Control
                       type="password"
                       name="confirmar"
-                      placeholder="Confirme sua senha"
                       value={formData.confirmar}
                       onChange={handleChange}
+                      placeholder="Confirme sua senha"
                       required
                     />
                   </Form.Group>
                 )}
 
-                <div className="text-center">
-                  <Button type="submit" className="btn-brown w-100 mt-2" disabled={loading}>
-                    {loading ? (
-                      <>
-                        <Spinner animation="border" size="sm" />{' '}
-                        {isLogin ? 'Entrando...' : 'Cadastrando...'}
-                      </>
-                    ) : (
-                      <>{isLogin ? 'Entrar' : 'Cadastrar'}</>
-                    )}
-                  </Button>
-                </div>
+                <Button type="submit" className="btn-brown w-100 mt-2" disabled={loading}>
+                  {loading ? (
+                    <>
+                      <Spinner animation="border" size="sm" /> {isLogin ? 'Entrando...' : 'Cadastrando...'}
+                    </>
+                  ) : (
+                    <>{isLogin ? 'Entrar' : 'Cadastrar'}</>
+                  )}
+                </Button>
               </Form>
 
               <div className="text-center mt-4">
                 {isLogin ? (
                   <p>
                     Não tem uma conta?{' '}
-                    <button className="link-button" type="button" onClick={toggleForm}>
-                      Cadastre-se
-                    </button>
+                    <button className="link-button" onClick={toggleForm}>Cadastre-se</button>
                   </p>
                 ) : (
                   <p>
                     Já tem uma conta?{' '}
-                    <button className="link-button" type="button" onClick={toggleForm}>
-                      Fazer login
-                    </button>
+                    <button className="link-button" onClick={toggleForm}>Fazer login</button>
                   </p>
                 )}
               </div>
