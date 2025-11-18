@@ -297,3 +297,201 @@
     width: 100%;
   }
 }
+
+@media (max-width: 992px) {
+
+  .meuspets-title {
+    font-size: 1.7rem;
+    margin-bottom: 22px;
+  }
+
+  .meuspets-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 22px;
+  }
+
+  .pet-card {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .pet-foto {
+    height: 180px;
+    border-radius: 12px;
+  }
+
+  .grid2 {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pet-card form {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .edit-actions {
+    margin-top: 16px;
+    gap: 10px;
+  }
+
+  .btn-save,
+  .btn-cancel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .meuspets-title {
+    font-size: 1.55rem;
+  }
+
+  .meuspets-grid {
+    grid-template-columns: 1fr;
+    padding-right: 0;
+    gap: 18px;
+  }
+
+  .pet-card {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .pet-foto {
+    height: 170px;
+  }
+
+  .preview img {
+    width: 95px;
+    height: 95px;
+    border-radius: 12px;
+  }
+
+  .preview input[type="file"] {
+    font-size: 0.8rem;
+    padding: 5px 8px;
+  }
+
+  .pet-card form input,
+  .pet-card form select {
+    font-size: 0.9rem;
+    padding: 9px;
+  }
+
+  .radio-group {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .edit-actions {
+    flex-direction: column;
+  }
+
+  .btn-edit,
+  .btn-delete {
+    width: 48%;
+  }
+
+  .pet-actions {
+    gap: 12px;
+  }
+
+  .btn-novopet {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 12px 28px;
+  }
+
+  .modal-card {
+    width: 92%;
+    padding: 28px 22px;
+    border-radius: 16px;
+  }
+
+  .modal-card h4 {
+    font-size: 1.15rem;
+  }
+}
+@media (max-width: 480px) {
+
+  .meuspets-title {
+    font-size: 1.45rem;
+  }
+
+  .pet-card {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .pet-foto {
+    height: 150px;
+  }
+
+  .preview img {
+    width: 85px;
+    height: 85px;
+  }
+
+  .pet-card form {
+    padding: 14px;
+  }
+
+  .pet-card form label {
+    font-size: 0.85rem;
+  }
+
+  .pet-card form input,
+  .pet-card form select {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  .radio-group label {
+    font-size: 0.82rem;
+  }
+
+  .btn-edit,
+  .btn-delete {
+    width: 100%;
+  }
+
+  .pet-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-novopet {
+    font-size: 0.9rem;
+    padding: 10px 24px;
+  }
+
+  .modal-card {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 380px) {
+
+  .meuspets-title {
+    font-size: 1.35rem;
+  }
+
+  .pet-card {
+    padding: 14px;
+  }
+
+  .pet-foto {
+    height: 140px;
+  }
+
+  .preview img {
+    width: 78px;
+    height: 78px;
+  }
+
+  .btn-novopet {
+    padding: 10px;
+    font-size: 0.88rem;
+  }
+}

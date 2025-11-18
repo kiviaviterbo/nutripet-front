@@ -248,7 +248,7 @@
     padding: 12px 28px;
   }
 }
-/* === Aviso DMB === */
+
 .dmb-info {
   background: #fff8f3;
   border-left: 5px solid #dcbca6;
@@ -274,5 +274,170 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 992px) {
+
+  .racao-detalhes-section {
+    padding: 110px 20px 50px;
+  }
+
+  .racao-container {
+    padding: 40px 28px;
+    border-radius: 22px;
+  }
+
+  .racao-img {
+    width: 240px;
+    height: 240px;
+  }
+
+  .racao-info h1 {
+    font-size: 1.9rem;
+  }
+
+  .racao-info h4 {
+    font-size: 1rem;
+  }
+
+  .racao-desc {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .racao-container {
+    padding: 30px 20px;
+  }
+
+  .racao-header {
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 35px;
+  }
+
+  .racao-img {
+    width: 210px;
+    height: 210px;
+  }
+
+  .racao-info h1 {
+    font-size: 1.7rem;
+  }
+
+  .racao-info h4 {
+    margin-bottom: 12px;
+  }
+
+  .tabela-wrapper {
+    margin: 20px 0;
+  }
+
+  .tabela-nutricional th,
+  .tabela-avaliacao th {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+
+  .tabela-nutricional td,
+  .tabela-avaliacao td {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+
+  .premium-wrapper {
+    padding: 80px 20px 100px;
+  }
+
+  .premium-gif {
+    width: 100%;
+    max-width: 380px;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .racao-detalhes-section {
+    padding: 100px 14px 40px;
+  }
+
+  .racao-container {
+    padding: 25px 16px;
+    border-radius: 18px;
+  }
+
+  .racao-img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .racao-info h1 {
+    font-size: 1.45rem;
+  }
+
+  .racao-info h4 {
+    font-size: 0.95rem;
+  }
+
+  .racao-desc {
+    font-size: 0.95rem;
+  }
+
+
+  .tabela-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tabela-nutricional,
+  .tabela-avaliacao {
+    min-width: 480px;
+  }
+
+  .avaliacao-badge {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .premium-gif {
+    width: 95%;
+    border-radius: 20px;
+  }
+
+  .premium-btn {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+  }
+
+  .dmb-info {
+    margin: 16px 0 0;
+    font-size: 0.88rem;
+  }
+}
+
+
+@media (max-width: 360px) {
+
+  .racao-img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .racao-info h1 {
+    font-size: 1.3rem;
+  }
+
+  .tabela-nutricional,
+  .tabela-avaliacao {
+    min-width: 420px;
+  }
+
+  .premium-btn {
+    font-size: 0.85rem;
+    padding: 12px 18px;
   }
 }

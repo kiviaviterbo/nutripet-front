@@ -112,3 +112,129 @@
   border: 2px solid #317537;
   cursor: not-allowed;
 }
+
+@media (max-width: 900px) {
+
+  .sorteios-container {
+    padding-right: 0;
+    gap: 24px;
+  }
+
+  .sorteio-card {
+    padding: 22px;
+    gap: 20px;
+  }
+
+  .sorteio-img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .sorteio-info h3 {
+    font-size: 20px;
+  }
+
+  .sorteio-info p {
+    font-size: 14px;
+  }
+
+  .sorteio-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .sorteio-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 22px;
+    gap: 18px;
+  }
+
+  .sorteio-img {
+    width: 190px;
+    height: 190px;
+    border-radius: 16px;
+  }
+
+  .sorteio-info h3 {
+    font-size: 19px;
+  }
+
+  .sorteio-info p {
+    max-width: 100%;
+    line-height: 1.45;
+  }
+
+  .sorteio-btn {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .sorteio-card {
+    padding: 20px;
+    gap: 14px;
+    border-radius: 16px;
+  }
+
+  .sorteio-img {
+    width: 170px;
+    height: 170px;
+  }
+
+  .sorteio-info h3 {
+    font-size: 17px;
+  }
+
+  .sorteio-info p {
+    font-size: 13.5px;
+  }
+
+  .sorteio-btn {
+    padding: 13px 18px;
+    font-size: 14px;
+  }
+
+  .np-popup {
+    bottom: 25px;
+    padding: 12px 20px;
+    font-size: .9rem;
+  }
+}
+
+@media (max-width: 360px) {
+
+  .sorteio-card {
+    padding: 18px;
+  }
+
+  .sorteio-img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .sorteio-info h3 {
+    font-size: 16px;
+  }
+
+  .sorteio-info p {
+    font-size: 12.8px;
+  }
+
+  .sorteio-btn {
+    font-size: 13.5px;
+    padding: 12px 16px;
+  }
+
+  .np-popup {
+    padding: 10px 18px;
+    font-size: 0.85rem;
+  }
+}

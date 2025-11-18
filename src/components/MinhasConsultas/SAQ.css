@@ -134,3 +134,179 @@
 .saq-group label {
   text-align: left;
 }
+
+@media (max-width: 992px) {
+
+  .saq-header h2 {
+    font-size: 1.85rem;
+  }
+
+  .saq-header p {
+    font-size: 1.05rem;
+  }
+
+  .saq-card {
+    padding: 28px;
+    border-radius: 18px;
+    max-width: 640px;
+  }
+
+  .saq-group input,
+  .saq-group select,
+  .saq-group textarea {
+    padding: 12px 14px;
+    font-size: 0.97rem;
+  }
+
+  .saq-form {
+    gap: 16px;
+  }
+
+  .saq-btn {
+    padding: 13px;
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .rogerinho-help img {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .saq-header {
+    margin-bottom: 20px;
+  }
+
+  .saq-header h2 {
+    font-size: 1.7rem;
+  }
+
+  .saq-header p {
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  .saq-card {
+    padding: 24px 20px;
+    border-radius: 16px;
+    max-width: 90%;
+    margin-bottom: 28px;
+  }
+
+  .saq-group label {
+    font-size: 0.95rem;
+  }
+
+  .saq-group input,
+  .saq-group select,
+  .saq-group textarea {
+    padding: 11px 12px;
+    font-size: 0.92rem;
+    border-radius: 10px;
+  }
+
+  .saq-btn {
+    padding: 12px;
+    font-size: 0.96rem;
+    border-radius: 10px;
+  }
+
+  .rogerinho-help img {
+    width: 94%;
+    max-width: 550px;
+    border-radius: 16px;
+  }
+
+  .popup-box {
+    padding: 18px 22px;
+    max-width: 300px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+  }
+
+  .popup-overlay {
+    padding-top: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .saq-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .saq-header p {
+    font-size: 0.95rem;
+  }
+
+  .saq-card {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .saq-group label {
+    font-size: 0.88rem;
+  }
+
+  .saq-group input,
+  .saq-group select,
+  .saq-group textarea {
+    padding: 10px 12px;
+    font-size: 0.88rem;
+    border-radius: 8px;
+  }
+
+  .saq-btn {
+    padding: 11px;
+    font-size: 0.9rem;
+  }
+
+  .rogerinho-help img {
+    max-width: 100%;
+    border-radius: 14px;
+  }
+
+  .popup-box {
+    padding: 16px 18px;
+    max-width: 90%;
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 380px) {
+
+  .saq-header h2 {
+    font-size: 1.35rem;
+  }
+
+  .saq-header p {
+    font-size: 0.9rem;
+  }
+
+  .saq-card {
+    padding: 16px 14px;
+  }
+
+  .saq-group label {
+    font-size: 0.85rem;
+  }
+
+  .saq-group input,
+  .saq-group select,
+  .saq-group textarea {
+    padding: 9px 10px;
+    font-size: 0.85rem;
+  }
+
+  .saq-btn {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+
+  .popup-box {
+    padding: 14px;
+    font-size: 0.85rem;
+  }
+}

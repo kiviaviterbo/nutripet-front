@@ -1,16 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 @import './variables.css';
 
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   margin: 0;
   padding: 0;
   background-color: var(--color-beige);
   font-family: var(--font-main);
   color: var(--color-secondary);
-}
-
-button {
-  transition: all 0.3s ease;
+  overflow-x: hidden; 
 }
 
 a {
@@ -18,10 +20,64 @@ a {
   color: inherit;
 }
 
+button {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: var(--font-main);
+  border: none;
+  outline: none;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 section {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 100px;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+  color: var(--color-maroon);
+  line-height: 1.2;
+}
+
+p, span, li, a {
+  font-weight: 400;
+  color: var(--color-secondary);
+}
+
+h1 { font-size: clamp(1.8rem, 4vw, 3rem); }
+h2 { font-size: clamp(1.4rem, 3.3vw, 2.4rem); }
+h3 { font-size: clamp(1.1rem, 2.8vw, 1.9rem); }
+
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1.2rem;
+  margin: 0 auto;
+}
+
+.section-padding {
+  padding: 3rem 0;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 4rem 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section-padding {
+    padding: 5rem 0;
+  }
 }

@@ -158,3 +158,186 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 992px) {
+  .hero-premium {
+    flex-direction: column;
+    padding: 50px 25px;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+    line-height: 1.35;
+  }
+
+  .hero-content p {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+
+  .hero-image img {
+    width: 85%;
+    max-width: 320px;
+    border-radius: 20px;
+  }
+
+  .btn-assinar-agora {
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .vantagens-premium {
+    padding: 60px 25px;
+  }
+
+  .vantagens-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .vantagem-card {
+    padding: 28px 22px;
+  }
+
+  .detalhes-plano {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    gap: 35px;
+  }
+
+  .detalhes-texto h2 {
+    font-size: 1.6rem;
+  }
+
+  .detalhes-texto ul li {
+    font-size: 0.95rem;
+  }
+
+  .detalhes-imagem img {
+    width: 85%;
+    max-width: 340px;
+  }
+
+  .btn-assinar-agora.grande {
+    width: 100%;
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .hero-premium {
+    padding: 45px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .vantagens-premium h2 {
+    font-size: 1.7rem;
+  }
+
+  .vantagem-card h3 {
+    font-size: 1rem;
+  }
+
+  .vantagem-card p {
+    font-size: 0.9rem;
+  }
+
+  .detalhes-texto h2 {
+    font-size: 1.5rem;
+  }
+
+  .detalhes-texto ul li {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .hero-premium {
+    padding: 40px 16px;
+    gap: 24px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.55rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+
+  .btn-assinar-agora {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+
+  .vantagens-premium {
+    padding: 50px 20px;
+  }
+
+  .vantagens-premium h2 {
+    font-size: 1.45rem;
+    margin-bottom: 30px;
+  }
+
+  .vantagem-card {
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+
+  .vantagem-card p {
+    font-size: 0.88rem;
+  }
+
+  .detalhes-plano {
+    margin: 55px 0;
+    gap: 28px;
+  }
+
+  .detalhes-texto ul li {
+    font-size: 0.88rem;
+  }
+
+  .btn-assinar-agora.grande {
+    padding: 14px 26px;
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-content h1 {
+    font-size: 1.4rem;
+  }
+
+  .hero-content p {
+    font-size: 0.85rem;
+  }
+
+  .btn-assinar-agora {
+    padding: 11px 22px;
+    font-size: 0.95rem;
+  }
+
+  .vantagens-premium h2 {
+    font-size: 1.3rem;
+  }
+
+  .detalhes-texto h2 {
+    font-size: 1.3rem;
+  }
+
+  .detalhes-texto ul li {
+    font-size: 0.82rem;
+  }
+}

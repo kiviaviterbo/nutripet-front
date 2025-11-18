@@ -231,3 +231,190 @@
   from { transform: translateY(-20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+
+@media (max-width: 992px) {
+
+  .perfil-section {
+    padding: 100px 0 70px;
+  }
+
+  .perfil-container {
+    flex-direction: column;
+    max-width: 95%;
+    border-radius: 18px;
+  }
+
+  .perfil-menu {
+    width: 100%;
+    padding: 16px 10px;
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .perfil-menu ul {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: max-content;
+  }
+
+  .perfil-menu li {
+    padding: 12px 18px;
+    white-space: nowrap;
+    border-radius: 10px;
+  }
+
+  .perfil-conteudo {
+    padding: 30px 35px;
+  }
+
+  .dados-box {
+    padding: 22px;
+    border-radius: 12px;
+  }
+
+  .info-row {
+    font-size: 15px;
+  }
+
+  .edit-buttons {
+    flex-direction: column;
+  }
+
+  .btn-save,
+  .btn-cancel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .perfil-section {
+    padding: 80px 0 50px;
+  }
+
+  .perfil-container {
+    border-radius: 15px;
+  }
+
+  .perfil-menu {
+    padding: 14px 8px;
+    gap: 10px;
+  }
+
+  .perfil-menu li {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+
+  .perfil-conteudo {
+    padding: 25px 22px;
+  }
+
+  .titulo {
+    font-size: 1.45rem;
+    text-align: center;
+  }
+
+  .dados-box {
+    padding: 20px;
+  }
+
+  .info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    font-size: 0.95rem;
+  }
+
+  .btn-editar {
+    font-size: 0.95rem;
+    padding: 11px;
+  }
+
+  .btn-save,
+  .btn-cancel {
+    padding: 11px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .perfil-section {
+    padding: 70px 0 40px;
+  }
+
+  .perfil-menu {
+    padding: 12px 6px;
+    gap: 8px;
+  }
+
+  .perfil-menu li {
+    padding: 9px 12px;
+    font-size: 0.85rem;
+  }
+
+  .perfil-conteudo {
+    padding: 20px 16px;
+  }
+
+  .dados-box {
+    padding: 18px;
+    border-radius: 12px;
+  }
+
+  .info-row {
+    font-size: 0.9rem;
+  }
+
+  .btn-editar {
+    padding: 10px;
+    font-size: 0.88rem;
+  }
+
+  .btn-save,
+  .btn-cancel {
+    padding: 10px;
+    font-size: 0.88rem;
+    border-radius: 8px;
+  }
+
+  .popup-box {
+    padding: 16px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 380px) {
+
+  .perfil-menu li {
+    font-size: 0.78rem;
+    padding: 7px 10px;
+  }
+
+  .titulo {
+    font-size: 1.3rem;
+  }
+
+  .perfil-conteudo {
+    padding: 18px 12px;
+  }
+
+  .dados-box {
+    padding: 15px;
+  }
+
+  .btn-editar {
+    padding: 9px;
+    font-size: 0.85rem;
+  }
+
+  .btn-save,
+  .btn-cancel {
+    padding: 9px;
+    font-size: 0.85rem;
+  }
+}
