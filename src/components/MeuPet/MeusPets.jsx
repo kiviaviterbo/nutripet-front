@@ -272,7 +272,7 @@ export default function MeusPets() {
             )}
 
             <button
-              onClick={() => (window.location.href = "/meupet/cadastrar")}
+              onClick={() => (window.location.href = "/usuario/meupet/cadastrar")}
               className="btn-novopet"
             >
               + Cadastrar Novo Pet
