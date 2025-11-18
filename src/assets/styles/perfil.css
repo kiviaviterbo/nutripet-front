@@ -1,193 +1,219 @@
+/* =========================================================
+   ÁREA GERAL DO PERFIL – Mesma ambientação da Minhas Consultas
+========================================================= */
+
 .perfil-section {
   background-color: #fff8f3;
   min-height: 100vh;
-  padding: 120px 0 80px 0;
+  padding: 100px 0 80px 0; /* afastamento seguro no desktop */
 }
 
+/* MOBILE – reduz espaço para não ficar gigante */
+@media (max-width: 600px) {
+  .perfil-section {
+    padding-top: 110px; /* altura ideal para mobile */
+  }
+}
+
+/* CARD PRINCIPAL – igual aos cards das consultas */
 .perfil-container {
-  display: flex;
-  max-width: 1100px;
+  max-width: 900px;
   margin: 0 auto;
   background: #fff;
   border-radius: 20px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  padding: 35px 28px;
+
+  /* 🔥 Correção: evita ser tampado pelo navbar */
+  position: relative;
+  z-index: 10;
 }
 
-/* menu lateral */
-.perfil-menu {
-  width: 250px;
-  background: #f9e9dc;
-  padding: 30px 0;
+/* =========================================================
+   MENU HORIZONTAL – Refinado e intuitivo
+========================================================= */
+
+.menu-consultas-list {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-bottom: 18px;
+
+  /* Ficar sempre acima do navbar */
+  position: relative;
+  z-index: 11;
 }
 
-.perfil-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.perfil-menu li {
+.menu-consultas-list-btn {
+  flex: 1;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 25px;
-  font-weight: 600;
-  color: #5b4636;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.perfil-menu li:hover {
-  background-color: rgba(123, 46, 31, 0.1);
+  gap: 8px;
+  padding: 12px 0;
+  background: #fff;
+  border: 2px solid transparent;
+  border-radius: 12px;
   color: #7b2e1f;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  justify-content: center;
 }
 
-.perfil-menu li.active {
-  background-color: #7b2e1f;
-  color: #fff;
+/* HOVER – elegante e intuitivo */
+.menu-consultas-list-btn:hover {
+  background: #fff5ed;
+  border-color: #e5c9b3;
 }
 
-.logout-item {
-  margin-top: 30px;
-  color: #a33c27;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding-top: 20px;
-  transition: 0.2s;
+/* BOTÃO ATIVO – destaque bonito e profissional */
+.menu-consultas-list-btn.active {
+  background: #7b2e1f !important;
+  color: #ffffff !important;
+  border-color: #caa168 !important;
+  box-shadow: 0 3px 12px rgba(123, 46, 31, 0.28);
 }
+
+/* Texto do ativo */
+.menu-consultas-list-btn.active span {
+  color: #ffffff !important;
+}
+
+/* Ícones padrão e ativo */
+.menu-consultas-list-btn svg {
+  min-width: 22px;
+  min-height: 22px;
+  transition: color 0.25s ease, stroke 0.25s ease;
+}
+
+.menu-consultas-list-btn.active svg {
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* =========================================================
+   MENU MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .menu-consultas-list {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .menu-consultas-list-btn {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 12px 12px;
+    font-size: 1rem;
+  }
+}
+
+/* =========================================================
+   CONTEÚDO INTERNO
+========================================================= */
 
 .perfil-conteudo {
-  flex: 1;
-  padding: 20px 10px;
+  width: 100%;
 }
 
 .titulo {
   font-weight: 700;
   color: #7b2e1f;
   margin-bottom: 25px;
-}
-
-.logout-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  animation: fadeIn 0.3s ease-in;
-}
-
-.logout-modal-card {
-  background: #fff8f3;
-  border-radius: 20px;
-  padding: 35px 40px;
-  max-width: 380px;
-  width: 90%;
   text-align: center;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
-  animation: scaleIn 0.3s ease;
+  font-size: 1.8rem;
 }
 
-.logout-modal-card h3 {
-  color: #7b2e1f;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-.logout-modal-card p {
-  color: #5b4636;
-  font-size: 0.95rem;
-  margin-bottom: 25px;
-}
-
-.logout-modal-actions {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-}
-
-.btn-cancelar,
-.btn-sair {
-  border: none;
-  padding: 10px 22px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.btn-cancelar {
-  background: #e9d8cf;
-  color: #5b4636;
-}
-
-.btn-cancelar:hover {
-  background: #d6c3b8;
-}
-
-.btn-sair {
-  background: #7b2e1f;
-  color: #fff;
-}
-
-.btn-sair:hover {
-  background: #5d2016;
-}
+/* =========================================================
+   FORMULÁRIOS – Padrão dos cards de consulta
+========================================================= */
 
 .perfil-form {
   display: flex;
   flex-direction: column;
-  gap: 1px;
-  text-align: left !important;
+  gap: 12px;
 }
 
 .perfil-form label {
   font-weight: 600;
   color: #7b2e1f;
   margin-bottom: 6px;
-  text-align: left !important;
 }
 
-.perfil-form input {
+.perfil-form input,
+.perfil-form select,
+.perfil-form textarea {
   width: 100%;
-  padding: 12px 14px;
+  padding: 12px;
   border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+  border: 1px solid #d7c8be;
   background: #fff;
-  text-align: left !important;
+  font-size: 1rem;
 }
 
-.perfil-form button {
-  margin-top: 20px;
+.perfil-form textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+/* Botões */
+.perfil-form button,
+.saq-btn {
   background: #7b2e1f;
   color: #fff;
-  font-weight: 600;
   border: none;
   border-radius: 10px;
-  padding: 14px;
+  padding: 12px 18px;
+  font-weight: 600;
   cursor: pointer;
   transition: 0.2s;
+  width: 100%;
 }
 
-.perfil-form button:hover {
+.perfil-form button:hover,
+.saq-btn:hover {
   background: #5d2016;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 992px) {
+  .titulo {
+    font-size: 1.6rem;
+  }
+
+  .perfil-container {
+    padding: 28px 18px;
+  }
 }
 
-@keyframes scaleIn {
-  from {
-    transform: scale(0.85);
-    opacity: 0;
+@media (max-width: 768px) {
+  .titulo {
+    font-size: 1.45rem;
   }
-  to {
-    transform: scale(1);
-    opacity: 1;
+
+  .perfil-container {
+    padding: 24px 12px;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .perfil-container {
+    padding: 18px 8px;
+  }
+
+  .titulo {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .titulo {
+    font-size: 1.2rem;
   }
 }

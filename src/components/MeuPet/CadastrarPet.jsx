@@ -29,7 +29,7 @@ export default function CadastrarPet() {
   const user = JSON.parse(localStorage.getItem("user"));
 
   const menu = [
-    { label: "Cadastrar Pet", path: "usuario/meupet/cadastrar", icon: <PlusCircle size={18} /> },
+    { label: "Cadastrar Pet", path: "/usuario/meupet/cadastrar", icon: <PlusCircle size={18} /> },
     { label: "Meus Pets", path: "/usuario/meupet", icon: <PawPrint size={18} /> },
   ];
 

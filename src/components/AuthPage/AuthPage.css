@@ -1,4 +1,144 @@
+/* ============================
+   SEÇÃO GERAL
+============================ */
 .auth-section {
+  background-color: #fff9ef;
+  min-height: 100vh;
+  padding: 4rem 1rem;
+  display: flex;
+  align-items: center;
+}
+
+/* ============================
+   IMAGEM LATERAL
+============================ */
+.auth-image {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 22px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.auth-image:hover {
+  transform: scale(1.03);
+}
+
+/* OCULTAR IMAGEM NO MOBILE */
+@media (max-width: 768px) {
+  .auth-image {
+    display: none !important;
+  }
+}
+
+/* ============================
+   CARD DO FORM
+============================ */
+.auth-box {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 2.8rem 2rem;
+  margin: 0 auto;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.auth-box:hover {
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* TÍTULO */
+.auth-box h2 {
+  color: #7b2e1f;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* ============================
+   INPUTS
+============================ */
+.auth-box .form-control {
+  height: 48px;
+  border-radius: 10px;
+  border: 1.6px solid #ddd;
+  transition: all 0.2s ease;
+}
+
+.auth-box .form-control:focus {
+  border-color: #a37c46;
+  box-shadow: 0 0 0 0.15rem rgba(163, 124, 70, 0.25);
+}
+
+/* ============================
+   BOTÃO DE LOGIN
+============================ */
+.btn-brown {
+  background: linear-gradient(90deg, #7b2e1f, #a37c46);
+  color: #fff;
+  border: none;
+  height: 48px;
+  border-radius: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: 0.25s ease;
+}
+
+.btn-brown:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(163, 124, 70, 0.35);
+}
+
+/* ============================
+   LINK TROCAR FORM
+============================ */
+.link-button {
+  background: none;
+  border: none;
+  color: #a37c46;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.link-button:hover {
+  color: #7b2e1f;
+  text-decoration: underline;
+}
+
+/* ============================
+   MOBILE CHIQUE
+============================ */
+@media (max-width: 576px) {
+
+  .auth-section {
+    padding: 2rem 0.5rem;
+  }
+
+  .auth-box {
+    max-width: 360px;
+    padding: 2rem 1.5rem;
+    border-radius: 18px;
+  }
+
+  .auth-box h2 {
+    font-size: 1.5rem;
+  }
+
+  .btn-brown {
+    height: 46px;
+    font-size: 1rem;
+  }
+
+  .form-control {
+    height: 44px;
+  }
+}
+
+/* .auth-section {
   background-color: #fff9ef;
   min-height: 100vh;
   padding: 5rem 1rem;
@@ -154,3 +294,4 @@
     padding: 0.65rem 1rem;
   }
 }
+ */

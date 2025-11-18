@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import NutripetNavbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import PerfilLayout from "../PerfilLayout/PerfilLayout";
@@ -11,11 +12,13 @@ import receitaPDF from "../../assets/pdf/receita_veterinaria.pdf";
 export default function MinhasConsultas() {
   const user = JSON.parse(localStorage.getItem("user")) || {};
   const [consultas, setConsultas] = useState([]);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const menuConsultas = [
-    { label: "Nova Consulta", icon: <FileText size={18} />, path: "/usuario/consultas/nova" },
-    { label: "Minhas Consultas", icon: <FileText size={18} />, path: "/usuario/consultas" },
-    { label: "SAC", icon: <KeyRound size={18} />, path: "/usuario/consultas/saq" },
+    { label: "Nova Consulta", icon: <FileText size={22} />, path: "/usuario/consultas/nova" },
+    { label: "Minhas Consultas", icon: <FileText size={22} />, path: "/usuario/consultas" },
+    { label: "SAC", icon: <KeyRound size={22} />, path: "/usuario/consultas/saq" },
   ];
 
   useEffect(() => {
@@ -28,7 +31,20 @@ export default function MinhasConsultas() {
     <>
       <NutripetNavbar />
 
-      <PerfilLayout menu={menuConsultas}>
+      <PerfilLayout>
+        <div className="menu-consultas-list">
+          {menuConsultas.map((item) => (
+            <button
+              key={item.path}
+              className={`menu-consultas-list-btn${location.pathname === item.path ? " active" : ""}`}
+              onClick={() => navigate(item.path)}
+              type="button"
+            >
+              {item.icon}
+              <span>{item.label}</span>
+            </button>
+          ))}
+        </div>
         <h2 className="titulo">Minhas Consultas</h2>
 
         {consultas.length === 0 ? (
@@ -110,4 +126,3 @@ export default function MinhasConsultas() {
     </>
   );
 }
-

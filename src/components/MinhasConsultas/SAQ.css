@@ -1,104 +1,148 @@
+
+
 .saq-header {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 28px;
 }
 
 .saq-header h2 {
   color: #7b2e1f;
-  font-size: 2rem;
+  font-size: 1.85rem;
   font-weight: 700;
 }
 
 .saq-header p {
-  margin-top: 5px;
-  color: #5c4536;
-  font-size: 1.1rem;
-  opacity: 0.8;
+  margin-top: 6px;
+  color: #5b4636;
+  font-size: 1.05rem;
+  opacity: 0.9;
 }
+
+
+/* =========================================
+   CARD PRINCIPAL (PADRÃO DOS CARDS DAS CONSULTAS)
+========================================= */
 
 .saq-card {
   background: #fff;
-  padding: 35px;
-  border-radius: 22px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
-  max-width: 750px;
-  margin: 0 auto 40px;
+  padding: 28px 24px;
+  border-radius: 18px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  max-width: 700px;
+  margin: 0 auto 35px;
 }
+
+
+/* =========================================
+   FORMULÁRIO
+========================================= */
 
 .saq-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
+}
+
+.saq-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .saq-group label {
-  font-weight: 600;
+  font-weight: 700;
   color: #7b2e1f;
-  margin-bottom: 5px;
+  font-size: 1rem;
 }
 
 .saq-group input,
 .saq-group select,
 .saq-group textarea {
   width: 100%;
-  padding: 13px 15px;
+  padding: 13px 16px;
   border: 1px solid #dacbbb;
   border-radius: 12px;
-  transition: all 0.2s ease;
   font-size: 1rem;
+  background: #fff;
+  transition: 0.2s ease;
 }
 
 .saq-group textarea {
   height: 130px;
-  resize: none;
+  resize: vertical;
 }
 
 .saq-group input:focus,
 .saq-group select:focus,
 .saq-group textarea:focus {
   border-color: #7b2e1f;
-  box-shadow: 0 0 5px rgba(123, 46, 31, 0.25);
+  box-shadow: 0 0 0 2px rgba(123, 46, 31, 0.25);
 }
+
+/* =========================================
+   BOTÃO ENVIAR
+========================================= */
 
 .saq-btn {
   background: #7b2e1f;
   color: #fff;
-  padding: 14px;
+  border: none;
+  padding: 14px 18px;
   border-radius: 12px;
   font-weight: 700;
-  border: none;
+  font-size: 1rem;
   cursor: pointer;
-  transition: 0.3s;
+  width: 100%;
+  transition: 0.2s ease-out;
 }
 
 .saq-btn:hover {
   background: #5a1f15;
+  transform: translateY(-1.5px);
 }
 
+
+/* =========================================
+   ROGERINHO HELP
+========================================= */
+
 .rogerinho-help {
-  margin: 40px auto 0;
-  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;   /* CENTRALIZA horizontalmente */
+  align-items: center;        /* Garantia extra */
+  margin: 30px auto 0;
+}
+
+.rogerinho-help a {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .rogerinho-help img {
-  width: 92%;
-  max-width: 1000px;
-  border-radius: 20px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  display: block;             /* importante */
+  width: 95%;
+  max-width: 780px;
+  margin: 0 auto;             /* centraliza em qualquer contexto */
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
   transition: 0.25s ease;
 }
 
 .rogerinho-help img:hover {
-  transform: scale(1.01);
+  transform: scale(1.015);
 }
+
+
+/* =========================================
+   POPUP (PADRÃO UNIFICADO)
+========================================= */
 
 .popup-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.35);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(5px);
   display: flex;
   justify-content: center;
@@ -109,12 +153,15 @@
 
 .popup-box {
   background: #fff;
-  padding: 20px 28px;
+  padding: 20px 26px;
   border-radius: 15px;
+  font-size: 1rem;
   font-weight: 600;
   max-width: 360px;
+  width: 85%;
   text-align: center;
-  box-shadow: 0 6px 22px rgba(0,0,0,0.18);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  animation: fadeInPopup 0.25s ease-out;
 }
 
 .popup-overlay.success .popup-box {
@@ -126,187 +173,71 @@
   border-left: 6px solid #b71c1c;
   color: #b71c1c;
 }
-.saq-header {
-  text-align: center;
+
+@keyframes fadeInPopup {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.saq-form,
-.saq-group label {
-  text-align: left;
-}
+
+/* =========================================
+   RESPONSIVIDADE COM O MESMO PADRÃO
+   DA PÁGINA MINHAS CONSULTAS
+========================================= */
 
 @media (max-width: 992px) {
-
   .saq-header h2 {
-    font-size: 1.85rem;
+    font-size: 1.7rem;
   }
-
-  .saq-header p {
-    font-size: 1.05rem;
-  }
-
   .saq-card {
-    padding: 28px;
-    border-radius: 18px;
-    max-width: 640px;
-  }
-
-  .saq-group input,
-  .saq-group select,
-  .saq-group textarea {
-    padding: 12px 14px;
-    font-size: 0.97rem;
-  }
-
-  .saq-form {
-    gap: 16px;
-  }
-
-  .saq-btn {
-    padding: 13px;
-    font-size: 1rem;
-    width: 100%;
-  }
-
-  .rogerinho-help img {
-    max-width: 90%;
+    padding: 24px 18px;
   }
 }
 
 @media (max-width: 768px) {
-
-  .saq-header {
-    margin-bottom: 20px;
-  }
-
   .saq-header h2 {
-    font-size: 1.7rem;
+    font-size: 1.55rem;
   }
-
   .saq-header p {
-    font-size: 1rem;
-    opacity: 0.9;
+    font-size: 0.98rem;
   }
-
   .saq-card {
-    padding: 24px 20px;
-    border-radius: 16px;
-    max-width: 90%;
-    margin-bottom: 28px;
-  }
-
-  .saq-group label {
-    font-size: 0.95rem;
-  }
-
-  .saq-group input,
-  .saq-group select,
-  .saq-group textarea {
-    padding: 11px 12px;
-    font-size: 0.92rem;
-    border-radius: 10px;
+    max-width: 92%;
+    padding: 22px 16px;
   }
 
   .saq-btn {
     padding: 12px;
-    font-size: 0.96rem;
-    border-radius: 10px;
-  }
-
-  .rogerinho-help img {
-    width: 94%;
-    max-width: 550px;
-    border-radius: 16px;
-  }
-
-  .popup-box {
-    padding: 18px 22px;
-    max-width: 300px;
-    border-radius: 12px;
-    font-size: 0.95rem;
-  }
-
-  .popup-overlay {
-    padding-top: 100px;
   }
 }
 
 @media (max-width: 480px) {
-
   .saq-header h2 {
-    font-size: 1.5rem;
+    font-size: 1.38rem;
   }
-
-  .saq-header p {
-    font-size: 0.95rem;
-  }
-
   .saq-card {
-    padding: 20px 16px;
+    padding: 18px 14px;
     border-radius: 14px;
   }
-
-  .saq-group label {
-    font-size: 0.88rem;
-  }
-
-  .saq-group input,
-  .saq-group select,
-  .saq-group textarea {
-    padding: 10px 12px;
-    font-size: 0.88rem;
-    border-radius: 8px;
-  }
-
   .saq-btn {
     padding: 11px;
-    font-size: 0.9rem;
-  }
-
-  .rogerinho-help img {
-    max-width: 100%;
-    border-radius: 14px;
-  }
-
-  .popup-box {
-    padding: 16px 18px;
-    max-width: 90%;
-    font-size: 0.88rem;
   }
 }
 
 @media (max-width: 380px) {
-
   .saq-header h2 {
-    font-size: 1.35rem;
+    font-size: 1.28rem;
   }
-
-  .saq-header p {
-    font-size: 0.9rem;
-  }
-
   .saq-card {
-    padding: 16px 14px;
+    padding: 15px 12px;
   }
-
   .saq-group label {
     font-size: 0.85rem;
   }
-
   .saq-group input,
   .saq-group select,
   .saq-group textarea {
-    padding: 9px 10px;
     font-size: 0.85rem;
-  }
-
-  .saq-btn {
-    padding: 10px;
-    font-size: 0.85rem;
-  }
-
-  .popup-box {
-    padding: 14px;
-    font-size: 0.85rem;
+    padding: 10px 11px;
   }
 }

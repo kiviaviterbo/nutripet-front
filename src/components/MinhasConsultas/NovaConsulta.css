@@ -1,65 +1,275 @@
+.titulo {
+  font-weight: 700;
+  color: #7b2e1f;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.assinatura-free {
+  background: #fff;
+  padding: 28px 24px;
+  border-radius: 18px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.assinatura-free h3 {
+  color: #7b2e1f;
+  margin-bottom: 10px;
+  font-size: 1.18rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.assinatura-free p {
+  color: #5b4636;
+  font-size: 1.05rem;
+  text-align: center;
+}
+
+/* MENU CONSULTAS - LISTA VERTICAL NO MOBILE */
+.menu-consultas-list {
+  display: flex;
+  flex-direction: row; /* horizontal padrão */
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.menu-consultas-list-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 0;
+  background: #fff;
+  border: none;
+  border-radius: 10px;
+  color: #7b2e1f;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+  justify-content: center;
+}
+
+.menu-consultas-list-btn.active {
+  background: #7b2e1f;
+  color: #fff;
+}
+
+.menu-consultas-list-btn:focus {
+  outline: 2px solid #a37c46;
+}
+
+.menu-consultas-list-btn svg {
+  min-width: 22px;
+  min-height: 22px;
+  color: inherit;
+}
+
+@media (max-width: 600px) {
+  .menu-consultas-list {
+    flex-direction: column; /* vertical no mobile */
+    gap: 8px;
+  }
+  .menu-consultas-list-btn {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 12px 12px;
+    font-size: 1rem;
+  }
+}
+
+/* ======================================
+   FORMULÁRIO BASE
+====================================== */
+
 .nc-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 16px;
   text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 28px 24px;
+  border-radius: 18px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 .nc-label {
   color: #7b2e1f;
   font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 4px;
 }
 
 .nc-input,
-.nc-file {
+.nc-file,
+.nc-textarea {
   width: 100%;
   padding: 12px 14px;
   border-radius: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #d4c6b8;
   background: #fff;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  transition: 0.2s ease-in-out;
+  margin-bottom: 8px;
+  box-sizing: border-box;
 }
 
-.nc-subtitle {
-  margin-top: 20px;
-  color: #7b2e1f;
-  font-weight: 700;
-  font-size: 1.1rem;
+.nc-input:focus,
+.nc-file:focus,
+.nc-textarea:focus {
+  border-color: #b48a6c;
+  box-shadow: 0 0 0 2px rgba(180,138,108,0.25);
 }
 
-.nc-checkbox-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px 20px;
-}
-
-.nc-check-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #5b4636;
+.nc-textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.5;
+  color: #5a4336;
 }
 
 .nc-radio-group {
   display: flex;
   gap: 20px;
   color: #5b4636;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.nc-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 20px;
+  margin-bottom: 8px;
+}
+
+.nc-check-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: #5b4636;
+  line-height: 1.3;
 }
 
 .nc-submit-btn {
   background: #7b2e1f;
   color: #fff;
-  padding: 14px;
+  padding: 14px 20px;
   border-radius: 10px;
-  border: none;
   font-weight: 600;
-  margin-top: 15px;
+  border: none;
   cursor: pointer;
   transition: 0.2s;
+  margin-top: 10px;
+  width: 100%;
 }
 
 .nc-submit-btn:hover {
   background: #5d2016;
+  transform: translateY(-2px);
 }
+
+.nc-file-hint {
+  font-size: 0.9rem;
+  color: #5b4636;
+  background: #fff4eb;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border-left: 4px solid #7b2e1f;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+/* ======================================
+   SUBTÍTULO
+====================================== */
+
+.nc-subtitle {
+  margin-top: 24px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #7b2e1f;
+}
+
+/* ======================================
+   CHECKBOXES
+====================================== */
+
+.nc-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px 20px;
+}
+
+.nc-check-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: #5b4636;
+  line-height: 1.3;
+}
+
+/* ======================================
+   RADIO GROUP
+====================================== */
+
+.nc-radio-group {
+  display: flex;
+  gap: 20px;
+  color: #5b4636;
+  font-size: 0.95rem;
+}
+
+/* ======================================
+   BOTÃO ENVIAR
+====================================== */
+
+.nc-submit-btn {
+  background: #7b2e1f;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-top: 10px;
+}
+
+.nc-submit-btn:hover {
+  background: #5d2016;
+  transform: translateY(-2px);
+}
+
+/* ======================================
+   HINT DO ARQUIVO
+====================================== */
+
+.nc-file-hint {
+  font-size: 0.9rem;
+  color: #5b4636;
+  background: #fff4eb;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border-left: 4px solid #7b2e1f;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+/* ======================================
+   MODAL DE CONFIRMAÇÃO
+====================================== */
 
 .nc-modal-overlay {
   position: fixed;
@@ -68,100 +278,107 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 9990;
 }
 
 .nc-modal {
   background: #fff8f3;
-  padding: 30px;
+  padding: 32px 28px;
   border-radius: 18px;
-  width: 90%;
+  width: 92%;
   max-width: 380px;
+  animation: popupScale 0.25s ease-out;
   text-align: center;
+}
+
+.nc-modal h3 {
+  color: #7b2e1f;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.nc-modal p {
+  color: #5b4636;
+  font-size: 0.95rem;
 }
 
 .nc-modal-actions {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 22px;
+}
+
+.nc-modal-btn-cancel,
+.nc-modal-btn-confirm {
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .nc-modal-btn-cancel {
   background: #e9d8cf;
   color: #5b4636;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: none;
 }
 
 .nc-modal-btn-confirm {
   background: #7b2e1f;
   color: #fff;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: none;
 }
+
+/* ======================================
+   POPUP SUCESSO
+====================================== */
 
 .nc-popup {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 22px;
+  right: 22px;
   background: #317537;
-  color: white;
+  color: #fff;
   padding: 14px 20px;
   border-radius: 10px;
-  animation: fadeIn 0.3s ease;
-  z-index: 999;
+  animation: fadeIn 0.3s ease-out;
+  z-index: 9995;
 }
 
-.nc-file-hint {
-  font-size: 0.9rem;
-  color: #5b4636;
-  background: #fff1e7;
-  padding: 10px 14px;
-  border-radius: 10px;
-  border-left: 4px solid #7b2e1f;
-  margin-top: -5px;
-  margin-bottom: 10px;
-  text-align: left;
-  line-height: 1.4;
-}
+/* ======================================
+   LIMIT CARD
+====================================== */
 
 .nc-limit-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.55);
+  inset: 0;
+  background: rgba(0,0,0,0.55);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   z-index: 99999;
 }
 
 .nc-limit-card {
   background: #fff;
-  width: 90%;
-  max-width: 420px;
-  padding: 30px 25px;
+  padding: 32px 26px;
   border-radius: 18px;
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.2);
+  max-width: 430px;
+  width: 92%;
   text-align: center;
-  animation: popupScale 0.25s ease-out;
+  animation: popupScale 0.25s ease;
 }
 
 .nc-limit-card h3 {
-  font-size: 1.5rem;
   color: #7b2e1f;
-  margin-bottom: 10px;
   font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
 }
 
 .nc-limit-card p {
-  font-size: 1rem;
   color: #5b4636;
+  font-size: 1rem;
+  line-height: 1.4;
   margin-bottom: 20px;
 }
 
@@ -169,273 +386,123 @@
   background: #7b2e1f;
   color: #fff;
   border: none;
-  padding: 12px 26px;
+  padding: 12px 24px;
   border-radius: 10px;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.2s;
+  width: 100%;
 }
 
-.nc-limit-btn:hover {
-  background: #5d2016;
-}
+/* ======================================
+   ANIMAÇÕES
+====================================== */
 
 @keyframes popupScale {
-  from {
-    transform: scale(0.85);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-.assinatura-free {
-  background: #fff;
-  padding: 30px;
-  border-radius: 18px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
-.assinatura-free h3 {
-  color: #7b2e1f;
-  margin-bottom: 12px;
-  font-weight: 700;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.assinatura-free p {
-  color: #5b4636;
-  font-size: 1rem;
-}
+/* ======================================
+   RESPONSIVIDADE
+====================================== */
 
-.btn-assinar {
-  background-color: #7b2e1f;
-  color: #fff;
-  border: none;
-  padding: 12px 24px;
-  font-weight: 600;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.25s ease;
-  margin-top: 18px;
-}
-
-.btn-assinar:hover {
-  background-color: #5d2016;
-}
-.nc-textarea {
-  width: 100%;
-  min-height: 120px;
-  padding: 12px 14px;
-  border: 1px solid #e3d5c7;
-  border-radius: 10px;
-  font-size: 1rem;
-  font-family: "Poppins", sans-serif;
-  resize: vertical;
-  background: #fff;
-  color: #5a4336;
-  outline: none;
-  transition: 0.2s ease-in-out;
-}
-
-.nc-textarea:focus {
-  border-color: #b48a6c;
-  box-shadow: 0 0 0 2px rgba(180, 138, 108, 0.2);
-}
-
+/* Tablets */
 @media (max-width: 992px) {
-
-  .nc-form {
-    gap: 12px;
+  .titulo {
+    font-size: 1.6rem;
   }
-
   .nc-checkbox-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 18px;
   }
-
   .nc-radio-group {
     gap: 16px;
   }
-
-  .nc-subtitle {
-    font-size: 1rem;
-    margin-top: 15px;
-  }
-
   .nc-submit-btn {
     width: 100%;
   }
-
-  .assinatura-free {
-    max-width: 520px;
-    padding: 24px;
-  }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
-
-  .nc-form {
-    gap: 14px;
+  .titulo {
+    font-size: 1.45rem;
   }
-
   .nc-label {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
   }
-
   .nc-input,
   .nc-file,
   .nc-textarea {
     padding: 11px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
-
   .nc-checkbox-grid {
     grid-template-columns: 1fr;
     gap: 10px;
   }
-
-  .nc-check-item {
-    font-size: 0.92rem;
-  }
-
-  .nc-radio-group {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .nc-subtitle {
-    font-size: 1rem;
-    margin-bottom: 6px;
-  }
-
-  .nc-submit-btn {
-    width: 100%;
-    padding: 13px;
-    border-radius: 12px;
-    font-size: 1rem;
-  }
-
   .nc-modal {
-    padding: 24px 20px;
-    width: 92%;
-    border-radius: 16px;
+    padding: 26px 20px;
   }
-
   .nc-modal-actions {
     flex-direction: column;
-    gap: 12px;
+    width: 100%;
   }
-
   .nc-modal-btn-cancel,
   .nc-modal-btn-confirm {
     width: 100%;
-    padding: 12px;
-    border-radius: 10px;
   }
-
   .nc-popup {
     bottom: 16px;
     right: 16px;
     padding: 12px 16px;
   }
-
-  .assinatura-free {
-    padding: 22px 18px;
-  }
-
-  .assinatura-free h3 {
-    font-size: 1.3rem;
-  }
 }
 
+/* Telefone pequeno */
 @media (max-width: 480px) {
-
-  .nc-label {
-    font-size: 0.9rem;
+  .titulo {
+    font-size: 1.28rem;
   }
-
   .nc-input,
   .nc-file,
   .nc-textarea {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     border-radius: 8px;
   }
-
-  .nc-textarea {
-    min-height: 110px;
-  }
-
-  .nc-check-item {
-    font-size: 0.88rem;
-  }
-
-  .nc-subtitle {
-    font-size: 0.95rem;
-  }
-
-  .nc-submit-btn {
-    padding: 12px;
-    font-size: 0.92rem;
-  }
-
-  .nc-popup {
-    padding: 10px 14px;
-    font-size: 0.88rem;
-    bottom: 14px;
-    right: 14px;
-  }
-
   .nc-limit-card {
-    padding: 22px 18px;
-    border-radius: 14px;
+    padding: 26px 20px;
   }
-
-  .nc-limit-card h3 {
-    font-size: 1.3rem;
-  }
-
-  .nc-limit-card p {
-    font-size: 0.9rem;
-  }
-
   .nc-limit-btn {
-    width: 100%;
-    padding: 11px;
     font-size: 0.9rem;
+    padding: 10px;
+  }
+  .nc-subtitle {
+    font-size: 1rem;
   }
 }
 
+/* Celulares muito pequenos */
 @media (max-width: 380px) {
-
-  .nc-input,
-  .nc-file,
-  .nc-textarea {
-    padding: 10px;
-    font-size: 0.85rem;
-  }
-
   .nc-checkbox-grid {
     gap: 8px;
   }
-
-  .nc-subtitle {
-    font-size: 0.9rem;
+  .nc-label {
+    font-size: 0.85rem;
   }
-
   .nc-submit-btn {
     padding: 10px;
     font-size: 0.88rem;
   }
-
-  .nc-limit-card h3 {
-    font-size: 1.2rem;
-  }
-
-  .nc-limit-card p {
-    font-size: 0.88rem;
+  .nc-input,
+  .nc-file,
+  .nc-textarea {
+    padding: 10px;
+    font-size: 0.82rem;
   }
 }

@@ -1,3 +1,7 @@
+/* =====================================================
+   LISTA DE SORTEIOS
+===================================================== */
+
 .sorteios-container {
   display: flex;
   flex-direction: column;
@@ -6,15 +10,19 @@
   padding-right: 20px;
 }
 
+/* =====================================================
+   CARD DO SORTEIO
+===================================================== */
+
 .sorteio-card {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 28px;
   background: #ffffff;
-  padding: 25px;
-  border-radius: 18px;
+  padding: 26px 28px;
+  border-radius: 20px;
   box-shadow: 0px 6px 18px rgba(0,0,0,0.06);
-  transition: .2s;
+  transition: 0.25s ease;
 }
 
 .sorteio-card:hover {
@@ -22,36 +30,52 @@
   box-shadow: 0px 8px 22px rgba(0,0,0,0.08);
 }
 
+/* =====================================================
+   IMAGEM
+===================================================== */
+
 .sorteio-img {
-  width: 150px;
-  height: 150px;
-  border-radius: 14px;
+  width: 160px;
+  height: 160px;
   object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.06);
 }
+
+/* =====================================================
+   INFORMAÇÕES DO PRÊMIO
+===================================================== */
 
 .sorteio-info h3 {
   font-size: 22px;
   font-weight: 700;
   color: #5c2d1c;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  line-height: 1.25;
 }
 
 .sorteio-info p {
   font-size: 15px;
   color: #7b4b39;
-  margin-bottom: 10px;
-  max-width: 350px;
+  margin-bottom: 14px;
+  max-width: 420px;
+  line-height: 1.45;
 }
 
+/* =====================================================
+   BOTÕES (Participar, Inscrito, Indisponível)
+===================================================== */
+
 .sorteio-btn {
-  padding: 12px 22px;
+  padding: 13px 24px;
   font-size: 15px;
   font-weight: 700;
-  border-radius: 10px;
-  transition: .2s;
+  border-radius: 12px;
+  transition: 0.25s ease;
   border: none;
 }
 
+/* Ativo */
 .sorteio-btn.ativo {
   background: #317537;
   color: #fff;
@@ -62,67 +86,58 @@
   background: #27602c;
 }
 
+/* Indisponível */
 .sorteio-btn.desabilitado {
-  background: #e1e1e1;
+  background: #e3e3e3;
   color: #777;
   cursor: not-allowed;
 }
 
-@media (max-width: 600px) {
-  .sorteio-card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .sorteio-img {
-    width: 180px;
-    height: 180px;
-  }
-
-  .sorteio-info p {
-    max-width: 100%;
-  }
+/* Já inscrito */
+.sorteio-btn.inscrito {
+  background: #d5f0d7;
+  color: #317537;
+  border: 2px solid #317537;
+  cursor: not-allowed;
 }
+
+/* =====================================================
+   POPUP
+===================================================== */
+
 .np-popup {
   position: fixed;
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   background: #ffffff;
-  padding: 14px 28px;
+  padding: 14px 30px;
   border-left: 6px solid #317537;
   color: #317537;
   font-weight: 700;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-  z-index: 9999;
-  animation: fadeInOut 2.4s ease forwards;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  z-index: 99999;
+  animation: fadeInOut 2.3s ease forwards;
 }
 
 @keyframes fadeInOut {
-  0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  0% { opacity: 0; transform: translateX(-50%) translateY(18px); }
   10% { opacity: 1; transform: translateX(-50%) translateY(0); }
   90% { opacity: 1; }
-  100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(18px); }
 }
 
-.sorteio-btn.inscrito {
-  background: #cde9cf;
-  color: #317537;
-  border: 2px solid #317537;
-  cursor: not-allowed;
-}
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
 
+/* Tablets */
 @media (max-width: 900px) {
 
-  .sorteios-container {
-    padding-right: 0;
-    gap: 24px;
-  }
-
   .sorteio-card {
-    padding: 22px;
-    gap: 20px;
+    padding: 24px;
+    gap: 22px;
   }
 
   .sorteio-img {
@@ -139,11 +154,12 @@
   }
 
   .sorteio-btn {
-    padding: 12px 20px;
     font-size: 14px;
+    padding: 12px 20px;
   }
 }
 
+/* Mobile */
 @media (max-width: 600px) {
 
   .sorteio-card {
@@ -156,7 +172,7 @@
   .sorteio-img {
     width: 190px;
     height: 190px;
-    border-radius: 16px;
+    border-radius: 18px;
   }
 
   .sorteio-info h3 {
@@ -170,18 +186,19 @@
 
   .sorteio-btn {
     width: 100%;
-    padding: 14px 20px;
     border-radius: 12px;
+    padding: 14px;
     font-size: 15px;
   }
 }
 
+/* Mobile Pequeno */
 @media (max-width: 480px) {
 
   .sorteio-card {
     padding: 20px;
-    gap: 14px;
     border-radius: 16px;
+    gap: 14px;
   }
 
   .sorteio-img {
@@ -198,17 +215,19 @@
   }
 
   .sorteio-btn {
-    padding: 13px 18px;
     font-size: 14px;
+    padding: 13px 18px;
   }
 
   .np-popup {
-    bottom: 25px;
+    bottom: 24px;
     padding: 12px 20px;
-    font-size: .9rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
   }
 }
 
+/* Telas muito pequenas */
 @media (max-width: 360px) {
 
   .sorteio-card {
