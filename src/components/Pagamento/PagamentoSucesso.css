@@ -53,3 +53,132 @@
 .pagamento-sucesso-card .btn-premium-info:hover {
   background: #e3931b;
 }
+
+@media (max-width: 992px) {
+
+  .pagamento-sucesso-section {
+    padding: 7rem 1rem 4rem;
+  }
+
+  .pagamento-sucesso-card {
+    padding: 2.5rem 2rem;
+    border-radius: 1rem;
+  }
+
+  .pagamento-sucesso-card h2 {
+    font-size: 1.75rem;
+  }
+
+  .psucesso-msg,
+  .psucesso-protocolo {
+    font-size: 1.05rem;
+  }
+
+  .psucesso-info {
+    font-size: 0.95rem;
+  }
+
+  .pagamento-sucesso-card .btn-premium-info {
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 1rem;
+    border-radius: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .pagamento-sucesso-section {
+    padding: 6.5rem 0.9rem 3.5rem;
+  }
+
+  .pagamento-sucesso-card {
+    padding: 2.2rem 1.8rem;
+    max-width: 420px;
+  }
+
+  .pagamento-sucesso-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .psucesso-msg {
+    font-size: 1rem;
+  }
+
+  .psucesso-protocolo {
+    font-size: 1.05rem;
+  }
+
+  .psucesso-info {
+    font-size: 0.9rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .pagamento-sucesso-card .btn-premium-info {
+    padding: 0.85rem 1.6rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .pagamento-sucesso-section {
+    padding: 6rem 0.8rem 3rem;
+  }
+
+  .pagamento-sucesso-card {
+    padding: 2rem 1.5rem;
+    border-radius: 0.9rem;
+  }
+
+  .pagamento-sucesso-card h2 {
+    font-size: 1.45rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .psucesso-msg,
+  .psucesso-protocolo {
+    font-size: 0.95rem;
+  }
+
+  .psucesso-info {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .pagamento-sucesso-card .btn-premium-info {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    border-radius: 0.7rem;
+  }
+}
+
+@media (max-width: 380px) {
+
+  .pagamento-sucesso-section {
+    padding: 5.5rem 0.7rem 2.5rem;
+  }
+
+  .pagamento-sucesso-card {
+    padding: 1.6rem 1.3rem;
+    border-radius: 0.8rem;
+  }
+
+  .pagamento-sucesso-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .psucesso-msg,
+  .psucesso-protocolo {
+    font-size: 0.88rem;
+  }
+
+  .psucesso-info {
+    font-size: 0.8rem;
+  }
+
+  .pagamento-sucesso-card .btn-premium-info {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
+}

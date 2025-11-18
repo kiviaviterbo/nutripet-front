@@ -203,3 +203,181 @@
 .nc-link-saQ:hover {
   color: #5d2016;
 }
+
+@media (max-width: 992px) {
+
+  .perfil-section {
+    padding: 100px 0 70px;
+  }
+
+  .perfil-container {
+    flex-direction: column;
+    max-width: 95%;
+    border-radius: 18px;
+  }
+
+  .perfil-menu {
+    width: 100%;
+    padding: 16px 12px;
+    display: flex;
+    overflow-x: auto;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    gap: 10px;
+  }
+
+  .perfil-menu ul {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    width: max-content;
+  }
+
+  .perfil-menu li {
+    padding: 12px 18px;
+    white-space: nowrap;
+    border-radius: 12px;
+    font-size: 0.95rem;
+  }
+
+  .perfil-conteudo {
+    padding: 35px 35px;
+  }
+
+  .timeline-container {
+    padding: 26px 24px;
+    border-radius: 16px;
+  }
+
+  .timeline-step-icon {
+    width: 65px;
+    height: 65px;
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .perfil-section {
+    padding: 80px 0 50px;
+  }
+
+  .perfil-menu {
+    padding: 12px 8px;
+  }
+
+  .perfil-menu li {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+
+  .perfil-conteudo {
+    padding: 28px 22px;
+    text-align: center;
+  }
+
+  .titulo {
+    font-size: 1.55rem;
+  }
+
+  .timeline-status {
+    flex-direction: column;
+    gap: 26px;
+    position: static;
+  }
+
+  .timeline-line {
+    display: none;
+  }
+
+  .timeline-step {
+    width: 100%;
+  }
+
+  .timeline-step-icon {
+    width: 75px;
+    height: 75px;
+    font-size: 32px;
+  }
+
+  .assinatura-info-box {
+    margin-top: 22px;
+  }
+
+  .btn-assinar {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 12px;
+  }
+
+  .nc-file-hint {
+    font-size: 0.88rem;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .perfil-conteudo {
+    padding: 22px 16px;
+  }
+
+  .titulo {
+    font-size: 1.4rem;
+  }
+
+  .timeline-container {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .timeline-step-icon {
+    width: 65px;
+    height: 65px;
+    font-size: 28px;
+  }
+
+  .timeline-step p {
+    font-size: 0.95rem;
+  }
+
+  .btn-assinar {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .nc-file-hint {
+    padding: 9px 10px;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 380px) {
+
+  .perfil-menu li {
+    font-size: 0.78rem;
+    padding: 8px 10px;
+  }
+
+  .perfil-conteudo {
+    padding: 18px 12px;
+  }
+
+  .titulo {
+    font-size: 1.3rem;
+  }
+
+  .timeline-step-icon {
+    width: 58px;
+    height: 58px;
+    font-size: 24px;
+  }
+
+  .button-full {
+    width: 100%;
+  }
+
+  .nc-file-hint {
+    font-size: 0.75rem;
+  }
+}

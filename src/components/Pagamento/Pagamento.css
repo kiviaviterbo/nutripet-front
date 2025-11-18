@@ -435,3 +435,298 @@ body {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+@media (max-width: 1024px) {
+
+  .pagamento-section {
+    padding: 6.5rem var(--gutter) 4rem;
+  }
+
+  .pagamento-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .plano-card,
+  .pagamento-card {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .duvida-content {
+    padding: 2.5rem;
+    gap: 2rem;
+  }
+
+  .duvida-texto h3 {
+    font-size: 1.5rem;
+  }
+
+  .duvida-texto p {
+    font-size: 0.97rem;
+  }
+
+  .pix-container {
+    padding: 1.5rem;
+  }
+
+  .pix-qrcode {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  :root {
+    --gutter: 12px;
+  }
+
+  .pagamento-section {
+    padding: 6rem var(--gutter) 3.5rem;
+  }
+
+  .pagamento-wrapper {
+    gap: 2.5rem;
+  }
+
+  .plano-card {
+    padding: 2rem 1.6rem;
+    border-radius: 1rem;
+  }
+
+  .plano-img {
+    width: 105px;
+  }
+
+  .plano-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .plano-card p {
+    font-size: 0.9rem;
+  }
+
+  .valor {
+    font-size: 1.6rem;
+  }
+
+  .pagamento-card {
+    padding: 2.2rem 1.8rem;
+    border-radius: 1rem;
+  }
+
+  .pagamento-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .descricao {
+    font-size: 0.95rem;
+  }
+
+  .linha {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .pagamento-form input,
+  .pagamento-form select {
+    font-size: 0.92rem;
+    padding: 0.85rem 0.85rem;
+  }
+
+  .pagamento-form button {
+    padding: 0.9rem;
+    font-size: 0.95rem;
+    border-radius: 0.7rem;
+  }
+
+  .pix-container {
+    padding: 1.4rem;
+  }
+
+  .pix-qrcode {
+    width: 140px;
+    height: 140px;
+  }
+
+  .pix-container textarea {
+    height: 80px;
+    font-size: 0.9rem;
+  }
+
+  .btn-pagar-pix {
+    padding: 0.85rem;
+    font-size: 0.95rem;
+  }
+
+  .pix-timer {
+    font-size: 1.1rem;
+  }
+
+  .duvida-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 2.3rem;
+    border-radius: 1rem;
+  }
+
+  .duvida-gif {
+    width: 90px;
+    height: 90px;
+  }
+
+  .duvida-texto {
+    align-items: center;
+  }
+
+  .btn-premium-info {
+    align-self: center;
+    padding: 0.8rem 1.6rem;
+    font-size: 0.9rem;
+  }
+
+  .popup-box {
+    padding: 20px 24px;
+    border-radius: 14px;
+  }
+
+  .popup-box p {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .pagamento-section {
+    padding: 5.5rem var(--gutter) 3rem;
+  }
+
+  .plano-card,
+  .pagamento-card {
+    padding: 1.8rem 1.4rem;
+  }
+
+  .plano-img {
+    width: 95px;
+  }
+
+  .plano-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .valor {
+    font-size: 1.45rem;
+  }
+
+  .pagamento-card h2 {
+    font-size: 1.45rem;
+  }
+
+  .descricao {
+    font-size: 0.9rem;
+  }
+
+  .pagamento-form input,
+  .pagamento-form select {
+    padding: 0.78rem 0.8rem;
+    font-size: 0.87rem;
+  }
+
+  .pagamento-form button {
+    padding: 0.85rem;
+    font-size: 0.88rem;
+    border-radius: 0.65rem;
+  }
+
+  .pix-container textarea {
+    font-size: 0.85rem;
+  }
+
+  .pix-qrcode {
+    width: 125px;
+    height: 125px;
+  }
+
+  .duvida-content {
+    padding: 1.9rem;
+  }
+
+  .duvida-texto h3 {
+    font-size: 1.35rem;
+  }
+
+  .duvida-texto p {
+    font-size: 0.9rem;
+  }
+
+  .btn-premium-info {
+    font-size: 0.85rem;
+  }
+
+  .popup-box p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+
+  .pagamento-section {
+    padding: 5rem var(--gutter) 2.5rem;
+  }
+
+  .plano-card,
+  .pagamento-card {
+    padding: 1.6rem 1.2rem;
+    border-radius: 0.9rem;
+  }
+
+  .plano-img {
+    width: 85px;
+  }
+
+  .plano-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .valor {
+    font-size: 1.3rem;
+  }
+
+  .pagamento-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .pagamento-form input,
+  .pagamento-form select {
+    padding: 0.7rem 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .pagamento-form button {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .pix-qrcode {
+    width: 110px;
+    height: 110px;
+  }
+
+  .duvida-content {
+    padding: 1.7rem;
+  }
+
+  .duvida-texto h3 {
+    font-size: 1.2rem;
+  }
+
+  .duvida-texto p {
+    font-size: 0.85rem;
+  }
+
+  .popup-box p {
+    font-size: 0.9rem;
+  }
+}
