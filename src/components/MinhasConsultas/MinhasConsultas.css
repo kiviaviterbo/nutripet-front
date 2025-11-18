@@ -1,128 +1,119 @@
-.perfil-section {
-  background-color: #fff8f3;
-  min-height: 100vh;
-  padding: 120px 0 80px 0;
-}
-
-.perfil-container {
-  display: flex;
-  max-width: 1100px;
-  margin: 0 auto;
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-}
-
-.perfil-menu {
-  width: 250px;
-  background: #f9e9dc;
-  padding: 30px 0;
-}
-
-.perfil-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.perfil-menu li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 25px;
-  font-weight: 600;
-  color: #5b4636;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.perfil-menu li:hover {
-  background-color: rgba(123, 46, 31, 0.1);
-  color: #7b2e1f;
-}
-
-.perfil-menu li.active {
-  background-color: #7b2e1f;
-  color: #fff;
-}
-
-.logout-item {
-  margin-top: 30px;
-  color: #a33c27;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding-top: 20px;
-  transition: 0.2s;
-}
-
-.perfil-conteudo {
-  flex: 1;
-  padding: 40px 60px;
-  text-align: center;
-}
-
 .titulo {
   font-weight: 700;
   color: #7b2e1f;
   margin-bottom: 25px;
+  text-align: center;
+  font-size: 1.8rem;
 }
 
-.consultas-premium {
-  color: #5b4636;
+.assinatura-free {
+  background: #fff;
+  padding: 28px 24px;
+  border-radius: 18px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .assinatura-free h3 {
   color: #7b2e1f;
   margin-bottom: 10px;
+  font-size: 1.18rem;
+  font-weight: 700;
+  text-align: center;
 }
 
 .assinatura-free p {
   color: #5b4636;
-  margin-bottom: 20px;
+  font-size: 1.05rem;
+  text-align: center;
 }
 
-.btn-assinar {
-  background-color: #7b2e1f;
-  color: #fff;
+/* MENU CONSULTAS - LISTA VERTICAL NO MOBILE */
+.menu-consultas-list {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.menu-consultas-list-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 0;
+  background: #fff;
   border: none;
   border-radius: 10px;
-  padding: 12px 25px;
+  color: #7b2e1f;
   font-weight: 600;
+  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+  justify-content: center;
 }
 
-.btn-assinar:hover {
-  background-color: #5d2016;
+.menu-consultas-list-btn.active {
+  background: #7b2e1f;
+  color: #fff;
 }
 
+.menu-consultas-list-btn:focus {
+  outline: 2px solid #a37c46;
+}
+
+.menu-consultas-list-btn svg {
+  min-width: 22px;
+  min-height: 22px;
+  color: inherit;
+}
+
+@media (max-width: 600px) {
+  .menu-consultas-list {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .menu-consultas-list-btn {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 12px 12px;
+    font-size: 1rem;
+  }
+}
+
+/* TIMELINE - CARD RESPONSIVO */
 .timeline-container {
   background: #fff;
-  padding: 30px 40px;
+  padding: 28px 24px;
   border-radius: 18px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  margin-top: 20px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  margin-top: 25px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .timeline-title {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: #7b2e1f;
+  margin-bottom: 20px;
   text-align: center;
-  margin-bottom: 25px;
 }
 
 .timeline-status {
+  position: relative;
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
   align-items: center;
-  margin-top: 25px;
-  position: relative;
 }
 
 .timeline-line {
   position: absolute;
-  top: 30%;
+  top: 32%;
   left: 12%;
   width: 76%;
   height: 4px;
@@ -131,20 +122,20 @@
 }
 
 .timeline-step {
+  width: 33%;
   z-index: 2;
   text-align: center;
-  width: 33%;
 }
 
 .timeline-step-icon {
   width: 70px;
   height: 70px;
   background: #317537;
-  color: white;
+  color: #fff;
   border-radius: 50%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   margin: 0 auto 10px;
   font-size: 32px;
 }
@@ -153,47 +144,39 @@
   background: #1f5f23;
 }
 
+/* INFORMAÇÕES DA CONSULTA FINALIZADA */
 .assinatura-info-box {
-  text-align: center;
-  margin-top: 25px;
+  margin-top: 22px;
+  background: #fff8f3;
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid #f1d7c9;
 }
 
 .badge-ativo {
   background: #317537;
   padding: 4px 12px;
   color: #fff;
-  border-radius: 8px;
+  border-radius: 6px;
   font-weight: 600;
 }
 
-.btn-assinar {
-  background: #7b2e1f;
-  color: white;
-  border: none;
-  padding: 10px 22px;
-  font-weight: 600;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.2s;
-  margin-top: 18px;
-}
-
-.btn-assinar:hover {
-  background: #5d2016;
+.consulta-finalizada-box {
+  margin-top: 20px;
 }
 
 .nc-file-hint {
   font-size: 0.9rem;
   color: #5b4636;
-  background: #fff1e7;
-  padding: 10px 14px;
+  background: #fff4eb;
+  padding: 14px 16px;
   border-radius: 10px;
   border-left: 4px solid #7b2e1f;
-  margin-top: -5px;
-  margin-bottom: 10px;
-  text-align: left;
   line-height: 1.4;
+  text-align: left;
+  margin-bottom: 12px;
 }
+
 .nc-link-saQ {
   color: #7b2e1f;
   font-weight: 600;
@@ -204,180 +187,115 @@
   color: #5d2016;
 }
 
+.btn-assinar {
+  background: #7b2e1f;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 100%;
+}
+
+.btn-assinar:hover {
+  background: #5d2016;
+}
+
+/* RESPONSIVIDADE */
 @media (max-width: 992px) {
-
-  .perfil-section {
-    padding: 100px 0 70px;
+  .titulo {
+    font-size: 1.6rem;
   }
-
-  .perfil-container {
-    flex-direction: column;
-    max-width: 95%;
-    border-radius: 18px;
-  }
-
-  .perfil-menu {
-    width: 100%;
-    padding: 16px 12px;
-    display: flex;
-    overflow-x: auto;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-    gap: 10px;
-  }
-
-  .perfil-menu ul {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-    width: max-content;
-  }
-
-  .perfil-menu li {
-    padding: 12px 18px;
-    white-space: nowrap;
-    border-radius: 12px;
-    font-size: 0.95rem;
-  }
-
-  .perfil-conteudo {
-    padding: 35px 35px;
-  }
-
   .timeline-container {
-    padding: 26px 24px;
-    border-radius: 16px;
+    padding: 22px 10px;
   }
-
   .timeline-step-icon {
-    width: 65px;
-    height: 65px;
+    width: 64px;
+    height: 64px;
     font-size: 28px;
+  }
+  .nc-file-hint {
+    padding: 12px 14px;
   }
 }
 
 @media (max-width: 768px) {
-
-  .perfil-section {
-    padding: 80px 0 50px;
-  }
-
-  .perfil-menu {
-    padding: 12px 8px;
-  }
-
-  .perfil-menu li {
-    padding: 10px 14px;
-    font-size: 0.9rem;
-  }
-
-  .perfil-conteudo {
-    padding: 28px 22px;
-    text-align: center;
-  }
-
   .titulo {
-    font-size: 1.55rem;
+    font-size: 1.45rem;
   }
-
   .timeline-status {
     flex-direction: column;
     gap: 26px;
     position: static;
   }
-
   .timeline-line {
     display: none;
   }
-
   .timeline-step {
     width: 100%;
   }
-
   .timeline-step-icon {
     width: 75px;
     height: 75px;
     font-size: 32px;
   }
-
-  .assinatura-info-box {
-    margin-top: 22px;
-  }
-
-  .btn-assinar {
-    width: 100%;
-    padding: 12px;
-    font-size: 1rem;
+  .timeline-container {
+    padding: 16px 4px;
     border-radius: 12px;
   }
-
-  .nc-file-hint {
-    font-size: 0.88rem;
-    padding: 10px 12px;
+  .assinatura-info-box {
+    padding: 16px 14px;
+  }
+  .btn-assinar {
+    font-size: 1rem;
+    padding: 12px;
   }
 }
 
 @media (max-width: 480px) {
-
-  .perfil-conteudo {
-    padding: 22px 16px;
-  }
-
-  .titulo {
-    font-size: 1.4rem;
-  }
-
   .timeline-container {
-    padding: 20px 16px;
-    border-radius: 14px;
+    padding: 8px 0;
+    border-radius: 8px;
   }
-
+  .assinatura-free {
+    padding: 18px 8px;
+  }
   .timeline-step-icon {
-    width: 65px;
-    height: 65px;
-    font-size: 28px;
+    width: 56px;
+    height: 56px;
+    font-size: 22px;
   }
-
   .timeline-step p {
     font-size: 0.95rem;
   }
-
   .btn-assinar {
+    font-size: 0.92rem;
     padding: 10px;
-    font-size: 0.9rem;
+    border-radius: 8px;
   }
-
   .nc-file-hint {
-    padding: 9px 10px;
-    font-size: 0.82rem;
+    padding: 8px 8px;
+    font-size: 0.85rem;
   }
 }
 
 @media (max-width: 380px) {
-
-  .perfil-menu li {
-    font-size: 0.78rem;
-    padding: 8px 10px;
-  }
-
-  .perfil-conteudo {
-    padding: 18px 12px;
-  }
-
   .titulo {
-    font-size: 1.3rem;
+    font-size: 1.28rem;
   }
-
   .timeline-step-icon {
-    width: 58px;
-    height: 58px;
-    font-size: 24px;
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
   }
-
-  .button-full {
-    width: 100%;
-  }
-
   .nc-file-hint {
-    font-size: 0.75rem;
+    font-size: 0.78rem;
+  }
+  .btn-assinar {
+    font-size: 0.85rem;
+    padding: 9px 8px;
+    border-radius: 6px;
   }
 }

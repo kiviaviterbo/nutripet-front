@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PerfilLayout from "../PerfilLayout/PerfilLayout";
-import "../../assets/styles/perfil.css"
+import "../../assets/styles/perfil.css";
+import "../AlterarSenha/AlterarSenha.css";
 import NutripetNavbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import { User, FileText, CreditCard, KeyRound } from "lucide-react";
+import { User, FileText, CreditCard, KeyRound, Check, X } from "lucide-react";
 import api from "../../services/api";
 
 export default function AlterarSenha() {
@@ -21,7 +22,7 @@ export default function AlterarSenha() {
   const user = JSON.parse(localStorage.getItem("user")) || {};
 
   const menuItems = [
-    { label: "Minha Conta", icon: <User size={18} />, path: "/usuario/meusdados" },
+   // { label: "Minha Conta", icon: <User size={18} />, path: "/usuario/meusdados" },
     { label: "Meus Dados", icon: <FileText size={18} />, path: "/usuario/meusdados" },
     { label: "Minha Assinatura", icon: <CreditCard size={18} />, path: "/usuario/assinatura" },
     { label: "Alterar Senha", icon: <KeyRound size={18} />, path: "/usuario/senha" },
@@ -31,8 +32,26 @@ export default function AlterarSenha() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // ────────────────────────────────────────────────
+  // Validações da nova senha
+  // ────────────────────────────────────────────────
+  const rules = {
+    length: form.novaSenha.length >= 10,
+    upper: /[A-Z]/.test(form.novaSenha),
+    lower: /[a-z]/.test(form.novaSenha),
+    number: /[0-9]/.test(form.novaSenha),
+  };
+
+  const senhaValida =
+    rules.length && rules.upper && rules.lower && rules.number;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!senhaValida) {
+      alert("A nova senha não atende aos requisitos.");
+      return;
+    }
 
     if (form.novaSenha !== form.confirmarSenha) {
       alert("As senhas não coincidem!");
@@ -46,6 +65,7 @@ export default function AlterarSenha() {
         senhaAtual: form.senhaAtual,
         novaSenha: form.novaSenha,
       });
+
       setShowSuccessModal(true);
 
     } catch (err) {
@@ -67,41 +87,59 @@ export default function AlterarSenha() {
       <NutripetNavbar />
 
       <PerfilLayout menu={menuItems}>
-        <h2 className="titulo">Alterar Senha</h2>
+        <div className="perfil-conteudo alterar-senha">
+          <h2 className="titulo">Alterar Senha</h2>
 
-        <form onSubmit={handleSubmit} className="perfil-form">
+          <form onSubmit={handleSubmit} className="perfil-form">
 
-          <label>Senha Atual</label>
-          <input
-            type="password"
-            name="senhaAtual"
-            value={form.senhaAtual}
-            onChange={handleChange}
-            required
-          />
+            {/* Senha Atual */}
+            <label>Senha Atual</label>
+            <input
+              type="password"
+              name="senhaAtual"
+              value={form.senhaAtual}
+              onChange={handleChange}
+              required
+            />
 
-          <label>Nova Senha</label>
-          <input
-            type="password"
-            name="novaSenha"
-            value={form.novaSenha}
-            onChange={handleChange}
-            required
-          />
+            {/* Nova Senha */}
+            <label>Nova Senha</label>
+            <input
+              type="password"
+              name="novaSenha"
+              value={form.novaSenha}
+              onChange={handleChange}
+              required
+            />
 
-          <label>Confirmar Nova Senha</label>
-          <input
-            type="password"
-            name="confirmarSenha"
-            value={form.confirmarSenha}
-            onChange={handleChange}
-            required
-          />
+            {/* BLOCO DE REQUISITOS */}
+            <div className="senha-requisitos">
+              <Requisito ok={rules.length} texto="Mínimo de 10 caracteres" />
+              <Requisito ok={rules.upper} texto="Pelo menos 1 letra maiúscula" />
+              <Requisito ok={rules.lower} texto="Pelo menos 1 letra minúscula" />
+              <Requisito ok={rules.number} texto="Pelo menos 1 número" />
+            </div>
 
-          <button type="submit" disabled={loading}>
-            {loading ? "Salvando..." : "Alterar Senha"}
-          </button>
-        </form>
+            {/* Confirmar Senha */}
+            <label>Confirmar Nova Senha</label>
+            <input
+              type="password"
+              name="confirmarSenha"
+              value={form.confirmarSenha}
+              onChange={handleChange}
+              required
+            />
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="btn-alterar-senha"
+            >
+              {loading ? "Salvando..." : "Alterar Senha"}
+            </button>
+
+          </form>
+        </div>
       </PerfilLayout>
 
       <Footer />
@@ -121,5 +159,25 @@ export default function AlterarSenha() {
         </div>
       )}
     </>
+  );
+}
+
+/* Componente interno para exibir ✓ ou ✗ */
+function Requisito({ ok, texto }) {
+  return (
+    <p
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "6px",
+        fontSize: "0.9rem",
+        color: ok ? "#2e7d32" : "#b71c1c",
+        margin: 0,
+        paddingLeft: "4px",
+      }}
+    >
+      {ok ? <Check size={16} /> : <X size={16} />}
+      {texto}
+    </p>
   );
 }

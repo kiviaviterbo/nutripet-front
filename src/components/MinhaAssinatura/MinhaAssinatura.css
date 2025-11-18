@@ -1,23 +1,31 @@
-
 .timeline-container {
   background: #fff;
-  padding: 30px 40px;
+  padding: 32px 40px;
   border-radius: 18px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   margin-top: 10px;
+}
+
+.timeline-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #7b2e1f;
+  margin-bottom: 10px;
 }
 
 .timeline-status {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 25px;
   position: relative;
+  margin-top: 25px;
+  gap: 0;
 }
 
+/* linha verde */
 .timeline-line {
   position: absolute;
-  top: 30%;
+  top: 32%;
   left: 12%;
   width: 76%;
   height: 4px;
@@ -27,21 +35,22 @@
 
 .timeline-step {
   z-index: 2;
-  text-align: center;
   width: 33%;
+  text-align: center;
 }
 
 .timeline-step-icon {
   width: 70px;
   height: 70px;
   background: #317537;
-  color: white;
+  color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 10px;
   font-size: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .timeline-step p {
@@ -50,87 +59,97 @@
   color: #7b2e1f;
 }
 
-
 .timeline-step small {
   color: #5b4636;
   font-size: 0.85rem;
 }
 
+.assinatura-info-box {
+  margin-top: 30px;
+  padding: 20px;
+  background: #fff8f3;
+  border-radius: 14px;
+  border: 1px solid #f1d7c9;
+}
+
+.badge-ativo {
+  background: #317537;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.btn-cancelar-assinatura {
+  margin-top: 18px;
+  background: #b3311c;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s;
+  width: 100%;
+}
+
+.btn-cancelar-assinatura:hover {
+  background: #8a2514;
+}
 
 .assinatura-free {
   background: #fff;
-  padding: 30px;
+  padding: 32px 26px;
   border-radius: 18px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  text-align: center;
 }
 
 .btn-assinar {
+  margin-top: 22px;
   background: #7b2e1f;
-  color: white;
-  border: none;
-  padding: 10px 22px;
-  font-weight: 600;
+  color: #fff;
+  padding: 12px 22px;
   border-radius: 10px;
+  font-weight: 600;
+  border: none;
   cursor: pointer;
-  transition: 0.2s;
-  margin-top: 18px;
+  transition: 0.3s;
 }
 
 .btn-assinar:hover {
   background: #5d2016;
 }
-.btn-cancelar-assinatura {
-  background: #b3311c;
-  color: #fff;
+
+.popup-success {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  background: #2e7d32;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 12px;
   font-weight: 600;
-  padding: 10px 22px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.2s;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  animation: fadeInUp 0.3s ease-out;
 }
 
-.btn-cancelar-assinatura:hover {
-  background: #8a2514;
-}
-.btn-cancelar-assinatura {
-  background: #b3311c;
-  color: #fff;
-  font-weight: 600;
-  padding: 10px 22px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.btn-cancelar-assinatura:hover {
-  background: #8a2514;
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 992px) {
 
   .timeline-container {
-    padding: 25px 28px;
+    padding: 28px 28px;
     border-radius: 16px;
   }
 
   .timeline-step-icon {
-    width: 62px;
-    height: 62px;
+    width: 60px;
+    height: 60px;
     font-size: 26px;
-  }
-
-  .timeline-line {
-    top: 32%;
-  }
-
-  .timeline-step p {
-    font-size: 0.95rem;
-  }
-
-  .timeline-step small {
-    font-size: 0.82rem;
   }
 
   .btn-assinar,
@@ -141,11 +160,11 @@
 
 @media (max-width: 768px) {
 
-  /* Timeline vira coluna */
+  /* timeline vira coluna */
   .timeline-status {
     flex-direction: column;
-    gap: 22px;
     align-items: center;
+    gap: 22px;
     position: static;
   }
 
@@ -161,23 +180,14 @@
     width: 70px;
     height: 70px;
     font-size: 30px;
-    margin-bottom: 10px;
-  }
-
-  .timeline-step p {
-    font-size: 1rem;
-  }
-
-  .timeline-step small {
-    font-size: 0.85rem;
   }
 
   .timeline-container {
-    padding: 28px 20px;
+    padding: 26px 22px;
   }
 
-  .assinatura-free {
-    padding: 25px 18px;
+  .assinatura-info-box {
+    padding: 18px 14px;
   }
 
   .btn-assinar,
@@ -190,13 +200,12 @@
 @media (max-width: 480px) {
 
   .timeline-container {
-    padding: 22px 16px;
-    border-radius: 14px;
+    padding: 20px 18px;
   }
 
   .timeline-step-icon {
-    width: 62px;
-    height: 62px;
+    width: 58px;
+    height: 58px;
     font-size: 26px;
   }
 
@@ -204,41 +213,29 @@
     font-size: 0.95rem;
   }
 
-  .timeline-step small {
-    font-size: 0.8rem;
-  }
-
-  .assinatura-free {
-    padding: 22px 16px;
-  }
-
   .btn-assinar,
   .btn-cancelar-assinatura {
-    padding: 10px 16px;
-    font-size: 0.9rem;
+    padding: 11px 18px;
     border-radius: 8px;
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 380px) {
 
   .timeline-step-icon {
-    width: 55px;
-    height: 55px;
-    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
   }
 
   .timeline-step p {
     font-size: 0.88rem;
   }
 
-  .timeline-step small {
-    font-size: 0.75rem;
-  }
-
   .btn-assinar,
   .btn-cancelar-assinatura {
     font-size: 0.85rem;
-    padding: 9px 14px;
+    padding: 10px 14px;
   }
 }

@@ -105,7 +105,7 @@ export default function MeusDados() {
   };
 
   const menuItems = [
-    { label: "Minha Conta", icon: <User size={18} />, path: "/usuario/meusdados" },
+    //{ label: "Minha Conta", icon: <User size={18} />, path: "/usuario/meusdados" },
     { label: "Meus Dados", icon: <FileText size={18} />, path: "/usuario/meusdados" },
     { label: "Minha Assinatura", icon: <CreditCard size={18} />, path: "/usuario/assinatura" },
     { label: "Alterar Senha", icon: <KeyRound size={18} />, path: "/usuario/senha" },

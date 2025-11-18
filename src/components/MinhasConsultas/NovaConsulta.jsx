@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import NutripetNavbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import PerfilLayout from "../PerfilLayout/PerfilLayout";
@@ -8,21 +8,21 @@ import "./NovaConsulta.css";
 import api from "../../services/api";
 import { FileText, KeyRound } from "lucide-react";
 
-
 export default function NovaConsulta() {
   const user = JSON.parse(localStorage.getItem("user")) || {};
   const [infoAdicionais, setInfoAdicionais] = useState("");
   const [limitePopup, setLimitePopup] = useState(false);
   const [limiteMsg, setLimiteMsg] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [assinatura, setAssinatura] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const menuConsultas = [
-    { label: "Nova Consulta", icon: <FileText size={18} />, path: "/usuario/consultas/nova" },
-    { label: "Minhas Consultas", icon: <FileText size={18} />, path: "/usuario/consultas" },
-    { label: "SAC", icon: <KeyRound size={18} />, path: "/usuario/consultas/saq" },
+    { label: "Nova Consulta", icon: <FileText size={22} />, path: "/usuario/consultas/nova" },
+    { label: "Minhas Consultas", icon: <FileText size={22} />, path: "/usuario/consultas" },
+    { label: "SAC", icon: <KeyRound size={22} />, path: "/usuario/consultas/saq" },
   ];
 
   const [formData, setFormData] = useState({
@@ -31,7 +31,6 @@ export default function NovaConsulta() {
     especie: "",
     raca: "",
     genero: "",
-
     castrado: false,
     senior: false,
     filhote: false,
@@ -94,7 +93,6 @@ export default function NovaConsulta() {
       setConfirmOpen(false);
       setSuccessPopup(true);
       navigate("/usuario/consultas");
-
     } catch (err) {
       setConfirmOpen(false);
 
@@ -112,11 +110,25 @@ export default function NovaConsulta() {
       setLimitePopup(true);
     }
   };
+
   if (loading) {
     return (
       <>
         <NutripetNavbar />
-        <PerfilLayout menu={menuConsultas}>
+        <PerfilLayout>
+          <div className="menu-consultas-list">
+            {menuConsultas.map((item) => (
+              <button
+                key={item.path}
+                className={`menu-consultas-list-btn${location.pathname === item.path ? " active" : ""}`}
+                onClick={() => navigate(item.path)}
+                type="button"
+              >
+                {item.icon}
+                <span>{item.label}</span>
+              </button>
+            ))}
+          </div>
           <h2 className="titulo">Nova Consulta</h2>
           <p>Carregando informações da sua assinatura...</p>
         </PerfilLayout>
@@ -131,7 +143,20 @@ export default function NovaConsulta() {
     return (
       <>
         <NutripetNavbar />
-        <PerfilLayout menu={menuConsultas}>
+        <PerfilLayout>
+          <div className="menu-consultas-list">
+            {menuConsultas.map((item) => (
+              <button
+                key={item.path}
+                className={`menu-consultas-list-btn${location.pathname === item.path ? " active" : ""}`}
+                onClick={() => navigate(item.path)}
+                type="button"
+              >
+                {item.icon}
+                <span>{item.label}</span>
+              </button>
+            ))}
+          </div>
           <h2 className="titulo">Nova Consulta</h2>
           <div className="assinatura-free text-center">
             <h3>Recurso exclusivo para usuários Premium</h3>
@@ -156,7 +181,20 @@ export default function NovaConsulta() {
     <>
       <NutripetNavbar />
 
-      <PerfilLayout menu={menuConsultas}>
+      <PerfilLayout>
+        <div className="menu-consultas-list">
+          {menuConsultas.map((item) => (
+            <button
+              key={item.path}
+              className={`menu-consultas-list-btn${location.pathname === item.path ? " active" : ""}`}
+              onClick={() => navigate(item.path)}
+              type="button"
+            >
+              {item.icon}
+              <span>{item.label}</span>
+            </button>
+          ))}
+        </div>
         <h2 className="titulo">Nova Consulta</h2>
 
         <form className="nc-form" onSubmit={(e) => e.preventDefault()}>
@@ -191,6 +229,7 @@ export default function NovaConsulta() {
                 type="radio"
                 name="genero"
                 value="macho"
+                checked={formData.genero === "macho"}
                 onChange={(e) => setFormData({ ...formData, genero: e.target.value })}
               />{" "}
               Macho
@@ -200,6 +239,7 @@ export default function NovaConsulta() {
                 type="radio"
                 name="genero"
                 value="femea"
+                checked={formData.genero === "femea"}
                 onChange={(e) => setFormData({ ...formData, genero: e.target.value })}
               />{" "}
               Fêmea
