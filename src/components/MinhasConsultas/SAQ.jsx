@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
 import NutripetNavbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import PerfilLayout from "../PerfilLayout/PerfilLayout";
@@ -10,6 +9,9 @@ import { FileText, KeyRound } from "lucide-react";
 
 export default function SAQ() {
   const user = JSON.parse(localStorage.getItem("user")) || {};
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [successOpen, setSuccessOpen] = useState(false);
+
 
   const menuConsultas = [
     { label: "Nova Consulta", icon: <FileText size={18} />, path: "/usuario/consultas/nova" },
@@ -22,26 +24,20 @@ export default function SAQ() {
   const [tipo, setTipo] = useState("");
   const [assunto, setAssunto] = useState("");
   const [mensagem, setMensagem] = useState("");
-
-  const [popup, setPopup] = useState({ show: false, message: "", type: "" });
-
-  const showPopup = (message, type = "success") => {
-    setPopup({ show: true, message, type });
-    setTimeout(() => setPopup({ show: false, message: "", type: "" }), 2400);
-  };
+  const [popup] = useState({ show: false, message: "", type: "" });
 
   const enviar = () => {
-    if (!nome || !email || !tipo || !assunto || !mensagem) {
-      showPopup("Preencha todos os campos!", "error");
-      return;
-    }
+    setConfirmOpen(false);
 
-    showPopup("Mensagem enviada com sucesso!", "success");
+    setTimeout(() => {
+      setSuccessOpen(true);
 
-    setTipo("");
-    setAssunto("");
-    setMensagem("");
+      setTipo("");
+      setAssunto("");
+      setMensagem("");
+    }, 300);
   };
+
 
   return (
     <>
@@ -53,6 +49,51 @@ export default function SAQ() {
           <div className={`popup-overlay ${popup.type}`}>
             <div className="popup-box">
               <p>{popup.message}</p>
+            </div>
+          </div>
+        )}
+        {confirmOpen && (
+          <div className="nc-modal-overlay">
+            <div className="nc-modal">
+              <h3>Confirmar envio?</h3>
+              <p>Depois de enviar, não será possível editar sua solicitação.</p>
+
+              <div className="nc-modal-actions">
+                <button
+                  className="nc-modal-btn-cancel"
+                  onClick={() => setConfirmOpen(false)}
+                >
+                  Voltar
+                </button>
+
+                <button
+                  className="nc-modal-btn-confirm"
+                  onClick={enviar}
+                >
+                  Confirmar
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+        {successOpen && (
+          <div className="nc-modal-overlay">
+            <div className="nc-modal">
+              <h3>Requisição enviada com sucesso! 🎉</h3>
+
+              <p style={{ marginTop: "10px" }}>
+                Te enviaremos um e-mail com o número do protocolo.<br />
+                Prazo de até <strong>7 dias úteis</strong> para resposta.
+              </p>
+
+              <div className="nc-modal-actions">
+                <button
+                  className="nc-modal-btn-confirm"
+                  onClick={() => setSuccessOpen(false)}
+                >
+                  OK
+                </button>
+              </div>
             </div>
           </div>
         )}
@@ -97,9 +138,14 @@ export default function SAQ() {
               <textarea value={mensagem} onChange={(e) => setMensagem(e.target.value)} />
             </div>
 
-            <button type="button" className="saq-btn" onClick={enviar}>
+            <button
+              type="button"
+              className="saq-btn"
+              onClick={() => setConfirmOpen(true)}
+            >
               Enviar Solicitação
             </button>
+
           </form>
 
         </div>
@@ -113,8 +159,6 @@ export default function SAQ() {
             <img src={mascote} alt="Fale com Rogerinho" />
           </a>
         </div>
-
-
       </PerfilLayout>
 
       <Footer />
