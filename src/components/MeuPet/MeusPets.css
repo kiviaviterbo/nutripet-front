@@ -232,31 +232,6 @@
 }
 
 
-.popup-success {
-  position: fixed;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #7b2e1f;
-  color: #fff;
-  padding: 14px 26px;
-  font-weight: 600;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-  animation: slideDown .45s ease, fadeOut .45s ease 3.2s forwards;
-  z-index: 999;
-}
-
-@keyframes slideDown {
-  from { opacity: 0; transform: translate(-50%, -20px); }
-  to   { opacity: 1; transform: translate(-50%, 0); }
-}
-
-@keyframes fadeOut {
-  to   { opacity: 0; transform: translate(-50%, -20px); }
-}
-
-
 @media (max-width: 992px) {
   .meuspets-grid {
     gap: 22px;
@@ -308,5 +283,59 @@
   .btn-novopet {
     width: 100%;
     max-width: 260px; /* deixa bonito */
+  }
+}
+/* ================================
+   TOAST LINDO, PROFISSIONAL E FIXO NO TOPO
+================================ */
+.toast-top-success {
+  position: fixed;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #13703a;
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  z-index: 999999999; /* PASSA POR CIMA DE TUDO */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+
+  animation: toastSlideDown 0.35s ease-out, 
+             toastFadeOut 0.4s ease 2.4s forwards;
+}
+
+/* Ícone bonitinho */
+.toast-icon {
+  background: #fff;
+  color: #13703a;
+  font-weight: 900;
+  padding: 3px 9px;
+  border-radius: 50%;
+  font-size: 0.9rem;
+}
+
+/* ANIMAÇÃO SUAVE */
+@keyframes toastSlideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* DESAPARECE SUAVE */
+@keyframes toastFadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-26px);
   }
 }

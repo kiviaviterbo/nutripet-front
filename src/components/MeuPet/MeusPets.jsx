@@ -119,7 +119,7 @@ export default function MeusPets() {
 
       {/* 🔥 LAYOUT GLOBAL DE PERFIL */}
       <PerfilLayout menu={menu}>
-       {/*  <h2 className="titulo">Meus Pets</h2> */}
+        {/*  <h2 className="titulo">Meus Pets</h2> */}
 
         {/* 🔥 SEU CÓDIGO ORIGINAL INTACTO 🔥 */}
         <section className="meuspets-section">
@@ -280,8 +280,6 @@ export default function MeusPets() {
           </div>
         </section>
 
-        {showPopup && <div className="popup-success">Alterado com sucesso!</div>}
-
         {showModal && (
           <div className="modal-overlay">
             <div className="modal-card">
@@ -304,6 +302,13 @@ export default function MeusPets() {
         )}
 
       </PerfilLayout>
+
+      {showPopup && (
+        <div className="toast-top-success">
+          <span className="toast-icon">✓</span>
+          Alterado com sucesso!
+        </div>
+      )}
 
       <Footer />
     </>
