@@ -68,8 +68,8 @@ export default function NutritionTable() {
       const data = res.data || [];
       const ordenado =
         ordem === "a_z"
-          ? data.sort((a, b) => a.nome.localeCompare(b.nome))
-          : data.sort((a, b) => b.nome.localeCompare(a.nome));
+          ? data.sort((a, b) => a.nome.localeCompare(b.marca))
+          : data.sort((a, b) => b.nome.localeCompare(a.marca));
 
       setFeeds(ordenado);
     } catch (err) {
@@ -164,7 +164,7 @@ export default function NutritionTable() {
               </div>
 
               <div className="order-box">
-                <label>Ordenar:</label>
+                <label>Ordenar por Marca:</label>
                 <select value={ordem} onChange={(e) => setOrdem(e.target.value)}>
                   <option value="a_z">A-Z</option>
                   <option value="z_a">Z-A</option>
