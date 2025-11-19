@@ -15,22 +15,18 @@ export default function HeroSection() {
 
         <div className="hero-text">
           <h1>
-            Se é Saúde e Nutrição<br />
-            <span className="highlight">conte com a Nutripet</span>
+            Se é Nutrição<br />
+            <span className="highlight">conte com a <strong>Nutripet</strong></span>
           </h1>
 
           <p className="hero-subtext">
-            Alimentação equilibrada, ciência e carinho para quem faz parte da sua família.
-          </p>
-
-          <p>
             Ofereça o melhor para quem te dá amor todos os dias.<br />
-            Planos nutricionais <strong>personalizados</strong> e <strong>saudáveis </strong> 
+            Plano nutricional <strong>personalizado</strong> e <strong>saudável </strong> 
             para garantir o bem-estar do seu melhor amigo.
           </p>
 
           <button className="btn-brown" onClick={scrollToAbout}>
-            Saiba mais
+            Conheça
           </button>
         </div>
 
