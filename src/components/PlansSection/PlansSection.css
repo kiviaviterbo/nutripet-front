@@ -1,5 +1,6 @@
 .plano-premium-section {
-  background-color: #fff8f3;
+  background: linear-gradient(100deg, #fff8ee 40%, #fdf3de 100%);
+  padding: 50px 40px;
   scroll-margin-top: 100px;
 }
 
@@ -55,8 +56,8 @@
 }
 
 .vantagens-premium {
-  background: #fff;
-  padding: 80px 40px;
+  background: linear-gradient(100deg, #fff8ee 40%, #fdf3de 100%);
+  padding: 70px 40px;
   text-align: center;
 }
 
