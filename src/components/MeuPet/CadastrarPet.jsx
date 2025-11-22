@@ -226,9 +226,9 @@ export default function CadastrarPet() {
             </div>
           </div>
         </section>
-
-        {showPopup && <div className="popup-success">Cadastrado com sucesso!</div>}
       </PerfilLayout>
+      
+      {showPopup && <div className="popup-success">Cadastrado com sucesso!</div>}
 
       <Footer />
     </>

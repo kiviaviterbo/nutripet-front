@@ -5,7 +5,7 @@ import "../../assets/styles/perfil.css";
 import "../AlterarSenha/AlterarSenha.css";
 import NutripetNavbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import { User, FileText, CreditCard, KeyRound, Check, X } from "lucide-react";
+import {FileText, CreditCard, KeyRound, Check, X } from "lucide-react";
 import api from "../../services/api";
 
 export default function AlterarSenha() {
@@ -15,6 +15,11 @@ export default function AlterarSenha() {
     confirmarSenha: "",
   });
 
+  // ESTADOS PARA MOSTRAR/OCULTAR SENHAS
+  const [showSenhaAtual, setShowSenhaAtual] = useState(false);
+  const [showNovaSenha, setShowNovaSenha] = useState(false);
+  const [showConfirmarSenha, setShowConfirmarSenha] = useState(false);
+
   const [loading, setLoading] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
@@ -22,7 +27,6 @@ export default function AlterarSenha() {
   const user = JSON.parse(localStorage.getItem("user")) || {};
 
   const menuItems = [
-   // { label: "Minha Conta", icon: <User size={18} />, path: "/usuario/meusdados" },
     { label: "Meus Dados", icon: <FileText size={18} />, path: "/usuario/meusdados" },
     { label: "Minha Assinatura", icon: <CreditCard size={18} />, path: "/usuario/assinatura" },
     { label: "Alterar Senha", icon: <KeyRound size={18} />, path: "/usuario/senha" },
@@ -94,25 +98,41 @@ export default function AlterarSenha() {
 
             {/* Senha Atual */}
             <label>Senha Atual</label>
-            <input
-              type="password"
-              name="senhaAtual"
-              value={form.senhaAtual}
-              onChange={handleChange}
-              required
-            />
+            <div className="input-wrapper">
+              <input
+                type={showSenhaAtual ? "text" : "password"}
+                name="senhaAtual"
+                value={form.senhaAtual}
+                onChange={handleChange}
+                required
+              />
+              <span
+                className="toggle-eye"
+                onClick={() => setShowSenhaAtual(!showSenhaAtual)}
+              >
+                {showSenhaAtual ? "🙈" : "👁️"}
+              </span>
+            </div>
 
             {/* Nova Senha */}
             <label>Nova Senha</label>
-            <input
-              type="password"
-              name="novaSenha"
-              value={form.novaSenha}
-              onChange={handleChange}
-              required
-            />
+            <div className="input-wrapper">
+              <input
+                type={showNovaSenha ? "text" : "password"}
+                name="novaSenha"
+                value={form.novaSenha}
+                onChange={handleChange}
+                required
+              />
+              <span
+                className="toggle-eye"
+                onClick={() => setShowNovaSenha(!showNovaSenha)}
+              >
+                {showNovaSenha ? "🙈" : "👁️"}
+              </span>
+            </div>
 
-            {/* BLOCO DE REQUISITOS */}
+            {/* Requisitos */}
             <div className="senha-requisitos">
               <Requisito ok={rules.length} texto="Mínimo de 10 caracteres" />
               <Requisito ok={rules.upper} texto="Pelo menos 1 letra maiúscula" />
@@ -120,15 +140,23 @@ export default function AlterarSenha() {
               <Requisito ok={rules.number} texto="Pelo menos 1 número" />
             </div>
 
-            {/* Confirmar Senha */}
+            {/* Confirmar Nova Senha */}
             <label>Confirmar Nova Senha</label>
-            <input
-              type="password"
-              name="confirmarSenha"
-              value={form.confirmarSenha}
-              onChange={handleChange}
-              required
-            />
+            <div className="input-wrapper">
+              <input
+                type={showConfirmarSenha ? "text" : "password"}
+                name="confirmarSenha"
+                value={form.confirmarSenha}
+                onChange={handleChange}
+                required
+              />
+              <span
+                className="toggle-eye"
+                onClick={() => setShowConfirmarSenha(!showConfirmarSenha)}
+              >
+                {showConfirmarSenha ? "🙈" : "👁️"}
+              </span>
+            </div>
 
             <button
               type="submit"
@@ -162,7 +190,7 @@ export default function AlterarSenha() {
   );
 }
 
-/* Componente interno para exibir ✓ ou ✗ */
+/* Componente interno */
 function Requisito({ ok, texto }) {
   return (
     <p

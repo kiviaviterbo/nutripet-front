@@ -209,28 +209,96 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.55);
+  background: rgba(0, 0, 0, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 900;
+  z-index: 9999;
+  padding: 20px;
+  animation: fadeIn 0.25s ease-out;
 }
 
 .modal-card {
-  background: #fff;
-  padding: 30px 32px;
-  border-radius: 16px;
-  width: 92%;
-  max-width: 380px;
+  background: #ffffff;
+  padding: 32px 28px;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 20px;
   text-align: center;
+
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  animation: scaleIn 0.28s ease-out;
 }
 
 .modal-card h4 {
+  font-size: 1.45rem;
+  font-weight: 700;
   color: #7b2e1f;
-  font-size: 1.3rem;
   margin-bottom: 10px;
 }
 
+.modal-card p {
+  color: #6c584c;
+  font-size: 1rem;
+  margin-bottom: 22px;
+  line-height: 1.4;
+}
+/* Botões */
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.modal-actions .btn-cancel,
+.modal-actions .btn-delete {
+ flex: 1;                     /* <-- faz dividir igualmente */
+  padding: 12px 0;             /* deixa o texto centralizado e fixo */
+  min-width: 120px;            /* evita deformar em telas pequenas */
+  border-radius: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Botão cancelar */
+.modal-actions .btn-cancel {
+  background: #e6e1dc;
+  color: #4a3a32;
+}
+.modal-actions .btn-cancel:hover {
+  background: #d1c9c3;
+}
+
+/* Botão excluir */
+.modal-actions .btn-delete {
+  background: #b33220;
+  color: #fff;
+}
+.modal-actions .btn-delete:hover {
+  background: #97291a;
+}
+
+/* animação */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
 @media (max-width: 992px) {
   .meuspets-grid {

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Eye, EyeOff } from "lucide-react";
 import { Container, Row, Col, Form, Button, Alert, Spinner } from 'react-bootstrap';
 import './AuthPage.css';
 import cadastro from '../../assets/images/cadastro.gif';
@@ -14,6 +15,9 @@ export default function AuthPage() {
     confirmar: "",
   });
 
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
 
@@ -21,6 +25,8 @@ export default function AuthPage() {
     setIsLogin(!isLogin);
     setMessage({ type: '', text: '' });
   };
+
+  // Format CPF
   const formatarCPF = (value) => {
     value = value.replace(/\D/g, "");
     value = value.slice(0, 11);
@@ -38,16 +44,14 @@ export default function AuthPage() {
   const handleChange = (e) => {
     let { name, value } = e.target;
 
-
     if (name === "cpf") {
       value = formatarCPF(value);
     }
 
-
     setFormData({ ...formData, [name]: value });
   };
 
-  // Validação de CPF
+  // Validação CPF
   const validarCPF = (cpf) => {
     cpf = cpf.replace(/\D/g, "");
     if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
@@ -71,6 +75,17 @@ export default function AuthPage() {
     return resto === parseInt(cpf.substring(10, 11));
   };
 
+  // REGRAS DE SENHA
+  const rules = {
+    length: formData.senha.length >= 10,
+    upper: /[A-Z]/.test(formData.senha),
+    lower: /[a-z]/.test(formData.senha),
+    number: /[0-9]/.test(formData.senha),
+  };
+
+  const senhaValida =
+    rules.length && rules.upper && rules.lower && rules.number;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage({ type: '', text: '' });
@@ -83,6 +98,11 @@ export default function AuthPage() {
     if (!isLogin) {
       if (!validarCPF(formData.cpf)) {
         setMessage({ type: 'danger', text: 'CPF inválido!' });
+        return;
+      }
+
+      if (!senhaValida) {
+        setMessage({ type: "danger", text: "A senha não atende aos requisitos." });
         return;
       }
 
@@ -103,6 +123,7 @@ export default function AuthPage() {
 
         localStorage.setItem('user', JSON.stringify(res.data.usuario));
         localStorage.setItem('token', res.data.token);
+
         setMessage({ type: 'success', text: 'Login realizado com sucesso! Redirecionando...' });
 
       } else {
@@ -115,6 +136,7 @@ export default function AuthPage() {
 
         localStorage.setItem('user', JSON.stringify(res.data.usuario));
         localStorage.setItem('token', res.data.token);
+
         setMessage({ type: 'success', text: 'Cadastro realizado com sucesso! Redirecionando...' });
       }
 
@@ -136,6 +158,7 @@ export default function AuthPage() {
       <Container>
         <Row className="justify-content-center align-items-center">
 
+          {/* Lado esquerdo (GIF) */}
           <Col lg={6} className="text-center mb-5 mb-lg-0">
             <img
               src={cadastro}
@@ -146,6 +169,7 @@ export default function AuthPage() {
             />
           </Col>
 
+          {/* Lado direito (formulário) */}
           <Col lg={5}>
             <div className="auth-box shadow-sm p-5 rounded-4 bg-white mx-auto text-center">
               <h2 className="fw-bold text-maroon mb-3">
@@ -155,6 +179,8 @@ export default function AuthPage() {
               {message.text && <Alert variant={message.type}>{message.text}</Alert>}
 
               <Form className="text-start" onSubmit={handleSubmit}>
+
+                {/* CAMPOS SOMENTE NO CADASTRO */}
                 {!isLogin && (
                   <>
                     <Form.Group className="mb-3">
@@ -183,6 +209,7 @@ export default function AuthPage() {
                   </>
                 )}
 
+                {/* EMAIL */}
                 <Form.Group className="mb-3">
                   <Form.Label>Email</Form.Label>
                   <Form.Control
@@ -197,37 +224,71 @@ export default function AuthPage() {
 
                 <Form.Group className="mb-3">
                   <Form.Label>Senha</Form.Label>
-                  <Form.Control
-                    type="password"
-                    name="senha"
-                    value={formData.senha}
-                    onChange={handleChange}
-                    placeholder="Digite sua senha"
-                    required
-                  />
+
+                  <div className="input-wrapper">
+                    <Form.Control
+                      type={showPassword ? "text" : "password"}
+                      name="senha"
+                      value={formData.senha}
+                      onChange={handleChange}
+                      placeholder="Digite sua senha"
+                      required
+                    />
+
+                    <span
+                      className="toggle-eye"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                    </span>
+                  </div>
                 </Form.Group>
 
+                {/* REGRAS SOMENTE NO CADASTRO */}
+                {!isLogin && (
+                  <div className="senha-requisitos mb-3">
+                    <Requisito ok={rules.length} texto="Mínimo de 10 caracteres" />
+                    <Requisito ok={rules.upper} texto="Pelo menos 1 letra maiúscula" />
+                    <Requisito ok={rules.lower} texto="Pelo menos 1 letra minúscula" />
+                    <Requisito ok={rules.number} texto="Pelo menos 1 número" />
+                  </div>
+                )}
+
+                {/* CONFIRMAR SENHA */}
                 {!isLogin && (
                   <Form.Group className="mb-3">
                     <Form.Label>Confirmar senha</Form.Label>
-                    <Form.Control
-                      type="password"
-                      name="confirmar"
-                      value={formData.confirmar}
-                      onChange={handleChange}
-                      placeholder="Confirme sua senha"
-                      required
-                    />
+
+                    <div className="input-wrapper">
+                      <Form.Control
+                        type={showConfirmPassword ? "text" : "password"}
+                        name="confirmar"
+                        value={formData.confirmar}
+                        onChange={handleChange}
+                        placeholder="Confirme sua senha"
+                        required
+                      />
+
+                      <span
+                        className="toggle-eye"
+                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      >
+                        {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                      </span>
+                    </div>
                   </Form.Group>
+
                 )}
 
+                {/* BOTÃO */}
                 <Button type="submit" className="btn-brown w-100 mt-2" disabled={loading}>
                   {loading ? (
                     <>
-                      <Spinner animation="border" size="sm" /> {isLogin ? 'Entrando...' : 'Cadastrando...'}
+                      <Spinner animation="border" size="sm" />{" "}
+                      {isLogin ? "Entrando..." : "Cadastrando..."}
                     </>
                   ) : (
-                    <>{isLogin ? 'Entrar' : 'Cadastrar'}</>
+                    <>{isLogin ? "Entrar" : "Cadastrar"}</>
                   )}
                 </Button>
               </Form>
@@ -250,5 +311,23 @@ export default function AuthPage() {
         </Row>
       </Container>
     </section>
+  );
+}
+
+function Requisito({ ok, texto }) {
+  return (
+    <p
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "6px",
+        fontSize: "0.9rem",
+        color: ok ? "#2e7d32" : "#b71c1c",
+        margin: 0,
+        paddingLeft: "4px",
+      }}
+    >
+      {ok ? "✓" : "✗"} {texto}
+    </p>
   );
 }

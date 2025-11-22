@@ -215,28 +215,31 @@
 ===================================================== */
 
 .popup-success {
-  position: fixed;
-  top: 25px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #7b2e1f;
-  color: #fff8f3;
-  padding: 14px 28px;
-  border-radius: 14px;
-  font-weight: 700;
-  z-index: 2000;
-  animation: slideDown 0.45s ease, fadeOut 0.45s ease 2.8s forwards;
-  font-size: 1rem;
+  all: unset !important;      /* reseta TUDO */
+  position: fixed !important;
+  top: 20px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+
+  background: #13703a !important;
+  color: #fff !important;
+  padding: 12px 20px !important;
+
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  text-align: center !important;
+
+  z-index: 999999 !important;
+
+  display: inline-block !important;
+  width: auto !important;
+  max-width: 300px !important;
+  min-width: 180px !important;
+  box-sizing: border-box !important;
 }
 
-@keyframes slideDown {
-  from { opacity: 0; transform: translate(-50%, -20px); }
-  to   { opacity: 1; transform: translate(-50%, 0); }
-}
 
-@keyframes fadeOut {
-  to { opacity: 0; transform: translate(-50%, -20px); }
-}
 
 /* =====================================================
    RESPONSIVIDADE — PERFEITA
