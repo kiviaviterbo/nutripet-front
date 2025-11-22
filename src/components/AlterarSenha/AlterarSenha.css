@@ -220,3 +220,27 @@
   flex-direction: column;
   gap: 6px;
 }
+/* Wrapper para posicionar o olhinho */
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input-wrapper input {
+  width: 100%;
+}
+
+/* Olho de mostrar/ocultar */
+.toggle-eye {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.toggle-eye:hover {
+  opacity: 1;
+}

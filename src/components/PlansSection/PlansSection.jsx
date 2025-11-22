@@ -85,7 +85,7 @@ export default function PlansSection() {
           </ul>
 
           <button className="btn-assinar-agora grande" onClick={handleAssinar}>
-            {isLogged ? "Ir para pagamento" : "Faça login e assine agora"}
+            {isLogged ? "Ir para pagamento" : "Cadastre-se e assine agora"}
           </button>
         </div>
 
